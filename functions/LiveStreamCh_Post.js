@@ -5,7 +5,7 @@ export async function onRequestPost(context) {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-		body: JSON.stringify({api: 'LiveStreamCh'})
+		body: JSON.stringify({'api': 'LiveStreamCh'})
 		
     };
 
