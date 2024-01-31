@@ -6,7 +6,7 @@ export async function onRequest(context) {
   }
   const results = context.env.NORTHWIND_DB.prepare('SELECT * from LiveStreamCh WHERE id = ?').bind( 1 );
   const data = await results.all();
-  return Response.json(data.results[0].fetchDB, {
+  return Response(data.results[0].fetchDB, {
       headers: corsHeaders
   });
 }
