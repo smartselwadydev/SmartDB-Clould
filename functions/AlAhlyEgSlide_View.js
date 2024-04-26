@@ -6,7 +6,7 @@ export async function onRequest(context) {
   }
   const results = context.env.NORTHWIND_DB.prepare('SELECT * from AlAhlyEgSlide WHERE id = ?').bind( 1 );
   const data = await results.all();
-  return Response(data, {
+  return Response.json(data, {
       headers: corsHeaders
   });
 }
