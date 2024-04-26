@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
     };
 
     try {
-		const fetchResponse = await fetch(`https://panel.smartselwady.com/SmartDB-sync/AlAhlyEgNews.php`, settings);
+		const fetchResponse = await fetch(`https://alahly-eg.com/customApi/AlAhlyEgNews.php`, settings);
 		const data = await fetchResponse.json();
 		let postData = JSON.stringify(data, null, 2);
 		const database = await context.env.NORTHWIND_DB.prepare("UPDATE AlAhlyEgNews SET fetchDB = ?1 WHERE id = ?2").bind( postData , 1 ).run()
