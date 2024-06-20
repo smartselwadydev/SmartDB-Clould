@@ -28,8 +28,7 @@
 			document.getElementsByTagName('head')[0].appendChild(script);
 			
 			function RunMyScript(){
-				//var id = params["id"];
-				var id = "23";
+				var id = params["id"];
 				var channel = $.grep(data, function(item) {
 				  return item.id === id;
 				});
