@@ -1,0 +1,40 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>البث المباشر</title>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	}
+
+	body {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+
+	</style>
+
+</head>
+<body>
+		<script>
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			if (navigator.userAgent.match(/Android/i)) {
+				var box = "allow-scripts";
+			} else {
+				var box = "allow-forms allow-scripts";
+			}
+			var ch = params["ch"];
+			var url = "//forgepattern.net/embed/"+ch;
+			document.write('<ifr'+'ame src="'+url+'" scrolling="no" frameborder="0" sandbox="'+box+'" allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:300px;"></ifr'+'ame>');
+		</script>
+	
+	
+</body>
+</html>
