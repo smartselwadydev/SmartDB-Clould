@@ -36,7 +36,7 @@
 					var links = channel[0].links
 					for (var i = 0; i < links.length; i++) {
 						$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+[i]+'">'+links[i].title+'</a></li>')
-						$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="ClapprPlayer.html?ch=https://live1.beinconnect.us:5443/YallaGoalApp/streams/beINSports1.m3u8" style="width:100%;height:350px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
+						$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="'+links[i].link+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
 					}
 					$('.nav-link').eq(0).addClass('active')
 					$('#server_0').removeClass('fade').addClass('active')
