@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebRTC (WHEP) Playback</title>
+  </head>
+  <body>
+    <video id="video" width="640" height="480" autoplay></video>
+    <script>
+      const video = document.getElementById('video');
+      const url = 'https://customer-tbm12fcsgli0y1an.cloudflarestream.com/6cbb42b84953ac51e18ddbfeb2e622f0/webRTC/play';
+      const pc = new RTCPeerConnection();
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(new RTCSessionDescription({ type: 'offer', sdp: offer }));
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/sdp' },
+        body: offer.sdp,
+      });
+      const answer = await response.text();
+      await pc.setRemoteDescription(new RTCSessionDescription({ type: 'answer', sdp: answer }));
+      pc.ontrack = (event) => {
+        video.srcObject = event.streams[0];
+      };
+    </script>
+  </body>
+</html>
