@@ -10,7 +10,7 @@
 			 */
 
 			// WHIP Publish URL
-			const publishURL = "<WEBRTC_WHIP_URL_FROM_YOUR_LIVE_INPUT>";
+			const publishURL = "https://customer-tbm12fcsgli0y1an.cloudflarestream.com/86297f0a86a7ad5d3b2b24d1b4a0870fkfd3230a49cc53cbaa87fdec5ec56b5fd/webRTC/publish";
 
 			// WHEP Playback URL
 			const playbackURL = "<WEBRTC_WHEP_PLAYBACK_URL_FROM_YOUR_LIVE_INPUT>";
@@ -28,13 +28,13 @@
 	<body>
 		<h4>Broadcasting video using WHIP</h4>
 		<h5>(local mirror)</h5>
-		<video id="input-video" autoplay muted></video>
+		<video id="input-video1" src="https://dmitwlvvll.cdn.mangomolo.com/dubaisportshd5/smil:dubaisportshd5.smil/index.m3u8" autoplay></video>
 
 		<script type="module">
 			// This element will show your local webcam view
 			import WHIPClient from "./WHIPClient.js";
 
-			const videoElement = document.getElementById("input-video");
+			const videoElement = document.getElementById("input-video1");
 			self.whipClient = new WHIPClient(publishURL, videoElement);
 		</script>
 
