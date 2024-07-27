@@ -27,7 +27,7 @@
 		    var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 
-			import WHEPClient from "js/WHEPClient.js";
+			import WHEPClient from "./js/WHEPClient.js";
 			const url = "https://customer-tbm12fcsgli0y1an.cloudflarestream.com/"+params["id"]+"/webRTC/play";
 			const videoElement = document.getElementById("remote-video");
 			self.client = new WHEPClient(url, videoElement);
