@@ -23,41 +23,28 @@
 	<script>
 			var params={};
 			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
-			$.ajax({
-			  type: 'GET',
-			  url: 'https://smartdb.smartselwady.org/LiveStreamCh_View',
-			  dataType: 'json'
-			}).then(function(res) {
-				//alert(JSON.stringify(res.results[0]));
-
-			  var data = res.results[0].fetchDB;
-			  var fetchDB = JSON.parse(data)
-			  for (var i = 0; i < data.length; i++) {
-				if(fetchDB[i].id == params["id"]){
-					var jsonString = fetchDB[i].fixed_code;
-					var jsonString = jsonString.replace(/&quot;/gi,'"');
-					var jsonString = jsonString.replace(/\\t/gi,'');
-					var jsonString = jsonString.replace(/\t/gi,'');
-					var jsonString = jsonString.replace(/\\n/gi,'');
-					var jsonString = jsonString.replace(/\n/gi,'');
-					var jsonString = jsonString.replace(/ /gi,'');
-					var jsonString = jsonString.replace(/"},]/gi,'"}]');
-					var channel = JSON.parse(jsonString);
-					if (channel.length > 0) {
-						for (var i = 0; i < channel.length; i++) {
-							$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+[i]+'">'+channel[i].title+'</a></li>')
-							$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="'+channel[i].link+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
-						}
-						$('.nav-link').eq(0).addClass('active')
-						$('#server_0').removeClass('fade').addClass('active')
-				    }
-
-
-				}
-			  }
-			});
+			var d = new Date();
+		    var catchesKey = d.getTime();
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = 'ChannelsData.js?token=' + catchesKey; 
+			document.getElementsByTagName('head')[0].appendChild(script);
 			
-
+			function RunMyScript(){
+				var id = params["id"];
+				var channel = $.grep(data, function(item) {
+				  return item.id === id;
+				});
+				if (channel.length > 0) {
+					var links = channel[0].links
+					for (var i = 0; i < links.length; i++) {
+						$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+[i]+'">'+links[i].title+'</a></li>')
+						$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="'+links[i].link+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
+					}
+					$('.nav-link').eq(0).addClass('active')
+					$('#server_0').removeClass('fade').addClass('active')
+				}
+			}
 	 </script>   
 	 <style>
 		body{margin:0 auto; text-align:center;}
