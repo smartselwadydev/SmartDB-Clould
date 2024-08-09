@@ -38,7 +38,7 @@ $.ajax({
   headers: {
     "Accept": "application/json"
   },
-  dataType: "jsonp",
+  crossDomain: true,
   success: function(data) {
     var url = data.streams.hls;
     var player = new Clappr.Player({
