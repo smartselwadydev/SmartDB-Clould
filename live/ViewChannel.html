@@ -107,5 +107,29 @@
 			
 	        <script async="async" data-cfasync="false" src="//pl17277520.toprevenuegate.com/71724849dc314dedb79d15d490de5405/invoke.js"></script>
 			<div id="container-71724849dc314dedb79d15d490de5405"></div>
+
+			<script type="module">
+			  // Import the functions you need from the SDKs you need
+			  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+			  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+			  // TODO: Add SDKs for Firebase products that you want to use
+			  // https://firebase.google.com/docs/web/setup#available-libraries
+
+			  // Your web app's Firebase configuration
+			  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+			  const firebaseConfig = {
+				apiKey: "AIzaSyAReDCybWnbaoNVLx47FeOwon4K1lzfbfc",
+				authDomain: "livestream-22d3d.firebaseapp.com",
+				projectId: "livestream-22d3d",
+				storageBucket: "livestream-22d3d.appspot.com",
+				messagingSenderId: "686789856915",
+				appId: "1:686789856915:web:dc3502418b6a0c8f574766",
+				measurementId: "G-X8896YHYZ3"
+			  };
+
+			  // Initialize Firebase
+			  const app = initializeApp(firebaseConfig);
+			  const analytics = getAnalytics(app);
+			</script>
 </body>
 </html>
