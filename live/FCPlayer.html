@@ -26,19 +26,11 @@
 			var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 			var url = params["ch"];
-			alert(url)
-			var player = new Clappr.Player({
-            source: url,
-			maxBufferLength: 30,
-			  poster: 'live2.jpg',
-			  mute: false,
-			  width: '100%',
-			  height: '100%',
-			  playback: {
-				playInline: true,
-			  },
-              parentId: '#player'
-			});
+
+			document.write('<video id="video-player" width="100%" height="300" controls>'+
+				'<source src="'+url+'" type="video/mp4">'+
+			  '</video>');
+
     </script>
 	
 	
