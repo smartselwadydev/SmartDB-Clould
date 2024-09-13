@@ -8,24 +8,32 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <title>Summary - IOS - 2.0.2</title> 
+  <script src="https://cdn.firebase.com/libs/firebasejs/8.2.1/firebase.js"></script>
 
 </head>
 <body color_theme="light" style="height: 100vh;" onload="StatusBar.hide();">
     <h1 style="color:red; text-align:center;"></h1>
 	<script type="module">
-	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
-	  const firebaseConfig = {
-		apiKey: "AIzaSyAFPGxSVIF3n2aZDk621lcfuDrEaWAjoX0",
+	import { initializeApp } from 'firebase/app';
+	import { getAnalytics } from 'firebase/analytics';
+
+	const app = initializeApp({
+	  apiKey: "AIzaSyAFPGxSVIF3n2aZDk621lcfuDrEaWAjoX0",
 		authDomain: "smartselwadyapps.firebaseapp.com",
 		projectId: "smartselwadyapps",
 		storageBucket: "smartselwadyapps.appspot.com",
 		messagingSenderId: "427827089572",
 		appId: "1:427827089572:web:99ae4b58cdbd04bd2fd631",
 		measurementId: "G-LFSG3FTWF4"
-	  };
-	  const app = initializeApp(firebaseConfig);
-	  const analytics = getAnalytics(app);
+	});
+
+	const analytics = getAnalytics(app);
+
+	analytics.logEvent('my_event', {
+	  'event_category': 'my_category',
+	  'event_label': 'my_label',
+	  'value': 10,
+	});
 	</script>
 
 </body>
