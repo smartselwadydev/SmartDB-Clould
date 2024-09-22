@@ -80,7 +80,7 @@
 			 (adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 
-
+	  
 	  <ul class="nav nav-pills" role="tablist"></ul>
 	  <div class="tab-content"></div>
 			
@@ -122,6 +122,15 @@
 			  };
 			  const app = initializeApp(firebaseConfig);
 			  const analytics = getAnalytics(app);
+			</script>
+			<script>
+				function isMobileDevice() {
+				  return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+				}
+
+				if (!isMobileDevice()) {
+				  window.location.href = 'https://alahly-eg.com'; // redirect to another website
+				}
 			</script>
 </body>
 </html>
