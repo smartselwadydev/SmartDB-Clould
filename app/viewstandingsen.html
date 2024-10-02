@@ -1,0 +1,78 @@
+<!doctype html>
+<html dir="ltr" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REDLINE FOOTBALL</title>
+
+	<link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet" >
+
+
+    <style>
+		tbody, td, tfoot, th, thead, tr {
+			border-color: inherit;
+			border-style: solid;
+			border-width: 0;
+			font-size: 12px;
+		}
+    </style>
+
+    
+  </head>
+  <body>
+
+		<table class="table table-striped">
+		  <thead>
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">team</th>
+			  <th scope="col" style="text-align: center;">play</th>
+			  <th scope="col" style="text-align: center;">points</th>
+			  <th scope="col" style="text-align: center; font-family: sans-serif;">+ / -</th>
+			  <th scope="col" style="text-align: center;">f:a</th>
+			  <th scope="col" style="text-align: center;">w</th>
+			  <th scope="col" style="text-align: center;">d</th>
+			  <th scope="col" style="text-align: center;">l</th>
+			</tr>
+		  </thead>
+		  <tbody id="viewdata">
+
+		  </tbody>
+		</table>
+  
+
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var params={};
+		window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+		id = params["id"];
+		$.ajax({ 
+			type: 'GET', 
+			url: 'https://webws.365scores.com/web/standings/?langId=1&competitions='+id, 
+			dataType: 'json',
+			success: function (data) { 
+			var newdata = data.standings[0].rows;
+
+				for (var i = 0; i < newdata.length; i++) {
+					var n = i + 1;
+					$('#viewdata').append('<tr>'+
+						  '<th scope="row" style="text-align: center;padding-top: 13px;">'+n+'</th>'+
+						  '<td><img src= "https://imagecache.365scores.com/image/upload/f_png,w_32,h_32,c_limit,q_auto:eco,dpr_2,d_Competitors:default1.png/v3/Competitors/'+newdata[i].competitor.id+'" style="width:25px;">  '+newdata[i].competitor.name+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].gamePlayed+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].points+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].against+':'+newdata[i].for+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].ratio+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].gamesWon+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].gamesEven+'</td>'+
+						  '<td style="text-align: center;padding-top: 13px;">'+newdata[i].gamesLost+'</td>'+
+						'</tr>')
+				}
+			}
+		});
+	});
+	</script>
+  </body>
+</html>
