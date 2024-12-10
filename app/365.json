@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "https://widgets.365scores.com/static/js/main.08ff9895.js",
+    "365main.js": "https://smartdb.smartselwady.org/app/365main.08ff9895.js",
     "static/js/2488.28c1a827.chunk.js": "https://widgets.365scores.com/static/js/2488.28c1a827.chunk.js",
     "bootstrap-module.js": "https://widgets.365scores.com/static/js/bootstrap-module.61b6590a.chunk.js",
     "static/js/7695.184ebedd.chunk.js": "https://widgets.365scores.com/static/js/7695.184ebedd.chunk.js",
@@ -547,7 +547,7 @@
     "5276.32d112a0.chunk.js.map": "https://widgets.365scores.com/static/js/5276.32d112a0.chunk.js.map",
     "1623.890192ef.chunk.js.map": "https://widgets.365scores.com/static/js/1623.890192ef.chunk.js.map",
     "800.cbb1147c.chunk.js.map": "https://widgets.365scores.com/static/js/800.cbb1147c.chunk.js.map",
-	"365.js": "https://smartdb.smartselwady.org/app/365.js"
+"365.js": "https://smartdb.smartselwady.org/app/365.js"
   },
   "entrypoints": [
     "static/js/vendor-react-98710034.8bc06467.js",
