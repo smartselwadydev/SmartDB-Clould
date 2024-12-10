@@ -12,3 +12,4 @@ $('[class*="entity-scores-widget_small_view"]').css({
                 'background': 'aliceblue',
                 'border-radius': '5px'
 });
+alert(0)
