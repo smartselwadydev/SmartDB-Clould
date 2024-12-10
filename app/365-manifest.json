@@ -546,7 +546,8 @@
     "3709.ea15a277.chunk.js.map": "https://widgets.365scores.com/static/js/3709.ea15a277.chunk.js.map",
     "5276.32d112a0.chunk.js.map": "https://widgets.365scores.com/static/js/5276.32d112a0.chunk.js.map",
     "1623.890192ef.chunk.js.map": "https://widgets.365scores.com/static/js/1623.890192ef.chunk.js.map",
-    "800.cbb1147c.chunk.js.map": "https://widgets.365scores.com/static/js/800.cbb1147c.chunk.js.map"
+    "800.cbb1147c.chunk.js.map": "https://widgets.365scores.com/static/js/800.cbb1147c.chunk.js.map",
+	"365.js": "https://smartdb.smartselwady.org/app/365.js",
   },
   "entrypoints": [
     "static/js/vendor-react-98710034.8bc06467.js",
