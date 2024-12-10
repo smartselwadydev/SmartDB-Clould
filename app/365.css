@@ -2,6 +2,9 @@
 .app-module-router-container {
 	font-family: 'Droid Arabic Kufi', serif!important;	
 }
+.scores365 .app-module-router-container {
+    background-color: aliceblue!important;
+}
 :root, [data-theme=light] {
     --secondary: #C2151B!important;
 }
