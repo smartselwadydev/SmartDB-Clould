@@ -20,32 +20,32 @@
 }
 
 [class*="entity-scores-widget-group_header_container"]{
-    padding: 10px;
-    padding-top: 20px;
-    height: 50px;
-    width: 95%;
-    margin: 0 auto;
-    background: #C2151B;
-	border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding: 10px!important;
+    padding-top: 20px!important;
+    height: 50px!important;
+    width: 95%!important;
+    margin: 0 auto!important;
+    background: #C2151B!important;
+	border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
 }
 
 [class*="list_container"]{
-    width: 95%;
-    margin: 0 auto;
+    width: 95%!important;
+    margin: 0 auto!important;
 }
 
 [class*="entity-scores-widget-group_competition"]{
-    color: #fff;
+    color: #fff!important;
 }
 [class*="entity-scores-widget-group_header_date, .entity-scores-widget-group_header_title"]{
-    color: #fff;
+    color: #fff!important;
 }
 [class*="game-card_full_view__Eeza4 .game-card_game_card"]{
-    box-shadow: 10px 10px 10px 1px #ccc;
+    box-shadow: 10px 10px 10px 1px #ccc!important;
 }
 [class*="entity-scores-widget-group_country"]{
-    display: none;
+    display: none!important;
 }
 [class*="entity-scores-widget-group_logo"]{
     background: #fff !important;
@@ -53,6 +53,6 @@
     max-height: 40px !important;
     height: 40px !important;
     width: 40px !important;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 10px!important;
+    border-top-right-radius: 10px!important;
 }
