@@ -1,0 +1,58 @@
+
+.app-module-router-container {
+	font-family: 'Droid Arabic Kufi', serif!important;	
+}
+.scores365 .app-module-router-container {
+    background-color: aliceblue!important;
+	border: 0px solid aliceblue!important;
+}
+:root, [data-theme=light] {
+    --secondary: #C2151B!important;
+}
+
+[class*="entity-scores-widget-group_container"]{
+ margin-bottom: 10px!important;
+ border-radius: 5px!important;
+}
+[class*="entity-scores-widget_small_view"]{
+	background: aliceblue!important;
+	border-radius: 5px!important;
+}
+
+[class*="entity-scores-widget-group_header_container"]{
+    padding: 10px;
+    padding-top: 20px;
+    height: 50px;
+    width: 95%;
+    margin: 0 auto;
+    background: #C2151B;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+[class*="list_container"]{
+    width: 95%;
+    margin: 0 auto;
+}
+
+[class*="entity-scores-widget-group_competition"]{
+    color: #fff;
+}
+[class*="entity-scores-widget-group_header_date, .entity-scores-widget-group_header_title"]{
+    color: #fff;
+}
+[class*="game-card_full_view__Eeza4 .game-card_game_card"]{
+    box-shadow: 10px 10px 10px 1px #ccc;
+}
+[class*="entity-scores-widget-group_country"]{
+    display: none;
+}
+[class*="entity-scores-widget-group_logo"]{
+    background: #fff !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+    height: 40px !important;
+    width: 40px !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
