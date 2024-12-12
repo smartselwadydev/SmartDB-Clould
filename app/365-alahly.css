@@ -38,10 +38,10 @@
 [class*="entity-scores-widget-group_competition"]{
     color: #fff!important;
 }
-[class*="entity-scores-widget-group_header_date, .entity-scores-widget-group_header_title"]{
+[class*="entity-scores-widget-group_header_date"]{
     color: #fff!important;
 }
-[class*="game-card_full_view__Eeza4 .game-card_game_card"]{
+[class*=".game-card_game_card"]{
     box-shadow: 10px 10px 10px 1px #ccc!important;
 }
 [class*="entity-scores-widget-group_country"]{
