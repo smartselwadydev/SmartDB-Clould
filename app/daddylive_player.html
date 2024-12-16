@@ -16,6 +16,7 @@
 </head>
 <body>
 		<script>
+		    alert(navigator.userAgent)
 			var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 			var ch = params["ch"];
