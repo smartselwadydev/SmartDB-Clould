@@ -23,7 +23,7 @@ const createIframe = (src) => {
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("doskip", "1");
     iframe.setAttribute("prclck", "1");
-    iframe.setAttribute("sandbox", "allow-same-origin allow-scripts allow-popups allow-forms");
+    //iframe.setAttribute("sandbox", "allow-same-origin allow-scripts allow-popups allow-forms");
     iframe.setAttribute("referrerpolicy", "no-referrer");
     iframe.src = src;
     iframe.style.margin = "0";
@@ -38,7 +38,6 @@ const createIframe = (src) => {
     };
 };
 
-// Example usage:
 const iframeData = createIframe("https://miztv.shop/tele/stream-95.php");
 document.body.appendChild(iframeData.content);
 		</script>
