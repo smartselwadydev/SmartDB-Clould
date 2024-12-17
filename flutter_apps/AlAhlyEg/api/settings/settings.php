@@ -55,7 +55,7 @@
          },
          {
             "type":"loaderColor",
-            "value":"#C2151B"
+            "value":"#c2151b"
          },
          {
             "type":"firstColor",
@@ -71,7 +71,7 @@
          },
          {
             "type":"logo",
-            "value":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/settings\/settings_1.png"
+            "value":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/settings\/settings_1.png"
          },
          {
             "type":"javascript",
@@ -111,7 +111,7 @@
          },
          {
             "type":"logo_header",
-            "value":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/settings\/logo_header_1.png"
+            "value":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/settings\/logo_header_1.png"
          },
          {
             "type":"type_header",
@@ -123,15 +123,15 @@
          },
          {
             "type":"android_id",
-            "value":"com.flyweb"
+            "value":"com.smartselwady.alahlynews"
          },
          {
             "type":"ios_id",
-            "value":"com.flyweb"
+            "value":"com.smartselwady.alahlynews"
          },
          {
             "type":"onesignal_id",
-            "value":"xxxxxxxxx-xxxx-xxxx-xxx-xxxxxxxxxxx"
+            "value":"f3e09572-5556-4e4b-8cea-edc7016895db"
          },
          {
             "type":"onesignal_api_key",
@@ -139,7 +139,7 @@
          },
          {
             "type":"share",
-            "value":"Download FlyWeb Application.\r\nAndroid:\r\nhttps:\/\/play.google.com\/store\/apps\/details?id=xxxxxxxx\r\niOS:\r\nhttps:\/\/apps.apple.com\/fr\/app\/xxxxxxxx\/idxxxxxxxx\r\n"
+            "value":"\u062d\u0645\u0644 \u062a\u0637\u0628\u064a\u0642 #\u0623\u0647\u0644\u0627\u0648\u064a_\u0623\u0648\u0646\u0644\u0627\u064a\u0646 \u0645\u062c\u0627\u0646\u0627 \u0627\u0644\u0622\u0646\r\nhttps:\/\/www.smartselwady.com\/ourapp?id=alahlyeg\r\n"
          },
          {
             "type":"list",
@@ -163,7 +163,7 @@
          },
          {
             "type":"deeplink",
-            "value":"app.flyweb.scheme"
+            "value":"alahlyeg"
          },
          {
             "type":"tab_navigation_enable",
@@ -175,11 +175,11 @@
          },
          {
             "type":"version_android",
-            "value":"3.0.3"
+            "value":"1.0.6"
          },
          {
             "type":"version_ios",
-            "value":"3.0.3"
+            "value":"2.0.3"
          },
          {
             "type":"version_app",
@@ -215,7 +215,7 @@
          },
          {
             "type":"floating_icon",
-            "value":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/floating\/floating_icon.png"
+            "value":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/floating\/floating_icon.png"
          },
          {
             "type":"google_font",
@@ -291,7 +291,7 @@
          },
          {
             "type":"logo_drawer",
-            "value":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/settings\/logo_drawer.png"
+            "value":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/settings\/logo_drawer.png"
          },
          {
             "type":"logo_drawer_width",
@@ -320,102 +320,69 @@
       "socials":[
          {
             "id":"1",
-            "title":"Facebook",
+            "title":"\u0641\u064a\u0633\u0628\u0648\u0643",
             "link_url":"fb:\/\/page\/id_app",
-            "id_app":"facebook",
+            "id_app":"ahlawai.online",
             "icon":"social_item_1.png",
             "url":"https:\/\/www.facebook.com\/id_app",
             "status":"1",
             "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_1.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_1.png"
          },
          {
             "id":"2",
-            "title":"Youtube",
-            "link_url":"https:\/\/www.youtube.com\/channel\/id_app",
-            "id_app":"UCvHPU0LieqpqD8eKj2VypPg",
+            "title":"\u064a\u0648\u062a\u064a\u0648\u0628",
+            "link_url":"https:\/\/youtube.com\/id_app",
+            "id_app":"@ahlawai.online",
             "icon":"social_item_2.png",
             "url":"https:\/\/www.youtube.com\/channel\/id_app",
             "status":"1",
             "date":"2020-05-28 17:46:15",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_2.png"
-         },
-         {
-            "id":"3",
-            "title":"Skype",
-            "link_url":"skype:id_app?chat",
-            "id_app":"positifmobile",
-            "icon":"social_item_3.png",
-            "url":"skype:id_app?chat",
-            "status":"1",
-            "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_3.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_2.png"
          },
          {
             "id":"4",
-            "title":"Twitter",
+            "title":"\u0645\u0646\u0635\u0629 X",
             "link_url":"https:\/\/twitter.com\/id_app",
-            "id_app":"positifmobile",
+            "id_app":"ahlawai_online",
             "icon":"social_item_4.png",
             "url":"https:\/\/twitter.com\/id_app",
             "status":"1",
             "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_4.png"
-         },
-         {
-            "id":"5",
-            "title":"WhatsApp",
-            "link_url":"whatsapp:\/\/send?phone=id_app",
-            "id_app":"positifmobile",
-            "icon":"social_item_5.png",
-            "url":"whatsapp:\/\/send?phone=id_app",
-            "status":"1",
-            "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_5.png"
-         },
-         {
-            "id":"6",
-            "title":"Snapchat",
-            "link_url":"snapchat:\/\/add\/id_app",
-            "id_app":"positifmobile",
-            "icon":"social_item_6.png",
-            "url":"https:\/\/www.snapchat.com\/download",
-            "status":"1",
-            "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_6.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_4.png"
          },
          {
             "id":"7",
-            "title":"Messenger",
-            "link_url":"https:\/\/www.messenger.com\/t\/id_app",
-            "id_app":"positifmobile",
+            "title":"\u062a\u064a\u0643 \u062a\u0648\u0643",
+            "link_url":"https:\/\/www.tiktok.com\/id_app",
+            "id_app":"@ahlawai.online",
             "icon":"social_item_7.png",
-            "url":"https:\/\/www.messenger.com\/t\/id_app",
+            "url":"https:\/\/www.tiktok.com\/id_app",
             "status":"1",
             "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_7.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_7.png"
          },
          {
             "id":"8",
-            "title":"Instagram",
+            "title":"\u0625\u0646\u0633\u062a\u062c\u0631\u0627\u0645",
             "link_url":"instagram:\/\/user?username=id_app",
-            "id_app":"envato",
+            "id_app":"ahlawai.online",
             "icon":"social_item_8.png",
             "url":"https:\/\/www.instagram.com\/id_app",
             "status":"1",
             "date":"2020-05-28 12:18:16",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_8.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_8.png"
          },
          {
             "id":"9",
-            "title":"Telegram",
-            "link_url":"https:\/\/t.me\/positifmobile",
-            "id_app":"positifmobile",
+            "title":"\u062b\u0631\u064a\u062f\u0632",
+            "link_url":"https:\/\/www.threads.net\/id_app",
+            "id_app":"@ahlawai.online",
             "icon":"social_item_9.png",
-            "url":"tg:\/\/positifmobile",
+            "url":"https:\/\/www.threads.net\/id_app",
             "status":"1",
             "date":"0000-00-00 00:00:00",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/social\/social_item_9.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/social\/social_item_9.png"
          }
       ],
       "leftNavigationIcon":{
@@ -427,9 +394,9 @@
          "url":"",
          "status":"1",
          "fixed":"1",
-         "created_at":"2022-04-14 00:13:03",
+         "created_at":"2024-12-13 21:57:13",
          "updated_at":"2020-06-07 12:58:42",
-         "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/left_navigation_icon\/icon_item_1.png"
+         "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/left_navigation_icon\/icon_item_1.png"
       },
       "rightNavigationIcon":{
          "id":"3",
@@ -442,7 +409,7 @@
          "fixed":"1",
          "created_at":"2024-12-06 20:26:28",
          "updated_at":"2020-06-07 12:16:42",
-         "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/right_navigation_icon\/icon_item_3.png"
+         "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/right_navigation_icon\/icon_item_3.png"
       },
       "rightNavigationIconList":[
          {
@@ -456,7 +423,7 @@
             "fixed":"1",
             "created_at":"2024-12-06 20:26:28",
             "updated_at":"2020-06-07 12:16:42",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/right_navigation_icon\/icon_item_3.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/right_navigation_icon\/icon_item_3.png"
          }
       ],
       "splash":{
@@ -469,16 +436,16 @@
          "enable_img":"0",
          "splash_logo_width":"170",
          "splash_logo_height":"100",
-         "logo_splash_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/splash\/logo_splash.png",
-         "img_splash_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/splash\/img_splash.png"
+         "logo_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/logo_splash.png",
+         "img_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/img_splash.png"
       },
       "userAgent":{
          "id":"1",
          "title":"Chrome",
-         "value_android":"Mozilla\/5.0 (Linux; Android 10) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/90.0.4430.210 Mobile Safari\/537.36",
-         "value_ios":"Mozilla\/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) CriOS\/90.0.4430.78 Mobile\/15E148 Safari\/604.1",
+         "value_android":"",
+         "value_ios":"",
          "status":"1",
-         "created_at":"2021-11-21 19:08:11",
+         "created_at":"2024-12-17 14:49:29",
          "updated_at":"2021-05-17 22:41:03"
       },
       "tab":[
@@ -490,27 +457,27 @@
             "status":"1",
             "created_at":"2024-12-06 20:12:38",
             "updated_at":"2024-12-06 20:12:38",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/tab\/tab_item_1.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/tab\/tab_item_1.png",
             "translation":[
                {
                   "id":"1",
                   "tab_id":"1",
-                  "title":"Home",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
+                  "title":"News",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=news",
                   "lang":"en",
                   "status":"1",
-                  "created_at":"2022-12-25 17:14:42",
-                  "updated_at":"2022-12-25 17:14:42"
+                  "created_at":"2024-12-10 21:33:51",
+                  "updated_at":"2024-12-10 21:33:51"
                },
                {
                   "id":"3",
                   "tab_id":"1",
                   "title":"\u0623\u062e\u0631 \u0627\u0644\u0623\u062e\u0628\u0627\u0631",
-                  "url":"https:\/\/smartselwady.host\/FLUTTER1\/test.php",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=news",
                   "lang":"ar",
                   "status":"1",
-                  "created_at":"2024-12-08 23:27:13",
-                  "updated_at":"2024-12-08 23:27:13"
+                  "created_at":"2024-12-09 21:00:08",
+                  "updated_at":"2024-12-09 21:00:08"
                },
                {
                   "id":"12",
@@ -622,27 +589,27 @@
             "status":"1",
             "created_at":"2024-12-06 20:13:10",
             "updated_at":"2024-12-06 20:13:10",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/tab\/tab_item_2.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/tab\/tab_item_2.png",
             "translation":[
                {
                   "id":"4",
                   "tab_id":"2",
-                  "title":"Categories",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
+                  "title":"Matches",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=matches",
                   "lang":"en",
                   "status":"1",
-                  "created_at":"2022-05-09 23:56:48",
-                  "updated_at":"2022-05-09 23:56:48"
+                  "created_at":"2024-12-10 21:33:27",
+                  "updated_at":"2024-12-10 21:33:27"
                },
                {
                   "id":"5",
                   "tab_id":"2",
                   "title":"\u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
-                  "url":"https:\/\/live1.beinconnect.us\/YallaGoalApp\/beINSports1.m3u8",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=matches",
                   "lang":"ar",
                   "status":"1",
-                  "created_at":"2024-12-07 22:57:08",
-                  "updated_at":"2024-12-07 22:57:08"
+                  "created_at":"2024-12-10 21:29:49",
+                  "updated_at":"2024-12-10 21:29:49"
                },
                {
                   "id":"13",
@@ -744,27 +711,27 @@
             "status":"1",
             "created_at":"2024-12-06 20:13:56",
             "updated_at":"2024-12-06 20:13:56",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/tab\/tab_item_3.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/tab\/tab_item_3.png",
             "translation":[
                {
                   "id":"6",
                   "tab_id":"3",
-                  "title":"Deals",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
+                  "title":"Videos",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=videos",
                   "lang":"en",
                   "status":"1",
-                  "created_at":"2022-05-09 23:55:59",
-                  "updated_at":"2022-05-09 23:55:59"
+                  "created_at":"2024-12-10 21:33:01",
+                  "updated_at":"2024-12-10 21:33:01"
                },
                {
                   "id":"7",
                   "tab_id":"3",
                   "title":"\u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=videos",
                   "lang":"ar",
                   "status":"1",
-                  "created_at":"2024-12-05 20:19:20",
-                  "updated_at":"2024-12-05 20:19:20"
+                  "created_at":"2024-12-10 21:30:25",
+                  "updated_at":"2024-12-10 21:30:25"
                },
                {
                   "id":"14",
@@ -866,27 +833,27 @@
             "status":"1",
             "created_at":"2024-12-06 20:11:57",
             "updated_at":"2024-12-06 20:11:57",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/tab\/tab_item_4.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/tab\/tab_item_4.png",
             "translation":[
                {
                   "id":"8",
                   "tab_id":"4",
-                  "title":"Cart",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/cart.html",
+                  "title":"Standings",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=standings",
                   "lang":"en",
                   "status":"1",
-                  "created_at":"2022-12-25 17:40:00",
-                  "updated_at":"2022-12-25 17:40:00"
+                  "created_at":"2024-12-10 21:32:36",
+                  "updated_at":"2024-12-10 21:32:36"
                },
                {
                   "id":"9",
                   "tab_id":"4",
                   "title":"\u062c\u062f\u0648\u0644 \u0627\u0644\u062a\u0631\u062a\u064a\u0628",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/cart.html",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=standings",
                   "lang":"ar",
                   "status":"1",
-                  "created_at":"2024-12-05 20:19:39",
-                  "updated_at":"2024-12-05 20:19:39"
+                  "created_at":"2024-12-10 21:31:46",
+                  "updated_at":"2024-12-10 21:31:46"
                },
                {
                   "id":"15",
@@ -990,7 +957,7 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/aboutus.html",
             "status":"1",
             "date":"2021-05-20 19:10:54",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/pages\/page_item_1.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/pages\/page_item_1.png"
          },
          {
             "id":"2",
@@ -1000,7 +967,7 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/privacypolicy.html",
             "status":"1",
             "date":"2021-05-19 22:09:36",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/pages\/page_item_2.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/pages\/page_item_2.png"
          },
          {
             "id":"3",
@@ -1010,7 +977,7 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/termsconditions.html",
             "status":"1",
             "date":"2021-05-19 22:11:22",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/pages\/page_item_3.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/pages\/page_item_3.png"
          },
          {
             "id":"4",
@@ -1020,7 +987,7 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/returnpolicy.html",
             "status":"1",
             "date":"2021-05-19 22:13:05",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/pages\/page_item_4.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/pages\/page_item_4.png"
          },
          {
             "id":"5",
@@ -1030,36 +997,36 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/faqs.html",
             "status":"1",
             "date":"2021-05-19 22:14:49",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/pages\/page_item_5.png"
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/pages\/page_item_5.png"
          }
       ],
       "sliders":[
          {
             "id":"1",
             "image":"boarding_item_1.png",
-            "title":"FlyWeb Convertor",
-            "description":"A FlyWeb is used to convert your Website to Application Mobile.\t",
+            "title":"\u0623\u062e\u0631 \u0627\u0644\u0623\u062e\u0628\u0627\u0631",
+            "description":"\u062a\u062d\u062f\u064a\u062b\u0627\u062a \u0641\u0648\u0631\u064a\u0629 \u062d\u0648\u0644 \u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u0642\u0644\u0639\u0629 \u0627\u0644\u062d\u0645\u0631\u0627\u0621  \u0628\u0645\u0627 \u0641\u064a \u0630\u0644\u0643 \u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644\u0627\u062a \u0627\u0644\u0625\u0635\u0627\u0628\u0627\u062a \u0648\u0627\u0644\u062a\u0635\u0631\u064a\u062d\u0627\u062a \u0627\u0644\u0631\u0633\u0645\u064a\u0629",
             "status":"1",
             "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/boarding\/boarding_item_1.png"
+            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/boarding\/boarding_item_1.png"
          },
          {
             "id":"2",
             "image":"boarding_item_2.png",
-            "title":"Theme Support",
-            "description":"To change the theme you can select from our existing theme with gradient style color or single style color.",
+            "title":"\u062c\u062f\u0648\u0644 \u0648\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
+            "description":"\u0639\u0631\u0636 \u062a\u0641\u0627\u0635\u064a\u0644 \u0645\u0628\u0627\u0631\u064a\u0627\u062a \u0627\u0644\u0646\u0627\u062f\u064a \u0627\u0644\u0645\u0642\u0628\u0644\u0629 \u0648 \u062a\u063a\u0637\u064a\u0629 \u0634\u0627\u0645\u0644\u0629 \u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a \u0627\u0644\u0633\u0627\u0628\u0642\u0629\u060c \u0645\u0639 \u062a\u0641\u0627\u0635\u064a\u0644 \u0639\u0646 \u0627\u0644\u0623\u062f\u0627\u0621 \u0648\u0645\u0644\u062e\u0635\u0627\u062a \u0644\u0643\u0644 \u0645\u0628\u0627\u0631\u0627\u0629",
             "status":"1",
             "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/boarding\/boarding_item_2.png"
+            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/boarding\/boarding_item_2.png"
          },
          {
             "id":"3",
             "image":"boarding_item_3.png",
-            "title":"Media Support",
-            "description":"FlyWeb supports video (Youtube, Vimeo, HTML5 videos etc), audio(.mp3, .wav etc), all image format and animated image (.gif).",
+            "title":"\u062a\u0646\u0628\u064a\u0647\u0627\u062a \u0641\u0648\u0631\u064a\u0629",
+            "description":"\u0625\u0634\u0639\u0627\u0631\u0627\u062a \u0645\u0628\u0627\u0634\u0631\u0629 \u0644\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u062d\u0648\u0644 \u0627\u0644\u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u0639\u0627\u062c\u0644\u0629 \u0648\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
             "status":"1",
             "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/boarding\/boarding_item_3.png"
+            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/boarding\/boarding_item_3.png"
          }
       ],
       "nativeApplication":[
@@ -1081,46 +1048,31 @@
       ],
       "menudynamics":[
          {
-            "id":"1",
-            "type":"home",
-            "label":"",
-            "url":"",
-            "icon":"default.png",
+            "id":"18",
+            "type":"url",
+            "label":"\u0633\u064a\u0627\u0633\u0629 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629",
+            "url":"https:\/\/alahly-eg.com\/privacy?inapp=true",
+            "icon":"menu_item_18.png",
             "base64":null,
             "status":"1",
             "parent_id":"0",
             "position":"0",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/menu_item_18.png",
             "translation":[
                
             ]
          },
          {
-            "id":"15",
-            "type":"notification",
-            "label":"",
-            "url":"",
-            "icon":"default.png",
+            "id":"17",
+            "type":"url",
+            "label":"\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627",
+            "url":"https:\/\/alahly-eg.com\/contact?inapp=true",
+            "icon":"menu_item_17.png",
             "base64":null,
             "status":"1",
             "parent_id":"0",
-            "position":"6",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
-            "translation":[
-               
-            ]
-         },
-         {
-            "id":"6",
-            "type":"divider",
-            "label":"",
-            "url":"",
-            "icon":"default.png",
-            "base64":null,
-            "status":"1",
-            "parent_id":"0",
-            "position":"7",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "position":"1",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/menu_item_17.png",
             "translation":[
                
             ]
@@ -1134,23 +1086,8 @@
             "base64":null,
             "status":"1",
             "parent_id":"0",
-            "position":"9",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
-            "translation":[
-               
-            ]
-         },
-         {
-            "id":"8",
-            "type":"about",
-            "label":"",
-            "url":"",
-            "icon":"default.png",
-            "base64":null,
-            "status":"1",
-            "parent_id":"0",
-            "position":"10",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "position":"2",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/default.png",
             "translation":[
                
             ]
@@ -1164,23 +1101,8 @@
             "base64":null,
             "status":"1",
             "parent_id":"0",
-            "position":"11",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
-            "translation":[
-               
-            ]
-         },
-         {
-            "id":"11",
-            "type":"dark",
-            "label":"",
-            "url":"",
-            "icon":"default.png",
-            "base64":null,
-            "status":"1",
-            "parent_id":"0",
-            "position":"13",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "position":"3",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/default.png",
             "translation":[
                
             ]
@@ -1194,8 +1116,8 @@
             "base64":null,
             "status":"1",
             "parent_id":"0",
-            "position":"14",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "position":"4",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/default.png",
             "translation":[
                
             ]
@@ -1209,8 +1131,8 @@
             "base64":null,
             "status":"1",
             "parent_id":"0",
-            "position":"15",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/menu\/default.png",
+            "position":"5",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/default.png",
             "translation":[
                
             ]
@@ -1229,7 +1151,7 @@
             "icon_color_dark":"#000000",
             "status":"1",
             "date":"2021-06-11 20:22:30",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/floating\/floating_item_1.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/floating\/floating_item_1.png",
             "translation":[
                {
                   "id":"12",
@@ -1371,7 +1293,7 @@
             "icon_color_dark":"#000000",
             "status":"1",
             "date":"2021-06-11 20:37:08",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/floating\/floating_item_2.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/floating\/floating_item_2.png",
             "translation":[
                {
                   "id":"16",
@@ -1495,7 +1417,7 @@
             "icon_color_dark":"#000000",
             "status":"1",
             "date":"2021-06-11 21:35:45",
-            "icon_url":"https:\/\/smartselwady.host\/\/FLUTTER1\/images\/floating\/floating_item_3.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/floating\/floating_item_3.png",
             "translation":[
                {
                   "id":"18",
@@ -1624,7 +1546,7 @@
                   "id":"30",
                   "lang":"ar",
                   "lang_key":"home",
-                  "lang_value":"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629",
+                  "lang_value":"\u0627\u0644\u0645\u0648\u0642\u0639 \u0627\u0644\u0631\u0633\u0645\u064a",
                   "created_at":"2022-03-09 10:23:12",
                   "updated_at":"2022-03-09 10:23:12"
                },
@@ -1648,7 +1570,7 @@
                   "id":"33",
                   "lang":"ar",
                   "lang_key":"rate_us",
-                  "lang_value":"\u0642\u064a\u0645\u0646\u0627",
+                  "lang_value":"\u0642\u064a\u0651\u0645 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
                   "created_at":"2022-03-09 10:23:12",
                   "updated_at":"2022-03-09 10:23:12"
                },
@@ -1895,7 +1817,7 @@
                   "id":"2",
                   "about_id":"1",
                   "title":"Title",
-                  "description":"نبذه عن التطبيق",
+                  "description":"FlyWeb \u0639\u0628\u0627\u0631\u0629 \u0639\u0646 \u0628\u0631\u0646\u0627\u0645\u062c \u062a\u062d\u0648\u064a\u0644 \u0639\u0627\u0644\u0645\u064a \u0645\u0646 \u0627\u0644\u0648\u064a\u0628 \u0625\u0644\u0649 \u062a\u0637\u0628\u064a\u0642 \u0645\u0633\u062a\u0648\u062d\u0649 \u0645\u0646 \u0625\u0637\u0627\u0631 \u0639\u0645\u0644 Flutter \u0627\u0644\u0630\u064a \u062a\u0635\u0646\u0639\u0647 Google. \u0625\u0646\u0647\u0627 \u0623\u0641\u0636\u0644 \u0627\u0644\u062d\u0644\u0648\u0644 \u0644\u062a\u062d\u0648\u064a\u0644 \u0645\u0648\u0642\u0639 \u0627\u0644\u0648\u064a\u0628 \u0627\u0644\u062e\u0627\u0635 \u0628\u0643 \u0625\u0644\u0649 Android \u0648 iOS \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0639\u0646\u0648\u0627\u0646 URL \u0627\u0644\u062e\u0627\u0635 \u0628\u0643 \u0641\u0642\u0637.",
                   "lang":"ar",
                   "status":"1",
                   "created_at":"2022-07-24 18:13:34",
@@ -1987,19 +1909,19 @@
       "applicationTranslation":[
          {
             "id":"1",
-            "title":"FlyWeb",
-            "sub_title":"Convert your website into an application",
-            "url":"http:\/\/positifmobile.com\/flyweb\/demo",
+            "title":" ",
+            "sub_title":"",
+            "url":"https:\/\/alahly-eg.com\/",
             "lang":"en",
             "status":"1",
-            "created_at":"2022-05-09 23:11:24",
-            "updated_at":"2022-05-09 23:11:24"
+            "created_at":"2024-12-13 21:52:44",
+            "updated_at":"2024-12-13 21:52:44"
          },
          {
             "id":"10",
             "title":" ",
             "sub_title":"\u0648\u062c\u0647\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0645\u0645\u064a\u0632\u0629 \u0644\u0639\u0634\u0627\u0642 \u0627\u0644\u0645\u0627\u0631\u062f \u0627\u0644\u0623\u062d\u0645\u0631",
-            "url":"https:\/\/smartselwady.com\/",
+            "url":"https:\/\/alahly-eg.com\/",
             "lang":"ar",
             "status":"1",
             "created_at":"2024-12-06 20:38:23",
