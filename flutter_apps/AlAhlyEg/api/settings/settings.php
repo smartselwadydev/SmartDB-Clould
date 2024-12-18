@@ -1051,7 +1051,7 @@
             "id":"18",
             "type":"url",
             "label":"\u0633\u064a\u0627\u0633\u0629 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629",
-            "url":"https:\/\/alahly-eg.com\/privacy?inapp=true",
+            "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=policy",
             "icon":"menu_item_18.png",
             "base64":null,
             "status":"1",
