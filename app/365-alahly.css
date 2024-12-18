@@ -3,8 +3,8 @@
 	font-family: 'Droid Arabic Kufi', serif!important;	
 }
 .scores365 .app-module-router-container {
-    background-color: aliceblue!important;
-	border: 0px solid aliceblue!important;
+    background-color: #f3f4f6!important;
+	border: 0px solid #f3f4f6!important;
 }
 :root, [data-theme=light] {
     --secondary: #C2151B!important;
@@ -15,7 +15,7 @@
  border-radius: 5px!important;
 }
 [class*="entity-scores-widget_small_view"]{
-	background: aliceblue!important;
+	background: #f3f4f6!important;
 	border-radius: 5px!important;
 }
 
