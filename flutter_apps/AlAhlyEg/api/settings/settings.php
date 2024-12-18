@@ -849,7 +849,7 @@
                   "id":"9",
                   "tab_id":"4",
                   "title":"\u062c\u062f\u0648\u0644 \u0627\u0644\u062a\u0631\u062a\u064a\u0628",
-                  "url":"https:\/\/smartselwady.host\/FLUTTER1x\/test.php",
+                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=standings",
                   "lang":"ar",
                   "status":"1",
                   "created_at":"2024-12-10 21:31:46",
