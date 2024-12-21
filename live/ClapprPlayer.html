@@ -18,7 +18,8 @@
 	  height: 100%;
 	}
 	</style>
-	<script src="js/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clappr-vast@latest/dist/clappr-vast.min.js"></script>
 </head>
 <body>
     <div id="player"></div>
@@ -27,16 +28,22 @@
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 			var url = params["ch"];
 			var player = new Clappr.Player({
-            source: url,
-			maxBufferLength: 30,
-			  poster: 'live2.jpg',
-			  mute: false,
-			  width: '100%',
-			  height: '100%',
-			  playback: {
-				playInline: true,
-			  },
-              parentId: '#player'
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+				plugins: [Clappr.Vast], // Include the VAST plugin
+				vast: {
+					adTagUrl: 'https://www.videosprofitnetwork.com/watch.xml?key=ee7f3254efecc3e1ce313e116713aa77', // Replace with your VAST ad URL
+					adTimeout: 30, // Optional: timeout for ad loading
+					adContainer: '#player', // Optional: specify where to display the ad
+				}
 			});
     </script>
 	
