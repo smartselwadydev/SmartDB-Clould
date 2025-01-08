@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Playback</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        video {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" style="width:100%;height:300px;" controls autoplay></video>
+
+    <script>
+        const videoElement = document.getElementById('video');
+        const streamUrl = 'https://customer-tbm12fcsgli0y1an.cloudflarestream.com/6cbb42b84953ac51e18ddbfeb2e622f0/webRTC/play';
+
+        // Function to start the WebRTC playback
+        async function startPlayback() {
+            try {
+                // Fetch the stream using the WebRTC URL
+                const response = await fetch(streamUrl);
+                const mediaStream = await response.body.getReader().read();
+                
+                // Create a MediaSource object
+                const mediaSource = new MediaSource();
+                videoElement.src = URL.createObjectURL(mediaSource);
+
+                mediaSource.addEventListener('sourceopen', async () => {
+                    const sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vp8"');
+                    sourceBuffer.appendBuffer(mediaStream.value);
+                });
+            } catch (error) {
+                console.error('Error starting playback:', error);
+            }
+        }
+
+        // Start the playback when the page loads
+        window.onload = startPlayback;
+    </script>
+</body>
+</html>

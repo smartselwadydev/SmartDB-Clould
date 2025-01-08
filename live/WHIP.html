@@ -28,7 +28,8 @@
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 
 			import WHEPClient from "./js/WHEPClient.js";
-			const url = "https://customer-tbm12fcsgli0y1an.cloudflarestream.com/"+params["id"]+"/webRTC/play";
+			//const url = "https://customer-tbm12fcsgli0y1an.cloudflarestream.com/"+params["id"]+"/webRTC/play";
+			const url = "https://customer-tbm12fcsgli0y1an.cloudflarestream.com/6cbb42b84953ac51e18ddbfeb2e622f0/webRTC/play"
 			const videoElement = document.getElementById("remote-video");
 			self.client = new WHEPClient(url, videoElement);
 		</script>
