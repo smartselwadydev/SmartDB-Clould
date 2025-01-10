@@ -15,23 +15,23 @@
          },
          {
             "type":"admob_id_ios",
-            "value":"ca-app-pub-8380185804726759~8970223218"
+            "value":"ca-app-pub-8380185804726759~3496752293"
          },
          {
             "type":"admob_key_ad_banner",
-            "value":"ca-app-pub-3940256099942544\/9214589741"
+            "value":"ca-app-pub-8380185804726759\/7757794453"
          },
          {
             "type":"admob_key_ad_interstitial",
-            "value":"ca-app-pub-3940256099942544\/1033173712"
+            "value":"ca-app-pub-8380185804726759\/2024992178"
          },
          {
             "type":"admob_key_ad_banner_ios",
-            "value":"ca-app-pub-3940256099942544\/2934735716"
+            "value":"ca-app-pub-8380185804726759\/3651012570"
          },
          {
             "type":"admob_key_ad_interstitial_ios",
-            "value":"ca-app-pub-3940256099942544\/4411468910"
+            "value":"ca-app-pub-8380185804726759\/8440304820"
          },
          {
             "type":"admob_dealy",
@@ -175,11 +175,11 @@
          },
          {
             "type":"version_android",
-            "value":"1.0.6"
+            "value":"1.0.0"
          },
          {
             "type":"version_ios",
-            "value":"2.0.3"
+            "value":"1.0.0"
          },
          {
             "type":"version_app",
