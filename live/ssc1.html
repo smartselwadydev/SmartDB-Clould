@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JW Player with HLS and P2P</title>
-    <link rel="stylesheet" href="https://cdn.jwplayer.com/libraries/your-library-id.css"> <!-- Replace with your JW Player library ID -->
+    <title>Video.js HLS Player</title>
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <style>
         body {
             margin: 0;
@@ -18,7 +18,7 @@
         #player {
             width: 100%;
             max-width: 800px;
-            height: 450px;
+            height: auto;
         }
         #error-message {
             display: none;
@@ -29,33 +29,32 @@
 </head>
 <body>
 
-    <div id="player"></div>
+    <video id="player" class="video-js" controls preload="auto" width="640" height="264">
+        <source src="" type="application/x-mpegURL" />
+        Your browser does not support HTML5 video.
+    </video>
     <div id="error-message">Unsupported browser. Try Google Chrome.</div>
 
-    <script src="https://cdn.jwplayer.com/libraries/your-library-id.js"></script> <!-- Replace with your JW Player library ID -->
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p2pml@latest/dist/p2pml.js"></script>
     
     <script>
-        if (Hls.isSupported() && p2pml.hlsjs.Engine.isSupported()) {
-            var engine = new p2pml.hlsjs.Engine();
-            var player = jwplayer("player");
-            player.setup({
-                playlist: [{
-                    "sources": [{
-                        "file": atob("aHR0cHM6Ly9zc2MtMS1lbmMuZWRnZW5leHRjZG4ubmV0L291dC92MS9jNjk2ZTQ4MTliNTU0MTQzODhhMWE0ODdlOGE0NWNhMS9pbmRleC5tcGQ="),
-                    }]
-                }],
-                width: "100%",
-                height: "100%",
-                autostart: true,
-                cast: {}
+        var video = document.getElementById('player');
+        var player = videojs(video);
+
+        // Check if HLS is supported
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            var hlsUrl = atob("aHR0cHM6Ly9zc2MtMS1lbmMuZWRnZW5leHRjZG4ubmV0L291dC92MS9jNjk2ZTQ4MTliNTU0MTQzODhhMWE0ODdlOGE0NWNhMS9pbmRleC5tcGQ=");
+            hls.loadSource(hlsUrl);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                player.play();
             });
-            jwplayer_hls_provider.attach();
-            p2pml.hlsjs.initJwPlayer(player, {
-                liveSyncDurationCount: 7,
-                loader: engine.createLoaderClass(),
-            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // For Safari
+            video.src = atob("aHR0cHM6Ly9zc2MtMS1lbmMuZWRnZW5leHRjZG4ubmV0L291dC92MS9jNjk2ZTQ4MTliNTU0MTQzODhhMWE0ODdlOGE0NWNhMS9pbmRleC5tcGQ=");
+            player.play();
         } else {
             document.getElementById("error-message").style.display = "block";
         }
