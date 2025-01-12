@@ -6,13 +6,8 @@ alert(4);
 		document.getElementById('laoad_Adbl').remove();
 		document.getElementById('laoad_Adb2').remove();
 		document.querySelector('iframe').remove();
-		removeScriptWithFunction('myFunctionShow');
-		removeScriptWithFunction('_Hasync');
-		removeScriptWithFunction('undefined');
 		alert(0);
-		$('.message-box').remove()
-		alert(1);
-		
+
 
     }
 }
