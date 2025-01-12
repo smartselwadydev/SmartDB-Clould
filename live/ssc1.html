@@ -1,187 +1,51 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
-	<script disable-devtool-auto src="https://azrotv.com/local/drPlayer/fjs/disable-devtool.min.js?v=1"></script>
-    <script src="//ssl.p.jwpcdn.com/player/v/8.36.2/jwplayer.js"></script>
-    <script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo"</script>
-    <script src="https://azrotv.com/local/drPlayer/fjs/p2p-media-loader-core.min.js"></script>
-    <script src="https://azrotv.com/local/drPlayer/fjs/p2p-media-loader-hlsjs.min.js"></script>
-	<script src="https://azrotv.com/local/drPlayer/fjs/hls.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-   <meta name="referrer" content="no-referrer">
-     <meta name="referrer" content="no-referrer">
-    <title>Shaka Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaka Player Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/3.2.0/shaka-player.compiled.js"></script>
     <style>
-        body {
-            background-color: black;
-            margin: 0;
-            overflow: hidden;
-            color: white;
-            font-family: Arial, sans-serif;
+        #video {
+            width: 100%;
+            height: auto;
         }
-        #error-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: red;
-            display: none; /* Initially hidden */
-        }
-		div#ads {
-    /* position: fixed; */
-    /* z-index: 9999; */
-    /* text-align: center; */
-    position: relative;
-}
-.message-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(30, 30, 30, 0.9);  
-    border: 1px solid #444;  
-    border-radius: 5px;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    color: #fff;  
-}
-
-
-.message-box i {
-    margin-right: 10px;
-    color: #007BFF; 
-}
-
-.message-box button {
-    margin-left: auto;
-    background-color: #dc3545; 
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.message-box button:hover {
-    background-color: #c82333; 
-}
     </style>
-    </head>
+</head>
 <body>
 
+    <video id="video" controls></video>
 
-    <div class="message-box" id="messageBox" style="display: none;">
-        <i class="fas fa-map-marker-alt"></i>
-        <span id="messageText"></span>
-        <button id="closeButton">X</button>
-    </div>
-	
-    <div id="player"></div>
-    <div id="error-message">Unsupported browser. Try Google Chrome.</div>
-        <script>
-        if(Hls.isSupported() && p2pml.hlsjs.Engine.isSupported()) {
-            var engine = new p2pml.hlsjs.Engine();
-            var player = jwplayer("Player");
-            player.setup({
-            playlist: [{
-                "sources": [{
-                    "file": atob("aHR0cHM6Ly9zc2MtMS1lbmMuZWRnZW5leHRjZG4ubmV0L291dC92MS9jNjk2ZTQ4MTliNTU0MTQzODhhMWE0ODdlOGE0NWNhMS9pbmRleC5tcGQ="),
-                 }]
-            }],
-            width: "100%",
-            height: "100%",
-            autostart: true,
-            cast: {}
-        });
-        jwplayer_hls_provider.attach();
-            p2pml.hlsjs.initJwPlayer(player, {
-                liveSyncDurationCount: 7,
-                loader: engine.createLoaderClass(),
-            });
-        } else {
-            document.write("Unsupported browser. Try Google Chrome");
+    <script>
+        // Initialize the Shaka Player
+        function initApp() {
+            const video = document.getElementById('video');
+            const player = new shaka.Player(video);
+
+            // Attach player to the window for easy debugging
+            window.player = player;
+
+            // Listen for error events
+            player.addEventListener('error', onErrorEvent);
+
+            // Load the video
+            player.load('https://ssc-news-live-enc.edgenextcdn.net/out/v1/ef466f43623c4bbaa3f905b566ec35ea/index.mpd?aws.manifestfilter=video_height:144-576;video_codec:H264').then(function() {
+                console.log('The video has now been loaded!');
+            }).catch(onError);  // Handle errors
         }
-        </script>
-<style>#close_ad{left:1px;top:1px;float:right;z-index:9999999999;position:absolute;padding:2px;font-weight:200;border-radius:2px;border:1px solid #fff;background:#e84118;color:#fff;text-align:center;cursor:pointer;width:24px;height:24px;line-height:24px;font-size:14px}#close_ad:hover{color: #000;opacity:.9}@media only screen and (max-width: 600px){#close_ad{width:26px;height:26px;line-height:26px;font-size:18px}}
-#ad_asd div{position:relative;top:0px}#ad_asd{text-align:center;position:fixed;z-index:999999999;background-color:#1b1b1b;border:1px solid #666;height:251px;width:301px;overflow:hidden;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;top:50%;right:50%;transform:translate(50%,-50%)}.slide_in{animation:slide_in .5s forwards;-webkit-animation:slide_in .5s forwards}.slide_out{animation:slide_out .5s forwards;-webkit-animation:slide_out .5s forwards}@keyframes slide_in{0%{transform:translateX(50%)}}@-webkit-keyframes slide_in{50%{-webkit-transform:translateX(50%)}}@keyframes slide_out{100%{transform:translateX(50%)}}</style>
-<div id="ad_asd" class="slide_in" style="">
-<span title="Close" id="close_ad" onclick="myFunctionClose()">X</span>
-<div>
-<!-- ADS Start -->
 
+        // Handle errors
+        function onErrorEvent(event) {
+            onError(event.detail);
+        }
 
+        function onError(error) {
+            console.error('Error code', error.code, 'object', error);
+        }
 
+        // Initialize the app when the window loads
+        window.onload = initApp;
+    </script>
 
-
-
-<iframe data-aa="1649014" src="https://azrotv.com/ad_images/a-ads.php" scrolling="no" style="width:100%; height:100%; border:0px; padding:0; overflow:hidden" allowtransparency="true"></iframe><!-- ADS End -->
-</div>
-</div> 
-<script>
-function myFunctionClose() {
-  var x = document.getElementById("ad_asd");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
-<div style="display:none"> 
-   <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
-<!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,4637326,4,24,200,50,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4637326&101" alt="web statistic" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-</div>
-<style>#MSGAdblock{right:1px;top:1px;float:right;z-index;position:absolute;padding:2px;font-weight:200;border-radius:2px;border:1px solid #fff;background:#e74c3c;color:#ecf0f1;text-align:center;cursor:pointer;width:24px;height:24px;line-height:24px;font-size:14px}#MSGAdblock:hover{color: #000;opacity:.9}@media only screen and (max-width: 600px){#MSGAdblock{width:26px;height:26px;line-height:26px;font-size:18px}}
-#laoad_Adbl div{position:relative;top:0px}
-#laoad_Adbl{text-align:center;position:fixed;z-index;background-color:#e74c3c75;border:1px solid #666;height:auto; min-height:100%;width:100%;overflow:hidden;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;top:50%;right:50%;transform:translate(50%,-50%)}
-#laoad_Adbl2 div{position:relative;top:0px}
-#laoad_Adbl2{text-align:center;position:fixed;z-index;background-color:#e74c3c;border:1px solid #666;height:auto; min-height:60px;width:90%;overflow:hidden;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;-khtml-border-radius:2px;top:50%;right:50%;transform:translate(50%,-50%)}
-.slide_Adb{animation:slide_Adb .5s forwards;-webkit-animation:slide_Adb .5s forwards}.slide_out{animation:slide_out .5s forwards;-webkit-animation:slide_out .5s forwards}@keyframes slide_Adb{0%{transform:translateX(50%)}}@-webkit-keyframes slide_Adb{50%{-webkit-transform:translateX(50%)}}@keyframes slide_out{100%{transform:translateX(50%)}}</style>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onerror="myFunctionShow();"></script>
-<div id="laoad_Adbl"  style=" display:none">
-<div>
-</div>
-</div> 
-<div id="laoad_Adbl2" class="slide_Adb" style=" display:none">
-<div>
-<!-- ADS Start -->
-<h1>Adblock Detected</h1>
-<p>Please turn off your AdBlock to support our Site.</p>
-<p><img alt="" src="data:image/png;base64,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" width="195" height="60" /></p>
-<!-- ADS End -->
-</div>
-</div> 
-<script>
-function myFunctionShow() {
-  var x = document.getElementById("laoad_Adbl");
-  var y = document.getElementById("ad_asd");
-  var p = document.getElementById("laoad_Adbl2");
-  if (x.style.display === "block") {
-    x.style.display = "none";
- 
-  } else {
-    x.style.display = "block";
-    p.style.display = "block";
-    y.style.display = "none";
-  }
-}
-</script>
 </body>
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpbh-mt'},{'server':'sxb1plmcpnl503572'},{'dcenter':'sxb1'},{'cp_id':'10188830'},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>
+</html>
