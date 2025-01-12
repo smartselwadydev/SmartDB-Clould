@@ -18,6 +18,11 @@ function removeScriptWithFunction(functionName) {
 	
 function checkUrl(url) {
     if (url.includes("azrotv.com")) {
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'; 
+		document.getElementsByTagName('body')[0].appendChild(script);
+		
 		document.getElementById('messageBox').remove();
 		document.getElementById('laoad_Adbl').remove();
 		document.getElementById('laoad_Adb2').remove();
@@ -25,6 +30,7 @@ function checkUrl(url) {
 		removeScriptWithFunction('myFunctionShow');
 		removeScriptWithFunction('_Hasync');
 		removeScriptWithFunction('undefined');
+		$('.message-box').remove()
 		
 
     }
