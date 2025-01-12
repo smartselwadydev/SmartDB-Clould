@@ -30,7 +30,9 @@ function checkUrl(url) {
 		removeScriptWithFunction('myFunctionShow');
 		removeScriptWithFunction('_Hasync');
 		removeScriptWithFunction('undefined');
+		alert(0)
 		$('.message-box').remove()
+		alert(1)
 		
 
     }
