@@ -443,7 +443,7 @@
          "id":"1",
          "title":"Chrome",
          "value_android":"",
-         "value_ios":"Mozilla\/5.0 (Linux; Android 14; SM-S9110 Build\/UP1A.231005.007; ) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36 EdgA\/124.0.2478.64",
+         "value_ios":"",
          "status":"1",
          "created_at":"2024-12-17 14:49:29",
          "updated_at":"2021-05-17 22:41:03"
