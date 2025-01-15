@@ -139,7 +139,7 @@
          },
          {
             "type":"share",
-            "value":"Download LiveSpot App \r\nThe Ultimate Video Player & Browser Without Mandatory Advertising\r\nhttps:\/\/play.google.com\/store\/apps\/details?id=com.smartselwady.livespot"
+            "value":"Download LiveSpot P \r\nThe Ultimate Video Player & Browser Without Mandatory Advertising\r\nhttps:\/\/smartselwady.com\/ourapp?id=livespot"
          },
          {
             "type":"list",
@@ -147,11 +147,11 @@
          },
          {
             "type":"ad_banner",
-            "value":"true"
+            "value":"false"
          },
          {
             "type":"ad_interstitial",
-            "value":"true"
+            "value":"false"
          },
          {
             "type":"pull_refresh",
