@@ -1,0 +1,32 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>البث المباشر</title>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	}
+
+	body {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+
+	</style>
+
+</head>
+<body>
+		<script>
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var ch = params["ch"];
+			var url = "//ok.ru/videoembed/"+ch+"?nochat=1";
+			document.write('<ifr'+'ame src="'+url+'" scrolling="no" frameborder="0" allowfullscreen style="width:100%;height:300px;"></ifr'+'ame>');
+		</script>
+</body>
+</html>
