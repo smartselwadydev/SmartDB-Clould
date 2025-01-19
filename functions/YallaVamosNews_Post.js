@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
     };
 
     try {
-		const fetchResponse = await fetch(`https://panel.smartselwady.com/SmartDB-sync/YallaVamosNews.php`, settings);
+		const fetchResponse = await fetch(`https://yalla-vamos.online/customApi/YallaVamosNews.php`, settings);
 		const data = await fetchResponse.json();
 		let postData = JSON.stringify(data, null, 2);
 		const database = await context.env.NORTHWIND_DB.prepare("UPDATE YallaVamosNews SET fetchDB = ?1 WHERE id = ?2").bind( postData , 1 ).run()
