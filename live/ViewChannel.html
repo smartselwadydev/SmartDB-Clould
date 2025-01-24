@@ -20,45 +20,7 @@
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759"
      crossorigin="anonymous"></script>
 
-	<script>
-			var params={};
-			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
-			$.ajax({
-			  type: 'GET',
-			  url: 'https://smartdb.smartselwady.org/LiveStreamCh_View',
-			  dataType: 'json'
-			}).then(function(res) {
-				//alert(JSON.stringify(res.results[0]));
-
-			  var data = res.results[0].fetchDB;
-			  var fetchDB = JSON.parse(data)
-			  for (var i = 0; i < data.length; i++) {
-				if(fetchDB[i].id == params["id"]){
-					var jsonString = fetchDB[i].fixed_code;
-					var jsonString = jsonString.replace(/&quot;/gi,'"');
-					var jsonString = jsonString.replace(/\\t/gi,'');
-					var jsonString = jsonString.replace(/\t/gi,'');
-					var jsonString = jsonString.replace(/\\n/gi,'');
-					var jsonString = jsonString.replace(/\n/gi,'');
-					var jsonString = jsonString.replace(/ /gi,'');
-					var jsonString = jsonString.replace(/"},]/gi,'"}]');
-					var channel = JSON.parse(jsonString);
-					if (channel.length > 0) {
-						for (var i = 0; i < channel.length; i++) {
-							$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+[i]+'">'+channel[i].title+'</a></li>')
-							$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="'+channel[i].link+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
-						}
-						$('.nav-link').eq(0).addClass('active')
-						$('#server_0').removeClass('fade').addClass('active')
-				    }
-					return false;
-
-				}
-			  }
-			});
-			
-
-	 </script>   
+ 
 	 <style>
 		body{margin:0 auto; text-align:center;}
 		.nav-pills{background:#673ab7;}
@@ -104,6 +66,7 @@
 		</div>						
 	</div>	
 </div>
+<br/><br/><br/>
 	  <ul class="nav nav-pills" role="tablist"></ul>
 	  <div class="tab-content"></div>
 
@@ -147,5 +110,44 @@
 		//window.location.href = 'https://alahly-eg.com'; // redirect to another website
 	}
 </script>
+	<script>
+			var params={};
+			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
+			$.ajax({
+			  type: 'GET',
+			  url: 'https://smartdb.smartselwady.org/LiveStreamCh_View',
+			  dataType: 'json'
+			}).then(function(res) {
+				//alert(JSON.stringify(res.results[0]));
+
+			  var data = res.results[0].fetchDB;
+			  var fetchDB = JSON.parse(data)
+			  for (var i = 0; i < data.length; i++) {
+				if(fetchDB[i].id == params["id"]){
+					var jsonString = fetchDB[i].fixed_code;
+					var jsonString = jsonString.replace(/&quot;/gi,'"');
+					var jsonString = jsonString.replace(/\\t/gi,'');
+					var jsonString = jsonString.replace(/\t/gi,'');
+					var jsonString = jsonString.replace(/\\n/gi,'');
+					var jsonString = jsonString.replace(/\n/gi,'');
+					var jsonString = jsonString.replace(/ /gi,'');
+					var jsonString = jsonString.replace(/"},]/gi,'"}]');
+					var channel = JSON.parse(jsonString);
+					if (channel.length > 0) {
+						for (var i = 0; i < channel.length; i++) {
+							$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+[i]+'">'+channel[i].title+'</a></li>')
+							$('.tab-content').append('<div id="server_'+[i]+'" class="container tab-pane"><iframe src="'+channel[i].link+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
+						}
+						$('.nav-link').eq(0).addClass('active')
+						$('#server_0').removeClass('fade').addClass('active')
+				    }
+					return false;
+
+				}
+			  }
+			});
+			
+
+	 </script>  
 </body>
 </html>
