@@ -295,11 +295,11 @@
          },
          {
             "type":"logo_drawer_width",
-            "value":"250"
+            "value":"150"
          },
          {
             "type":"logo_drawer_height",
-            "value":"150"
+            "value":"90"
          },
          {
             "type":"iconColor_dark",
