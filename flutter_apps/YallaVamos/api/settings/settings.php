@@ -3,7 +3,7 @@
       "settings":[
          {
             "type":"title",
-            "value":"يلا فاموس"
+            "value":"FlyWeb"
          },
          {
             "type":"url",
@@ -115,7 +115,7 @@
          },
          {
             "type":"type_header",
-            "value":"text"
+            "value":"empty"
          },
          {
             "type":"about_us",
