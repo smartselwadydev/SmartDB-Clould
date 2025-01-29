@@ -24,8 +24,20 @@
 <body style="text-align:center;">
 <br><br>
 
-<button type="button" class="btn btn-primary" onclick="console.log('SMART_PLAYER*?player=embed&link=https://webhdrunns.mizhls.ru/lb/premium284/index.m3u8&host=https://cookiewebplay.xyz/xxx&view=w&block=1&InterAds=')">برشلونة - أتالانتا<br>FC Barcelona - Atalanta</button>
+<button type="button" class="btn btn-primary" link="https://webhdrunns.mizhls.ru/lb/premium91/index.m3u8">برشلونة - أتالانتا<br>FC Barcelona - Atalanta</button>
 
 
+
+<script>
+if (localStorage.getItem("PlatForm") == "IOS"){
+	var adInterstitialID = "ca-app-pub-8380185804726759/8440304820";
+} else {
+	var adInterstitialID = "ca-app-pub-8380185804726759/2024992178";
+}
+$('.btn-primary').click(function(){
+  var lln = $(this).attr('link')
+  console.log('SMART_PLAYER*?player=embed&link='+lln+'&host=https://cookiewebplay.xyz/xxx&view=w&block=1&InterAds='+adInterstitialID;
+})
+</script>
 </body>
 </html>
