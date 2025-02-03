@@ -134,10 +134,6 @@
             "value":"aae0693d-26da-4290-9903-c0b80cfd0b6f"
          },
          {
-            "type":"onesignal_api_key",
-            "value":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-         },
-         {
             "type":"share",
             "value":"Download LiveSpot App \r\nThe Ultimate Video Player & Browser Without Mandatory Advertising\r\nhttps:\/\/play.google.com\/store\/apps\/details?id=com.smartselwady.livespot"
          },
@@ -184,10 +180,6 @@
          {
             "type":"version_app",
             "value":"version_app"
-         },
-         {
-            "type":"purchase_code",
-            "value":"0a1d6f57-7a47-4276-8f10-708723f438cf"
          },
          {
             "type":"customCss",
