@@ -418,14 +418,11 @@
          "id":"1",
          "title":"Chrome",
          "value_android":"",
-         "value_ios":"Mozilla\/5.0 (Linux; Android 14; SM-S9110 Build\/UP1A.231005.007; ) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36 EdgA\/124.0.2478.64",
-         "status":"1"
+         "value_ios":"",
+         "status":"0"
       },
       "tab":[
          {
-            "id":"1",
-            "title":"Home",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo",
             "icon":"tab_item_1.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_1.png",
@@ -449,10 +446,7 @@
             ]
          },
          {
-            "id":"2",
-            "title":"Categories",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/category.html",
-            "icon":"tab_item_2.png",
+			"icon":"tab_item_2.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_2.png",
             "translation":[
@@ -475,9 +469,6 @@
             ]
          },
          {
-            "id":"3",
-            "title":"Deals",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/deals.html",
             "icon":"tab_item_3.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_3.png",
@@ -501,9 +492,6 @@
             ]
          },
          {
-            "id":"4",
-            "title":"Cart",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/cart.html",
             "icon":"tab_item_4.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_4.png",
@@ -527,11 +515,8 @@
             ]
          },
          {
-            "id":"5",
-            "title":"Settings",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/settings.html",
             "icon":"tab_item_5.png",
-            "status":"1",
+            "status":"0",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_5.png",
             "translation":[
                {
