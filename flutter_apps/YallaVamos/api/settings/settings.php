@@ -1305,65 +1305,49 @@
                   "id":"54",
                   "lang":"ar",
                   "lang_key":"color_solid",
-                  "lang_value":"\u0644\u0648\u0646 \u0648\u0627\u062d\u062f",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0644\u0648\u0646 \u0648\u0627\u062d\u062f"
                },
                {
                   "id":"55",
                   "lang":"ar",
                   "lang_key":"loading_animation",
-                  "lang_value":"\u0627\u0644\u0644\u0648\u062f\u0631",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u0644\u0648\u062f\u0631"
                },
                {
                   "id":"56",
                   "lang":"ar",
                   "lang_key":"back_to_home_page",
-                  "lang_value":"\u0627\u0644\u0639\u0648\u062f\u0629 \u0625\u0644\u0649 \u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u0639\u0648\u062f\u0629 \u0625\u0644\u0649 \u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629"
                },
                {
                   "id":"57",
                   "lang":"ar",
                   "lang_key":"dark_mode",
-                  "lang_value":"\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u062f\u0627\u0643\u0646",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u062f\u0627\u0643\u0646"
                },
                {
                   "id":"58",
                   "lang":"ar",
                   "lang_key":"light_mode",
-                  "lang_value":"\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0641\u0627\u062a\u062d",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0641\u0627\u062a\u062d"
                },
                {
                   "id":"60",
                   "lang":"ar",
                   "lang_key":"follow_us",
-                  "lang_value":"\u062a\u0627\u0628\u0639\u0646\u0627",
-                  "created_at":"2022-04-03 15:45:47",
-                  "updated_at":"2022-04-03 15:45:47"
+                  "lang_value":"\u062a\u0627\u0628\u0639\u0646\u0627"
                },
                {
                   "id":"62",
                   "lang":"ar",
                   "lang_key":"get_start",
-                  "lang_value":"\u0627\u0628\u062f\u0623",
-                  "created_at":"2022-04-18 17:39:55",
-                  "updated_at":"2022-04-18 17:39:55"
+                  "lang_value":"\u0627\u0628\u062f\u0623"
                },
                {
                   "id":"64",
                   "lang":"ar",
                   "lang_key":"skip",
-                  "lang_value":"\u062a\u062e\u0637\u0649",
-                  "created_at":"2022-04-18 17:40:30",
-                  "updated_at":"2022-04-18 17:40:30"
+                  "lang_value":"\u062a\u062e\u0637\u0649"
                }
             ]
          }
@@ -1375,8 +1359,6 @@
             "url":"url",
             "icon":"about_item_1.png",
             "status":"1",
-            "created_at":"2022-04-01 00:36:55",
-            "updated_at":"2022-04-01 00:36:55",
             "translation":[
                {
                   "id":"1",
