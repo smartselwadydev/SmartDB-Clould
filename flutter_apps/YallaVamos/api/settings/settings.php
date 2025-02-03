@@ -401,19 +401,6 @@
          "fixed":"1",
          "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
       },
-      "rightNavigationIconList":[
-         {
-            "id":"2",
-            "icon":"icon_item_2.png",
-            "title":"Reload Button",
-            "value":"icon_reload",
-            "type":"action",
-            "url":"",
-            "status":"1",
-            "fixed":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
-         }
-      ],
       "splash":{
          "id":"1",
          "firstColor":"#54a276",
