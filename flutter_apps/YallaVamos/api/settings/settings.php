@@ -828,18 +828,14 @@
                   "floating_id":"3",
                   "title":"Settings",
                   "url":"http:\/\/positifmobile.com\/flyweb\/demo\/settings.html",
-                  "lang":"en",
-                  "created_at":"2022-06-22 18:11:59",
-                  "updated_at":"2022-06-22 18:11:59"
+                  "lang":"en"
                },
                {
                   "id":"19",
                   "floating_id":"3",
                   "title":"\u0625\u0639\u062f\u0627\u062f\u0627\u062a",
                   "url":"http:\/\/positifmobile.com\/flyweb\/demo\/settings.html",
-                  "lang":"ar",
-                  "created_at":"2022-06-22 18:12:04",
-                  "updated_at":"2022-06-22 18:12:04"
+                  "lang":"ar"
                }
             ]
          }
@@ -853,256 +849,192 @@
             "app_lang_code":"en",
             "rtl":"0",
             "status":"1",
-            "created_at":"2022-03-07 12:13:20",
-            "updated_at":"2022-03-07 12:13:20",
             "translations":[
                {
                   "id":"1",
                   "lang":"en",
                   "lang_key":"home",
-                  "lang_value":"Home",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Home"
                },
                {
                   "id":"2",
                   "lang":"en",
                   "lang_key":"share",
-                  "lang_value":"Share",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Share"
                },
                {
                   "id":"3",
                   "lang":"en",
                   "lang_key":"about",
-                  "lang_value":"About",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"About"
                },
                {
                   "id":"4",
                   "lang":"en",
                   "lang_key":"rate_us",
-                  "lang_value":"Rate Us",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Rate Us"
                },
                {
                   "id":"5",
                   "lang":"en",
                   "lang_key":"update_application",
-                  "lang_value":"Update Application",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Update Application"
                },
                {
                   "id":"6",
                   "lang":"en",
                   "lang_key":"notification",
-                  "lang_value":"Notification",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Notification"
                },
                {
                   "id":"7",
                   "lang":"en",
                   "lang_key":"languages",
-                  "lang_value":"Languages",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Languages"
                },
                {
                   "id":"8",
                   "lang":"en",
                   "lang_key":"app_language",
-                  "lang_value":"App Language",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"App Language"
                },
                {
                   "id":"9",
                   "lang":"en",
                   "lang_key":"select_your_preferred_languages",
-                  "lang_value":"Select your preferred languages",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Select your preferred languages"
                },
                {
                   "id":"10",
                   "lang":"en",
                   "lang_key":"whoops",
-                  "lang_value":"Whoops!",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Whoops!"
                },
                {
                   "id":"11",
                   "lang":"en",
                   "lang_key":"no_internet_connection",
-                  "lang_value":"No internet connection",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"No internet connection"
                },
                {
                   "id":"12",
                   "lang":"en",
                   "lang_key":"try_again",
-                  "lang_value":"Try Again",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Try Again"
                },
                {
                   "id":"13",
                   "lang":"en",
                   "lang_key":"close_app",
-                  "lang_value":"Close APP",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Close APP"
                },
                {
                   "id":"14",
                   "lang":"en",
                   "lang_key":"are_you_sure_want_to_quit_this_application",
-                  "lang_value":"Are you sure want to quit this application ?",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Are you sure want to quit this application ?"
                },
                {
                   "id":"15",
                   "lang":"en",
                   "lang_key":"ok",
-                  "lang_value":"OK",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"OK"
                },
                {
                   "id":"16",
                   "lang":"en",
                   "lang_key":"cancel",
-                  "lang_value":"CANCEL",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"CANCEL"
                },
                {
                   "id":"17",
                   "lang":"en",
                   "lang_key":"change_theme",
-                  "lang_value":"Change Theme",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Change Theme"
                },
                {
                   "id":"18",
                   "lang":"en",
                   "lang_key":"customize_your_own_way",
-                  "lang_value":"Customize your own way",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Customize your own way"
                },
                {
                   "id":"20",
                   "lang":"en",
                   "lang_key":"navigation_bar_style",
-                  "lang_value":"Navigation bar style",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Navigation bar style"
                },
                {
                   "id":"21",
                   "lang":"en",
                   "lang_key":"header_type",
-                  "lang_value":"Header type",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Header type"
                },
                {
                   "id":"22",
                   "lang":"en",
                   "lang_key":"left_button_option",
-                  "lang_value":"Left Button Option",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Left Button Option"
                },
                {
                   "id":"23",
                   "lang":"en",
                   "lang_key":"right_button_option",
-                  "lang_value":"Right Button Option",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Right Button Option"
                },
                {
                   "id":"24",
                   "lang":"en",
                   "lang_key":"color_gradient",
-                  "lang_value":"Color Gradient",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Color Gradient"
                },
                {
                   "id":"25",
                   "lang":"en",
                   "lang_key":"color_solid",
-                  "lang_value":"Color Solid",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Color Solid"
                },
                {
                   "id":"26",
                   "lang":"en",
                   "lang_key":"loading_animation",
-                  "lang_value":"Loading Animation",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Loading Animation"
                },
                {
                   "id":"27",
                   "lang":"en",
                   "lang_key":"back_to_home_page",
-                  "lang_value":"Back to HomePage",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Back to HomePage"
                },
                {
                   "id":"28",
                   "lang":"en",
                   "lang_key":"dark_mode",
-                  "lang_value":"Dark mode",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Dark mode"
                },
                {
                   "id":"29",
                   "lang":"en",
                   "lang_key":"light_mode",
-                  "lang_value":"Light mode",
-                  "created_at":"2022-03-09 11:23:12",
-                  "updated_at":"2022-03-09 11:23:12"
+                  "lang_value":"Light mode"
                },
                {
                   "id":"59",
                   "lang":"en",
                   "lang_key":"follow_us",
-                  "lang_value":"Follow Us",
-                  "created_at":"2022-04-03 15:45:47",
-                  "updated_at":"2022-04-03 15:45:47"
+                  "lang_value":"Follow Us"
                },
                {
                   "id":"61",
                   "lang":"en",
                   "lang_key":"get_start",
-                  "lang_value":"Get Start",
-                  "created_at":"2022-04-18 17:39:55",
-                  "updated_at":"2022-04-18 17:39:55"
+                  "lang_value":"Get Start"
                },
                {
                   "id":"63",
                   "lang":"en",
                   "lang_key":"skip",
-                  "lang_value":"Skip",
-                  "created_at":"2022-04-18 17:40:30",
-                  "updated_at":"2022-04-18 17:40:30"
+                  "lang_value":"Skip"
                }
             ]
          },
@@ -1114,192 +1046,144 @@
             "app_lang_code":"ar",
             "rtl":"1",
             "status":"1",
-            "created_at":"2022-03-07 12:13:20",
-            "updated_at":"2022-03-07 12:13:20",
             "translations":[
                {
                   "id":"30",
                   "lang":"ar",
                   "lang_key":"home",
-                  "lang_value":"\u0627\u0644\u0645\u0648\u0642\u0639 \u0627\u0644\u0631\u0633\u0645\u064a",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u0645\u0648\u0642\u0639 \u0627\u0644\u0631\u0633\u0645\u064a"
                },
                {
                   "id":"31",
                   "lang":"ar",
                   "lang_key":"share",
-                  "lang_value":"\u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0645\u0634\u0627\u0631\u0643\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642"
                },
                {
                   "id":"32",
                   "lang":"ar",
                   "lang_key":"about",
-                  "lang_value":"\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0639\u0646\u0627",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0639\u0646\u0627"
                },
                {
                   "id":"33",
                   "lang":"ar",
                   "lang_key":"rate_us",
-                  "lang_value":"\u0642\u064a\u0651\u0645 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0642\u064a\u0651\u0645 \u0627\u0644\u062a\u0637\u0628\u064a\u0642"
                },
                {
                   "id":"34",
                   "lang":"ar",
                   "lang_key":"update_application",
-                  "lang_value":"\u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062a\u062d\u062f\u064a\u062b \u0627\u0644\u062a\u0637\u0628\u064a\u0642"
                },
                {
                   "id":"35",
                   "lang":"ar",
                   "lang_key":"notification",
-                  "lang_value":"\u062a\u0646\u0628\u064a\u0647\u0627\u062a",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062a\u0646\u0628\u064a\u0647\u0627\u062a"
                },
                {
                   "id":"36",
                   "lang":"ar",
                   "lang_key":"languages",
-                  "lang_value":"\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0644\u063a\u0629",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062a\u063a\u064a\u064a\u0631 \u0627\u0644\u0644\u063a\u0629"
                },
                {
                   "id":"37",
                   "lang":"ar",
                   "lang_key":"app_language",
-                  "lang_value":"\u0644\u063a\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0644\u063a\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642"
                },
                {
                   "id":"38",
                   "lang":"ar",
                   "lang_key":"select_your_preferred_languages",
-                  "lang_value":"\u0627\u062e\u062a\u0631 \u0644\u063a\u062a\u0643 \u0627\u0644\u0645\u0641\u0636\u0644\u0629",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u062e\u062a\u0631 \u0644\u063a\u062a\u0643 \u0627\u0644\u0645\u0641\u0636\u0644\u0629"
                },
                {
                   "id":"39",
                   "lang":"ar",
                   "lang_key":"whoops",
-                  "lang_value":"\u0639\u0641\u0648\u064b\u0627!",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0639\u0641\u0648\u064b\u0627!"
                },
                {
                   "id":"40",
                   "lang":"ar",
                   "lang_key":"no_internet_connection",
-                  "lang_value":"\u0644\u0627 \u064a\u0648\u062c\u062f \u0627\u062a\u0635\u0627\u0644 \u0628\u0627\u0644\u0625\u0646\u062a\u0631\u0646\u062a",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0644\u0627 \u064a\u0648\u062c\u062f \u0627\u062a\u0635\u0627\u0644 \u0628\u0627\u0644\u0625\u0646\u062a\u0631\u0646\u062a"
                },
                {
                   "id":"41",
                   "lang":"ar",
                   "lang_key":"try_again",
-                  "lang_value":"\u062d\u0627\u0648\u0644 \u0645\u062c\u062f\u062f\u0627",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062d\u0627\u0648\u0644 \u0645\u062c\u062f\u062f\u0627"
                },
                {
                   "id":"42",
                   "lang":"ar",
                   "lang_key":"close_app",
-                  "lang_value":"\u0623\u063a\u0644\u0642 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0623\u063a\u0644\u0642 \u0627\u0644\u062a\u0637\u0628\u064a\u0642"
                },
                {
                   "id":"43",
                   "lang":"ar",
                   "lang_key":"are_you_sure_want_to_quit_this_application",
-                  "lang_value":"\u0647\u0644 \u062a\u0631\u064a\u062f \u0628\u0627\u0644\u062a\u0623\u0643\u064a\u062f \u0627\u063a\u0644\u0627\u0642 \u0647\u0630\u0627 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u061f",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0647\u0644 \u062a\u0631\u064a\u062f \u0628\u0627\u0644\u062a\u0623\u0643\u064a\u062f \u0627\u063a\u0644\u0627\u0642 \u0647\u0630\u0627 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u061f"
                },
                {
                   "id":"44",
                   "lang":"ar",
                   "lang_key":"ok",
-                  "lang_value":"\u062d\u0633\u0646\u0627",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062d\u0633\u0646\u0627"
                },
                {
                   "id":"45",
                   "lang":"ar",
                   "lang_key":"cancel",
-                  "lang_value":"\u0625\u0644\u063a\u0627\u0621",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0625\u0644\u063a\u0627\u0621"
                },
                {
                   "id":"46",
                   "lang":"ar",
                   "lang_key":"change_theme",
-                  "lang_value":"\u063a\u064a\u0631 \u0627\u0644\u062e\u0644\u0641\u064a\u0629",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u063a\u064a\u0631 \u0627\u0644\u062e\u0644\u0641\u064a\u0629"
                },
                {
                   "id":"47",
                   "lang":"ar",
                   "lang_key":"customize_your_own_way",
-                  "lang_value":"\u062a\u062e\u0635\u064a\u0635 \u0637\u0631\u064a\u0642\u062a\u0643 \u0627\u0644\u062e\u0627\u0635\u0629",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062a\u062e\u0635\u064a\u0635 \u0637\u0631\u064a\u0642\u062a\u0643 \u0627\u0644\u062e\u0627\u0635\u0629"
                },
                {
                   "id":"49",
                   "lang":"ar",
                   "lang_key":"navigation_bar_style",
-                  "lang_value":"\u0646\u0645\u0637 \u0634\u0631\u064a\u0637 \u0627\u0644\u062a\u0646\u0642\u0644",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0646\u0645\u0637 \u0634\u0631\u064a\u0637 \u0627\u0644\u062a\u0646\u0642\u0644"
                },
                {
                   "id":"50",
                   "lang":"ar",
                   "lang_key":"header_type",
-                  "lang_value":"\u0634\u0631\u064a\u0637 \u0627\u0644\u0631\u0623\u0633",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0634\u0631\u064a\u0637 \u0627\u0644\u0631\u0623\u0633"
                },
                {
                   "id":"51",
                   "lang":"ar",
                   "lang_key":"left_button_option",
-                  "lang_value":"\u062e\u064a\u0627\u0631 \u0627\u0644\u0632\u0631 \u0627\u0644\u0623\u064a\u0633\u0631",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062e\u064a\u0627\u0631 \u0627\u0644\u0632\u0631 \u0627\u0644\u0623\u064a\u0633\u0631"
                },
                {
                   "id":"52",
                   "lang":"ar",
                   "lang_key":"right_button_option",
-                  "lang_value":"\u062e\u064a\u0627\u0631 \u0627\u0644\u0632\u0631 \u0627\u0644\u0623\u064a\u0645\u0646",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u062e\u064a\u0627\u0631 \u0627\u0644\u0632\u0631 \u0627\u0644\u0623\u064a\u0645\u0646"
                },
                {
                   "id":"53",
                   "lang":"ar",
                   "lang_key":"color_gradient",
-                  "lang_value":"\u0627\u0644\u062a\u062f\u0631\u062c \u0627\u0644\u0644\u0648\u0646",
-                  "created_at":"2022-03-09 10:23:12",
-                  "updated_at":"2022-03-09 10:23:12"
+                  "lang_value":"\u0627\u0644\u062a\u062f\u0631\u062c \u0627\u0644\u0644\u0648\u0646"
                },
                {
                   "id":"54",
