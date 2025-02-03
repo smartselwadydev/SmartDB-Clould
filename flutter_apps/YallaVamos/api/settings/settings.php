@@ -1408,9 +1408,7 @@
             "sub_title":"",
             "url":"https:\/\/yalla-vamos.online\/",
             "lang":"en",
-            "status":"1",
-            "created_at":"2025-01-24 23:59:27",
-            "updated_at":"2025-01-24 23:59:27"
+            "status":"1"
          },
          {
             "id":"10",
@@ -1418,8 +1416,7 @@
             "sub_title":"",
             "url":"https:\/\/yalla-vamos.online\/",
             "lang":"ar",
-            "status":"1",
-            "created_at":"","updated_at":""
+            "status":"1"
          }
       ]
    }
