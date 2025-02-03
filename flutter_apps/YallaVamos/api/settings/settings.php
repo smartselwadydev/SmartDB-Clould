@@ -448,6 +448,26 @@
             ]
          },
          {
+            "icon":"tab_item_1.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_1.png",
+            "translation":[
+               {
+                  "id":"1",
+                  "tab_id":"1",
+                  "title":"News",
+                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
+                  "lang":"en"
+               },
+               {
+                  "id":"3",
+                  "tab_id":"1",
+                  "title":"\u0627\u0644\u0623\u062e\u0628\u0627\u0631",
+                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
+                  "lang":"ar"
+               }
+            ]
+         },
+         {
 			"icon":"tab_item_2.png",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_2.png",
             "translation":[
