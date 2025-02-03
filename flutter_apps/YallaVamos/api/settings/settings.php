@@ -326,7 +326,6 @@
             "icon":"social_item_1.png",
             "url":"https:\/\/www.facebook.com\/id_app",
             "status":"1",
-            "date":"2020-05-28 12:18:16",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_1.png"
          },
          {
@@ -337,7 +336,6 @@
             "icon":"social_item_2.png",
             "url":"https:\/\/www.youtube.com\/channel\/id_app",
             "status":"1",
-            "date":"2020-05-28 17:46:15",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_2.png"
          },
          {
@@ -348,7 +346,6 @@
             "icon":"social_item_4.png",
             "url":"https:\/\/twitter.com\/id_app",
             "status":"1",
-            "date":"2020-05-28 12:18:16",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_4.png"
          },
          {
@@ -359,7 +356,6 @@
             "icon":"social_item_7.png",
             "url":"https:\/\/www.tiktok.com\/id_app",
             "status":"1",
-            "date":"2020-05-28 12:18:16",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_7.png"
          },
          {
@@ -370,7 +366,6 @@
             "icon":"social_item_8.png",
             "url":"https:\/\/www.instagram.com\/id_app",
             "status":"1",
-            "date":"2020-05-28 12:18:16",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_8.png"
          },
          {
@@ -381,7 +376,6 @@
             "icon":"social_item_9.png",
             "url":"https:\/\/www.threads.net\/id_app",
             "status":"1",
-            "date":"0000-00-00 00:00:00",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/social\/social_item_9.png"
          }
       ],
@@ -394,8 +388,6 @@
          "url":"",
          "status":"1",
          "fixed":"1",
-         "created_at":"2025-01-24 22:09:53",
-         "updated_at":"2020-06-07 12:58:42",
          "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/left_navigation_icon\/icon_item_1.png"
       },
       "rightNavigationIcon":{
@@ -407,8 +399,6 @@
          "url":"",
          "status":"1",
          "fixed":"1",
-         "created_at":"2025-01-24 22:10:12",
-         "updated_at":"2020-06-07 11:58:42",
          "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
       },
       "rightNavigationIconList":[
@@ -421,8 +411,6 @@
             "url":"",
             "status":"1",
             "fixed":"1",
-            "created_at":"2025-01-24 22:10:12",
-            "updated_at":"2020-06-07 11:58:42",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
          }
       ],
@@ -444,9 +432,7 @@
          "title":"Chrome",
          "value_android":"",
          "value_ios":"Mozilla\/5.0 (Linux; Android 14; SM-S9110 Build\/UP1A.231005.007; ) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36 EdgA\/124.0.2478.64",
-         "status":"1",
-         "created_at":"2025-01-15 01:36:20",
-         "updated_at":"2021-05-17 22:41:03"
+         "status":"1"
       },
       "tab":[
          {
@@ -455,8 +441,6 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo",
             "icon":"tab_item_1.png",
             "status":"1",
-            "created_at":"2025-01-05 13:43:23",
-            "updated_at":"2025-01-05 13:43:23",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_1.png",
             "translation":[
                {
@@ -465,9 +449,7 @@
                   "title":"News",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
                   "lang":"en",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:42:47",
-                  "updated_at":"2025-01-24 23:42:47"
+                  "status":"1"
                },
                {
                   "id":"3",
@@ -475,9 +457,7 @@
                   "title":"\u0627\u0644\u0623\u062e\u0628\u0627\u0631",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
                   "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:42:31",
-                  "updated_at":"2025-01-24 23:42:31"
+                  "status":"1"
                }
             ]
          },
@@ -487,8 +467,6 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/category.html",
             "icon":"tab_item_2.png",
             "status":"1",
-            "created_at":"2025-01-05 13:43:12",
-            "updated_at":"2025-01-05 13:43:12",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_2.png",
             "translation":[
                {
@@ -497,9 +475,7 @@
                   "title":"Matches",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=matches",
                   "lang":"en",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:43:44",
-                  "updated_at":"2025-01-24 23:43:44"
+                  "status":"1"
                },
                {
                   "id":"5",
@@ -507,9 +483,7 @@
                   "title":"\u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=matches",
                   "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:43:25",
-                  "updated_at":"2025-01-24 23:43:25"
+                  "status":"1"
                }
             ]
          },
@@ -519,8 +493,6 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/deals.html",
             "icon":"tab_item_3.png",
             "status":"1",
-            "created_at":"2025-01-05 13:55:57",
-            "updated_at":"2025-01-05 13:55:57",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_3.png",
             "translation":[
                {
@@ -529,9 +501,7 @@
                   "title":"Highlights",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
                   "lang":"en",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:45:17",
-                  "updated_at":"2025-01-24 23:45:17"
+                  "status":"1"
                },
                {
                   "id":"7",
@@ -539,9 +509,7 @@
                   "title":"\u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
                   "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:44:57",
-                  "updated_at":"2025-01-24 23:44:57"
+                  "status":"1"
                }
             ]
          },
@@ -551,8 +519,6 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/cart.html",
             "icon":"tab_item_4.png",
             "status":"1",
-            "created_at":"2025-01-05 13:56:08",
-            "updated_at":"2025-01-05 13:56:08",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_4.png",
             "translation":[
                {
@@ -561,9 +527,7 @@
                   "title":"Live",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=live",
                   "lang":"en",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:47:59",
-                  "updated_at":"2025-01-24 23:47:59"
+                  "status":"1"
                },
                {
                   "id":"9",
@@ -571,9 +535,7 @@
                   "title":"\u0627\u0644\u0642\u0646\u0648\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=live",
                   "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-24 23:47:32",
-                  "updated_at":"2025-01-24 23:47:32"
+                  "status":"1"
                }
             ]
          },
@@ -583,8 +545,6 @@
             "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/settings.html",
             "icon":"tab_item_5.png",
             "status":"1",
-            "created_at":"2025-01-24 23:46:37",
-            "updated_at":"2025-01-24 23:46:37",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_5.png",
             "translation":[
                {
