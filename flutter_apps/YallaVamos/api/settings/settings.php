@@ -1419,8 +1419,7 @@
             "url":"https:\/\/yalla-vamos.online\/",
             "lang":"ar",
             "status":"1",
-            "created_at":"2025-01-24 22:00:50",
-            "updated_at":"2025-01-24 22:00:50"
+            "created_at":"","updated_at":""
          }
       ]
    }
