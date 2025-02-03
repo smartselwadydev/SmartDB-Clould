@@ -401,6 +401,19 @@
          "fixed":"1",
          "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
       },
+	  "rightNavigationIconList":[
+         {
+            "id":"2",
+			 "icon":"icon_item_2.png",
+			 "title":"Reload Button",
+			 "value":"icon_reload",
+			 "type":"action",
+			 "url":"",
+			 "status":"1",
+			 "fixed":"1",
+			 "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/right_navigation_icon\/icon_item_2.png"
+         }
+      ],
       "splash":{
          "id":"1",
          "firstColor":"#54a276",
@@ -424,7 +437,6 @@
       "tab":[
          {
             "icon":"tab_item_1.png",
-            "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_1.png",
             "translation":[
                {
@@ -447,7 +459,6 @@
          },
          {
 			"icon":"tab_item_2.png",
-            "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_2.png",
             "translation":[
                {
@@ -470,7 +481,6 @@
          },
          {
             "icon":"tab_item_3.png",
-            "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_3.png",
             "translation":[
                {
@@ -493,7 +503,6 @@
          },
          {
             "icon":"tab_item_4.png",
-            "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_4.png",
             "translation":[
                {
@@ -516,7 +525,6 @@
          },
          {
             "icon":"tab_item_5.png",
-            "status":"0",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_5.png",
             "translation":[
                {
@@ -525,7 +533,7 @@
                   "title":"Standings",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
                   "lang":"en",
-                  "status":"1"
+                  "status":"0"
                },
                {
                   "id":"11",
@@ -533,7 +541,7 @@
                   "title":"\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
                   "lang":"ar",
-                  "status":"1"
+                  "status":"0"
                }
             ]
          }
