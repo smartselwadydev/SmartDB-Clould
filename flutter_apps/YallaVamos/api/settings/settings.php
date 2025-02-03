@@ -523,75 +523,10 @@
                }
             ]
          },
-         {
-            "icon":"tab_item_5.png",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_5.png",
-            "translation":[
-               {
-                  "id":"10",
-                  "tab_id":"5",
-                  "title":"Standings",
-                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
-                  "lang":"en",
-                  "status":"0"
-               },
-               {
-                  "id":"11",
-                  "tab_id":"5",
-                  "title":"\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
-                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
-                  "lang":"ar",
-                  "status":"0"
-               }
-            ]
-         }
+         
       ],
       "pages":[
-         {
-            "id":"1",
-            "title":"About Us",
-            "type":"url",
-            "icon":"page_item_1.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/aboutus.html",
-            "status":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/pages\/page_item_1.png"
-         },
-         {
-            "id":"2",
-            "title":"Privacy policy",
-            "type":"url",
-            "icon":"page_item_2.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/privacypolicy.html",
-            "status":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/pages\/page_item_2.png"
-         },
-         {
-            "id":"3",
-            "title":"Terms & Conditions",
-            "type":"url",
-            "icon":"page_item_3.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/termsconditions.html",
-            "status":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/pages\/page_item_3.png"
-         },
-         {
-            "id":"4",
-            "title":"Return Policy",
-            "type":"url",
-            "icon":"page_item_4.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/returnpolicy.html",
-            "status":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/pages\/page_item_4.png"
-         },
-         {
-            "id":"5",
-            "title":"Faqs",
-            "type":"url",
-            "icon":"page_item_5.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/faqs.html",
-            "status":"1",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/pages\/page_item_5.png"
-         }
+
       ],
       "sliders":[
          {
