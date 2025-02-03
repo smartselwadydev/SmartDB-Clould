@@ -444,16 +444,14 @@
                   "tab_id":"1",
                   "title":"News",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
-                  "lang":"en",
-                  "status":"1"
+                  "lang":"en"
                },
                {
                   "id":"3",
                   "tab_id":"1",
                   "title":"\u0627\u0644\u0623\u062e\u0628\u0627\u0631",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=news",
-                  "lang":"ar",
-                  "status":"1"
+                  "lang":"ar"
                }
             ]
          },
@@ -466,16 +464,14 @@
                   "tab_id":"2",
                   "title":"Matches",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=matches",
-                  "lang":"en",
-                  "status":"1"
+                  "lang":"en"
                },
                {
                   "id":"5",
                   "tab_id":"2",
                   "title":"\u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=matches",
-                  "lang":"ar",
-                  "status":"1"
+                  "lang":"ar"
                }
             ]
          },
@@ -488,16 +484,14 @@
                   "tab_id":"3",
                   "title":"Highlights",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
-                  "lang":"en",
-                  "status":"1"
+                  "lang":"en"
                },
                {
                   "id":"7",
                   "tab_id":"3",
                   "title":"\u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
-                  "lang":"ar",
-                  "status":"1"
+                  "lang":"ar"
                }
             ]
          },
@@ -510,16 +504,34 @@
                   "tab_id":"4",
                   "title":"Live",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=live",
-                  "lang":"en",
-                  "status":"1"
+                  "lang":"en"
                },
                {
                   "id":"9",
                   "tab_id":"4",
                   "title":"\u0627\u0644\u0642\u0646\u0648\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=live",
-                  "lang":"ar",
-                  "status":"1"
+                  "lang":"ar"
+               }
+            ]
+         },
+         {
+            "icon":"tab_item_5.png",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/tab\/tab_item_5.png",
+            "translation":[
+               {
+                  "id":"10",
+                  "tab_id":"5",
+                  "title":"Standings",
+                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
+                  "lang":"en"
+               },
+               {
+                  "id":"11",
+                  "tab_id":"5",
+                  "title":"\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
+                  "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=standings",
+                  "lang":"ar"
                }
             ]
          }
