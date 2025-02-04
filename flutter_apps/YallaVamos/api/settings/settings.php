@@ -550,7 +550,6 @@
          "truecaller:\/\/",
          "play.google.com",
          "mailto:",
-         "youtube.com",
          "tel:",
          "share=telegram"
       ],
