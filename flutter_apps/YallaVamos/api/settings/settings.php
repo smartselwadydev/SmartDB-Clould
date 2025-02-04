@@ -187,7 +187,7 @@
          },
          {
             "type":"customJavascript",
-            "value":""
+            "value":"var d = new Date();\r\nvar catchesKey = d.getTime();\r\nvar page_url = window.location.href;\r\nvar script = document.createElement('script');\r\nscript.type = 'text\/javascript';\r\nscript.src = 'https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/app.js?token=' + catchesKey; \r\ndocument.getElementsByTagName('body')[0].appendChild(script);"
          },
          {
             "type":"floating_margin_bottom",
@@ -279,7 +279,7 @@
          },
          {
             "type":"tab_type",
-            "value":"regular"
+            "value":"circular"
          },
          {
             "type":"logo_drawer",
