@@ -476,14 +476,14 @@
                   "tab_id":"3",
                   "title":"Highlights",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
-                  "lang":"en"
+                  "lang":"xen"
                },
                {
                   "id":"7",
                   "tab_id":"3",
                   "title":"\u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a",
                   "url":"https:\/\/yallavamos-app.smartselwady.org\/website\/?page=highlights",
-                  "lang":"ar"
+                  "lang":"xar"
                }
             ]
          },
