@@ -55,15 +55,15 @@
          },
          {
             "type":"loaderColor",
-            "value":"#54a276"
+            "value":"#286341"
          },
          {
             "type":"firstColor",
-            "value":"#54a276"
+            "value":"#286341"
          },
          {
             "type":"secondColor",
-            "value":"#54a276"
+            "value":"#286341"
          },
          {
             "type":"backgroundColor",
@@ -215,11 +215,11 @@
          },
          {
             "type":"tab_color_icon_active",
-            "value":"#54a276"
+            "value":"#286341"
          },
          {
             "type":"tab_color_icon_active_dark",
-            "value":"#54a276"
+            "value":"#286341"
          },
          {
             "type":"tab_color_icon_inactive",
@@ -408,8 +408,8 @@
       ],
       "splash":{
          "id":"1",
-         "firstColor":"#54a276",
-         "secondColor":"#54a276",
+         "firstColor":"#286341",
+         "secondColor":"#286341",
          "logo_splash":"logo_splash.png",
          "img_splash":"logo.gif",
          "enable_logo":"1",
