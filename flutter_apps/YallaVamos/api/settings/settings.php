@@ -411,13 +411,13 @@
          "firstColor":"#286341",
          "secondColor":"#286341",
          "logo_splash":"logo_splash.png",
-         "img_splash":"logo.gif",
-         "enable_logo":"1",
-         "enable_img":"0",
+         "img_splash":"logo2.gif",
+         "enable_logo":"0",
+         "enable_img":"1",
          "splash_logo_width":"125",
          "splash_logo_height":"75",
          "logo_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/YallaVamos\/images\/splash\/logo_splash.png",
-         "img_splash_url":"https:\/\/yallavamos-app.smartselwady.org\/website\/logo.gif"
+         "img_splash_url":"https:\/\/yallavamos-app.smartselwady.org\/website\/logo2.gif"
       },
       "userAgent":{
          "id":"1",
