@@ -279,7 +279,7 @@
          },
          {
             "type":"tab_type",
-            "value":"circular"
+            "value":"regular"
          },
          {
             "type":"logo_drawer",
