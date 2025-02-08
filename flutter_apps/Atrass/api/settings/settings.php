@@ -450,378 +450,68 @@
       },
       "tab":[
          {
-            "id":"1",
-            "title":"Home",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo",
+            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
             "icon":"tab_item_1.png",
             "status":"1",
-            "created_at":"2025-01-05 13:43:23",
-            "updated_at":"2025-01-05 13:43:23",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_1.png",
             "translation":[
                {
                   "id":"1",
                   "tab_id":"1",
-                  "title":"Open Link",
+                  "title":"App_AddCar",
                   "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
-                  "lang":"en",
-                  "status":"1",
-                  "created_at":"2024-12-19 21:05:10",
-                  "updated_at":"2024-12-19 21:05:10"
+                  "lang":"en"
                },
                {
                   "id":"3",
                   "tab_id":"1",
                   "title":"\u0625\u0633\u062a\u0644\u0627\u0645 \u0633\u064a\u0627\u0631\u0629",
                   "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
-                  "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-05 14:53:21",
-                  "updated_at":"2025-01-05 14:53:21"
-               },
-               {
-                  "id":"12",
-                  "tab_id":"1",
-                  "title":"Hindi",
-                  "url":"http:\/\/www.significantentertainment.in\/",
-                  "lang":"in",
-                  "status":"1",
-                  "created_at":"2022-06-21 22:20:15",
-                  "updated_at":"2022-06-21 22:20:15"
-               },
-               {
-                  "id":"17",
-                  "tab_id":"1",
-                  "title":"Hindi",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"in language",
-                  "status":"1",
-                  "created_at":"2022-06-21 22:22:38",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"18",
-                  "tab_id":"1",
-                  "title":"\u0918\u0930",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"hi",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:54:07",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"19",
-                  "tab_id":"1",
-                  "title":"Principal",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"es",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:55:15",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"20",
-                  "tab_id":"1",
-                  "title":"Principal",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"fr",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:55:38",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"21",
-                  "tab_id":"1",
-                  "title":"Principal",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"pt",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:55:57",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"22",
-                  "tab_id":"1",
-                  "title":"Haupts\u00e4chlich",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"de",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:56:14",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"23",
-                  "tab_id":"1",
-                  "title":"Principale",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"it",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:56:29",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"24",
-                  "tab_id":"1",
-                  "title":"Ana",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"tr",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:56:43",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"25",
-                  "tab_id":"1",
-                  "title":"\u0413\u043b\u0430\u0432\u043d\u044b\u0439",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"ru",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:57:06",
-                  "updated_at":"0000-00-00 00:00:00"
+                  "lang":"ar"
                }
             ]
          },
          {
-            "id":"2",
-            "title":"Categories",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/category.html",
+            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
             "icon":"tab_item_2.png",
             "status":"1",
-            "created_at":"2025-01-05 13:43:12",
-            "updated_at":"2025-01-05 13:43:12",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_2.png",
             "translation":[
                {
                   "id":"4",
                   "tab_id":"2",
-                  "title":"How To Use",
-                  "url":"https:\/\/livespot-app.smartselwady.org\/website\/?page=howto",
-                  "lang":"en",
-                  "status":"1",
-                  "created_at":"2024-12-19 21:06:12",
-                  "updated_at":"2024-12-19 21:06:12"
+                  "title":"App_CarsRequst",
+                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
+                  "lang":"en"
                },
                {
                   "id":"5",
                   "tab_id":"2",
                   "title":"\u062a\u062d\u062a \u0627\u0644\u0637\u0644\u0628",
-                  "url":"https:\/\/atrass-app.smartselwady.org\/website\/?page=requst_car",
-                  "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-05 15:02:52",
-                  "updated_at":"2025-01-05 15:02:52"
-               },
-               {
-                  "id":"13",
-                  "tab_id":"2",
-                  "title":"Hindi",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo",
-                  "lang":"in",
-                  "status":"1",
-                  "created_at":"2022-06-21 22:20:25",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"26",
-                  "tab_id":"2",
-                  "title":"Categor\u00edas",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"es",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:58:23",
-                  "updated_at":"2022-06-22 18:58:23"
-               },
-               {
-                  "id":"27",
-                  "tab_id":"2",
-                  "title":"Cat\u00e9gories",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"fr",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:58:37",
-                  "updated_at":"2022-06-22 18:58:37"
-               },
-               {
-                  "id":"28",
-                  "tab_id":"2",
-                  "title":"Categorias",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"pt",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:59:02",
-                  "updated_at":"2022-06-22 18:59:02"
-               },
-               {
-                  "id":"29",
-                  "tab_id":"2",
-                  "title":"Kategorien",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"de",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:59:21",
-                  "updated_at":"2022-06-22 18:59:21"
-               },
-               {
-                  "id":"30",
-                  "tab_id":"2",
-                  "title":"Categorie",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"it",
-                  "status":"1",
-                  "created_at":"2022-06-22 18:59:39",
-                  "updated_at":"2022-06-22 18:59:39"
-               },
-               {
-                  "id":"31",
-                  "tab_id":"2",
-                  "title":"Kategoriler",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"tr",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:00:25",
-                  "updated_at":"2022-06-22 19:00:25"
-               },
-               {
-                  "id":"32",
-                  "tab_id":"2",
-                  "title":"\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"ru",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:00:49",
-                  "updated_at":"2022-06-22 19:00:49"
-               },
-               {
-                  "id":"33",
-                  "tab_id":"2",
-                  "title":"\u0936\u094d\u0930\u0947\u0923\u093f\u092f\u093e\u0901",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/category.html",
-                  "lang":"hi",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:01:04",
-                  "updated_at":"2022-06-22 19:01:04"
+                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
+                  "lang":"ar"
                }
             ]
          },
          {
-            "id":"3",
-            "title":"Deals",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/deals.html",
+            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
             "icon":"tab_item_3.png",
             "status":"1",
-            "created_at":"2025-01-05 13:55:57",
-            "updated_at":"2025-01-05 13:55:57",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_3.png",
             "translation":[
                {
                   "id":"6",
                   "tab_id":"3",
-                  "title":"About App",
-                  "url":"https:\/\/livespot-app.smartselwady.org\/website\/?page=about",
-                  "lang":"en",
-                  "status":"1",
-                  "created_at":"2024-12-19 21:07:48",
-                  "updated_at":"2024-12-19 21:07:48"
+                  "title":"App_AllCars",
+                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
+                  "lang":"en"
                },
                {
                   "id":"7",
                   "tab_id":"3",
                   "title":"\u0643\u0644 \u0627\u0644\u0633\u064a\u0627\u0631\u0627\u062a",
-                  "url":"https:\/\/atrass-app.smartselwady.org\/website\/?page=view_cars",
-                  "lang":"ar",
-                  "status":"1",
-                  "created_at":"2025-01-05 15:02:38",
-                  "updated_at":"2025-01-05 15:02:38"
-               },
-               {
-                  "id":"14",
-                  "tab_id":"3",
-                  "title":"Hindi",
-                  "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo",
-                  "lang":"in",
-                  "status":"1",
-                  "created_at":"2022-06-21 22:20:43",
-                  "updated_at":"0000-00-00 00:00:00"
-               },
-               {
-                  "id":"34",
-                  "tab_id":"3",
-                  "title":"\u0938\u094c\u0926\u093e",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"hi",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:02:03",
-                  "updated_at":"2022-06-22 19:02:03"
-               },
-               {
-                  "id":"35",
-                  "tab_id":"3",
-                  "title":"\u041f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u044f",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"ru",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:02:17",
-                  "updated_at":"2022-06-22 19:02:17"
-               },
-               {
-                  "id":"36",
-                  "tab_id":"3",
-                  "title":"F\u0131rsatlar",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"tr",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:02:30",
-                  "updated_at":"2022-06-22 19:02:30"
-               },
-               {
-                  "id":"37",
-                  "tab_id":"3",
-                  "title":"Offerte",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"it",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:02:40",
-                  "updated_at":"2022-06-22 19:02:40"
-               },
-               {
-                  "id":"38",
-                  "tab_id":"3",
-                  "title":"Angebote",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"de",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:02:51",
-                  "updated_at":"2022-06-22 19:02:51"
-               },
-               {
-                  "id":"39",
-                  "tab_id":"3",
-                  "title":"Ofertas",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"pt",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:03:09",
-                  "updated_at":"2022-06-22 19:03:09"
-               },
-               {
-                  "id":"40",
-                  "tab_id":"3",
-                  "title":"Offres",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"fr",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:03:22",
-                  "updated_at":"2022-06-22 19:03:22"
-               },
-               {
-                  "id":"41",
-                  "tab_id":"3",
-                  "title":"ofertas",
-                  "url":"http:\/\/positifmobile.com\/flyweb\/demo\/deals.html",
-                  "lang":"es",
-                  "status":"1",
-                  "created_at":"2022-06-22 19:03:37",
-                  "updated_at":"2022-06-22 19:03:37"
+                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
+                  "lang":"ar"
                }
             ]
          },
