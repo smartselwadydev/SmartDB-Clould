@@ -538,87 +538,8 @@
             ]
          }
       ],
-      "pages":[
-         {
-            "id":"1",
-            "title":"About Us",
-            "type":"url",
-            "icon":"page_item_1.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/aboutus.html",
-            "status":"1",
-            "date":"2021-05-20 19:10:54",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/pages\/page_item_1.png"
-         },
-         {
-            "id":"2",
-            "title":"Privacy policy",
-            "type":"url",
-            "icon":"page_item_2.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/privacypolicy.html",
-            "status":"1",
-            "date":"2021-05-19 22:09:36",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/pages\/page_item_2.png"
-         },
-         {
-            "id":"3",
-            "title":"Terms & Conditions",
-            "type":"url",
-            "icon":"page_item_3.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/termsconditions.html",
-            "status":"1",
-            "date":"2021-05-19 22:11:22",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/pages\/page_item_3.png"
-         },
-         {
-            "id":"4",
-            "title":"Return Policy",
-            "type":"url",
-            "icon":"page_item_4.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/returnpolicy.html",
-            "status":"1",
-            "date":"2021-05-19 22:13:05",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/pages\/page_item_4.png"
-         },
-         {
-            "id":"5",
-            "title":"Faqs",
-            "type":"url",
-            "icon":"page_item_5.png",
-            "url":"http:\/\/positifmobile.com\/positifMobile\/flyweb\/demo\/faqs.html",
-            "status":"1",
-            "date":"2021-05-19 22:14:49",
-            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/pages\/page_item_5.png"
-         }
-      ],
-      "sliders":[
-         {
-            "id":"1",
-            "image":"boarding_item_1.png",
-            "title":"\u0623\u062e\u0631 \u0627\u0644\u0623\u062e\u0628\u0627\u0631",
-            "description":"\u062a\u062d\u062f\u064a\u062b\u0627\u062a \u0641\u0648\u0631\u064a\u0629 \u062d\u0648\u0644 \u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u0642\u0644\u0639\u0629 \u0627\u0644\u062d\u0645\u0631\u0627\u0621  \u0628\u0645\u0627 \u0641\u064a \u0630\u0644\u0643 \u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644\u0627\u062a \u0627\u0644\u0625\u0635\u0627\u0628\u0627\u062a \u0648\u0627\u0644\u062a\u0635\u0631\u064a\u062d\u0627\u062a \u0627\u0644\u0631\u0633\u0645\u064a\u0629",
-            "status":"1",
-            "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/boarding\/boarding_item_1.png"
-         },
-         {
-            "id":"2",
-            "image":"boarding_item_2.png",
-            "title":"\u062c\u062f\u0648\u0644 \u0648\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
-            "description":"\u0639\u0631\u0636 \u062a\u0641\u0627\u0635\u064a\u0644 \u0645\u0628\u0627\u0631\u064a\u0627\u062a \u0627\u0644\u0646\u0627\u062f\u064a \u0627\u0644\u0645\u0642\u0628\u0644\u0629 \u0648 \u062a\u063a\u0637\u064a\u0629 \u0634\u0627\u0645\u0644\u0629 \u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a \u0627\u0644\u0633\u0627\u0628\u0642\u0629\u060c \u0645\u0639 \u062a\u0641\u0627\u0635\u064a\u0644 \u0639\u0646 \u0627\u0644\u0623\u062f\u0627\u0621 \u0648\u0645\u0644\u062e\u0635\u0627\u062a \u0644\u0643\u0644 \u0645\u0628\u0627\u0631\u0627\u0629",
-            "status":"1",
-            "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/boarding\/boarding_item_2.png"
-         },
-         {
-            "id":"3",
-            "image":"boarding_item_3.png",
-            "title":"\u062a\u0646\u0628\u064a\u0647\u0627\u062a \u0641\u0648\u0631\u064a\u0629",
-            "description":"\u0625\u0634\u0639\u0627\u0631\u0627\u062a \u0645\u0628\u0627\u0634\u0631\u0629 \u0644\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u062d\u0648\u0644 \u0627\u0644\u0623\u062e\u0628\u0627\u0631 \u0627\u0644\u0639\u0627\u062c\u0644\u0629 \u0648\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
-            "status":"1",
-            "date":"2021-05-27 12:18:16",
-            "image_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/boarding\/boarding_item_3.png"
-         }
-      ],
+      "pages":[ ],
+      "sliders":[ ],
       "nativeApplication":[
          "facebook.com",
          "skype.com",
