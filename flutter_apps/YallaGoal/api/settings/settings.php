@@ -455,14 +455,14 @@
                   "id":"4",
                   "tab_id":"2",
                   "title":"Matches",
-                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=matches",
+                  "url":"https:\/\/yallagoal-app.smartselwady.org\/website\/?page=matches",
                   "lang":"en"
                },
                {
                   "id":"5",
                   "tab_id":"2",
                   "title":"\u0627\u0644\u0645\u0628\u0627\u0631\u064a\u0627\u062a",
-                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=matches",
+                  "url":"https:\/\/yallagoal-app.smartselwady.org\/website\/?page=matches",
                   "lang":"ar"
                }
             ]
@@ -495,14 +495,14 @@
                   "id":"10",
                   "tab_id":"5",
                   "title":"Standings",
-                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=standings",
+                  "url":"https:\/\/yallagoal-app.smartselwady.org\/website\/?page=standings",
                   "lang":"en"
                },
                {
                   "id":"11",
                   "tab_id":"5",
                   "title":"\u0627\u0644\u0625\u062d\u0635\u0627\u0626\u064a\u0627\u062a",
-                  "url":"https:\/\/alahlyeg-app.smartselwady.org\/website\/?page=standings",
+                  "url":"https:\/\/yallagoal-app.smartselwady.org\/website\/?page=standings",
                   "lang":"ar"
                }
             ]
