@@ -1061,7 +1061,21 @@
                
             ]
          },
-
+         {
+            "id":"17",
+            "type":"url",
+            "label":"\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627",
+            "url":"https:\/\/alahly-eg.com\/contact?inapp=true",
+            "icon":"menu_item_17.png",
+            "base64":null,
+            "status":"1",
+            "parent_id":"0",
+            "position":"1",
+            "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/menu\/menu_item_17.png",
+            "translation":[
+               
+            ]
+         },
          {
             "id":"7",
             "type":"share",
