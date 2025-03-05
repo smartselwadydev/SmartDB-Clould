@@ -171,7 +171,7 @@
          },
          {
             "type":"colorTab",
-            "value":"#0b0a0a"
+            "value":"#000000"
          },
          {
             "type":"version_android",
@@ -223,7 +223,7 @@
          },
          {
             "type":"tab_color_icon_active",
-            "value":"#C2151B"
+            "value":"#000000"
          },
          {
             "type":"tab_color_icon_active_dark",
