@@ -428,8 +428,8 @@
       ],
       "splash":{
          "id":"1",
-         "firstColor":"#000000",
-         "secondColor":"#7c0c10",
+         "firstColor":"#474747",
+         "secondColor":"#000000",
          "logo_splash":"logo_splash.png",
          "img_splash":"img_splash.png",
          "enable_logo":"1",
