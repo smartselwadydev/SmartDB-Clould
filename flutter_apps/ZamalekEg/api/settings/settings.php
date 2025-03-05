@@ -123,15 +123,15 @@
          },
          {
             "type":"android_id",
-            "value":"com.smartselwady.alahlynews"
+            "value":"com.smartselwady.zamaleknews"
          },
          {
             "type":"ios_id",
-            "value":"com.smartselwady.alahlynews"
+            "value":"com.smartselwady.zamaleknews"
          },
          {
             "type":"onesignal_id",
-            "value":"4059b78e-75b2-4ac4-8eb8-fd190ad53100"
+            "value":"d92e0501-9917-466f-be59-2e0417ed4732"
          },
          {
             "type":"onesignal_api_key",
@@ -139,7 +139,7 @@
          },
          {
             "type":"share",
-            "value":"\u062d\u0645\u0644 \u062a\u0637\u0628\u064a\u0642 #\u0623\u0647\u0644\u0627\u0648\u064a_\u0623\u0648\u0646\u0644\u0627\u064a\u0646 \u0645\u062c\u0627\u0646\u0627 \u0627\u0644\u0622\u0646\r\nhttps:\/\/www.smartselwady.com\/ourapp?id=alahlyeg\r\n"
+            "value":"\u062d\u0645\u0644 \u0627\u0644\u0622\u0646 \u062a\u0637\u0628\u064a\u0642 \u0023\u0632\u0645\u0644\u0643\u0627\u0648\u064a_\u0623\u0648\u0646\u0644\u0627\u064a\u0646 \u0645\u062c\u0627\u0646\u0627 \u0627\u0644\u0622\u0646\r\nhttps:\/\/www.smartselwady.com\/ourapp?id=zamalekeg\r\n"
          },
          {
             "type":"list",
@@ -322,7 +322,7 @@
             "id":"1",
             "title":"\u0641\u064a\u0633\u0628\u0648\u0643",
             "link_url":"fb:\/\/page\/id_app",
-            "id_app":"ahlawai.online",
+            "id_app":"zmalkawy.online",
             "icon":"social_item_1.png",
             "url":"https:\/\/www.facebook.com\/id_app",
             "status":"1",
@@ -333,7 +333,7 @@
             "id":"2",
             "title":"\u064a\u0648\u062a\u064a\u0648\u0628",
             "link_url":"https:\/\/youtube.com\/id_app",
-            "id_app":"@ahlawai.online",
+            "id_app":"@zmalkawy_online",
             "icon":"social_item_2.png",
             "url":"https:\/\/www.youtube.com\/channel\/id_app",
             "status":"1",
@@ -344,7 +344,7 @@
             "id":"4",
             "title":"\u0645\u0646\u0635\u0629 X",
             "link_url":"https:\/\/twitter.com\/id_app",
-            "id_app":"ahlawai_online",
+            "id_app":"zmalkawy_online",
             "icon":"social_item_4.png",
             "url":"https:\/\/twitter.com\/id_app",
             "status":"1",
@@ -355,7 +355,7 @@
             "id":"7",
             "title":"\u062a\u064a\u0643 \u062a\u0648\u0643",
             "link_url":"https:\/\/www.tiktok.com\/id_app",
-            "id_app":"@ahlawai.online",
+            "id_app":"@zmalkawy_online",
             "icon":"social_item_7.png",
             "url":"https:\/\/www.tiktok.com\/id_app",
             "status":"1",
@@ -366,7 +366,7 @@
             "id":"8",
             "title":"\u0625\u0646\u0633\u062a\u062c\u0631\u0627\u0645",
             "link_url":"instagram:\/\/user?username=id_app",
-            "id_app":"ahlawai.online",
+            "id_app":"zmalkawy_online",
             "icon":"social_item_8.png",
             "url":"https:\/\/www.instagram.com\/id_app",
             "status":"1",
@@ -377,7 +377,7 @@
             "id":"9",
             "title":"\u062b\u0631\u064a\u062f\u0632",
             "link_url":"https:\/\/www.threads.net\/id_app",
-            "id_app":"@ahlawai.online",
+            "id_app":"@zmalkawy_online",
             "icon":"social_item_9.png",
             "url":"https:\/\/www.threads.net\/id_app",
             "status":"1",
@@ -1881,7 +1881,7 @@
             "id":"1",
             "title":" ",
             "sub_title":"",
-            "url":"https:\/\/alahly-eg.com\/",
+            "url":"https:\/\/zamalek-eg.com\/",
             "lang":"en",
             "status":"1",
             "created_at":"2024-12-13 21:52:44",
@@ -1890,8 +1890,8 @@
          {
             "id":"10",
             "title":" ",
-            "sub_title":"\u0648\u062c\u0647\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0645\u0645\u064a\u0632\u0629 \u0644\u0639\u0634\u0627\u0642 \u0627\u0644\u0645\u0627\u0631\u062f \u0627\u0644\u0623\u062d\u0645\u0631",
-            "url":"https:\/\/alahly-eg.com\/",
+            "sub_title":"\u0648\u062c\u0647\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0645\u0645\u064a\u0632\u0629 \u0644\u0639\u0634\u0627\u0642 \u0627\u0644\u0642\u0644\u0639\u0629 \u0627\u0644\u0628\u064a\u0636\u0627\u0621",
+            "url":"https:\/\/zamalek-eg.com\/",
             "lang":"ar",
             "status":"1",
             "created_at":"2024-12-06 20:38:23",
