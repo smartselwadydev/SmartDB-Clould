@@ -450,7 +450,7 @@
       },
       "tab":[
          {
-            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
+            "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AddCar",
             "icon":"tab_item_1.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_1.png",
@@ -459,20 +459,20 @@
                   "id":"1",
                   "tab_id":"1",
                   "title":"App_AddCar",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AddCar",
                   "lang":"en"
                },
                {
                   "id":"3",
                   "tab_id":"1",
                   "title":"\u0625\u0633\u062a\u0644\u0627\u0645 \u0633\u064a\u0627\u0631\u0629",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AddCar",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AddCar",
                   "lang":"ar"
                }
             ]
          },
          {
-            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
+            "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_CarsRequst",
             "icon":"tab_item_2.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_2.png",
@@ -481,20 +481,20 @@
                   "id":"4",
                   "tab_id":"2",
                   "title":"App_CarsRequst",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_CarsRequst",
                   "lang":"en"
                },
                {
                   "id":"5",
                   "tab_id":"2",
                   "title":"\u062a\u062d\u062a \u0627\u0644\u0637\u0644\u0628",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_CarsRequst",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_CarsRequst",
                   "lang":"ar"
                }
             ]
          },
          {
-            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
+            "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AllCars",
             "icon":"tab_item_3.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_3.png",
@@ -503,20 +503,20 @@
                   "id":"6",
                   "tab_id":"3",
                   "title":"App_AllCars",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AllCars",
                   "lang":"en"
                },
                {
                   "id":"7",
                   "tab_id":"3",
                   "title":"\u0643\u0644 \u0627\u0644\u0633\u064a\u0627\u0631\u0627\u062a",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_AllCars",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_AllCars",
                   "lang":"ar"
                }
             ]
          },
          {
-            "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_About",
+            "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_About",
             "icon":"tab_item_4.png",
             "status":"1",
             "icon_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/Atrass\/images\/tab\/tab_item_4.png",
@@ -525,14 +525,14 @@
                   "id":"8",
                   "tab_id":"4",
                   "title":"App_About",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_About",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_About",
                   "lang":"en"
                },
                {
                   "id":"9",
                   "tab_id":"4",
                   "title":"\u0639\u0646 \u0627\u0644\u062a\u0637\u0628\u064a\u0642",
-                  "url":"https:\/\/www.atrass-sa.com\/AdminPanel\/App_About",
+                  "url":"https:\/\/atrass-sa.com\/AdminPanel\/App_About",
                   "lang":"ar"
                }
             ]
