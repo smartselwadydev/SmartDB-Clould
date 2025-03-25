@@ -422,9 +422,9 @@
       "userAgent":{
          "id":"1",
          "title":"Chrome",
-         "value_android":"",
-         "value_ios":"",
-         "status":"0"
+         "value_android":"Mozilla\/5.0 (Linux; Android 15) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.6998.135 Mobile Safari\/537.36",
+         "value_ios":"Mozilla\/5.0 (Linux; Android 14; SM-S9110 Build\/UP1A.231005.007; ) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.0.0 Mobile Safari\/537.36 EdgA\/124.0.2478.64",
+         "status":"1"
       },
       "tab":[
          {
