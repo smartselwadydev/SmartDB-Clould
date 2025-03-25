@@ -48,23 +48,12 @@
 	</div>	
 </div>
 
-    <div id="player"></div>
     <script>
 			var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-			var url = "https://top1-cdnnew.koskoros.ru/top1-cdn/ahleg"+params["ch"]+"//mono.m3u8";
-			var player = new Clappr.Player({
-				source: url,
-				maxBufferLength: 30,
-				poster: 'live2.jpg',
-				mute: false,
-				width: '100%',
-				height: '300px',
-				playback: {
-					playInline: true,
-				},
-				parentId: '#player',
-			});
+			var url = "ClapprPlayer.html?ch=https://top1-cdnnew.koskoros.ru/top1-cdn/ahleg"+params["ch"]+"/mono.m3u8";
+			document.write('<ifr'+'ame src="'+url+'" scrolling="no" frameborder="0" allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:300px;"></ifr'+'ame><hr/>');
+	
     </script>
 
 	  <div>	
