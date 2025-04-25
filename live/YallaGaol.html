@@ -9,12 +9,10 @@
 	 
 	<style>
 	html, body {
-	  height: 100%;
-	  width: 100%;
 	  margin: 0;
 	  padding: 0;
 	  border: 0;
-	  overflow: hidden;
+	  overflow: scroll;
 	}
 	#player {
 	  width: 100%;
@@ -52,10 +50,10 @@
 			var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 			var url = "ClapprPlayer.html?ch=https://top1-cdnnew.newkso.ru/top1-cdn/ahleg"+params["ch"]+"/mono.m3u8";
-			document.write('<ifr'+'ame src="'+url+'" scrolling="no" frameborder="0" allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:300px;"></ifr'+'ame><hr/>');
+			document.write('<iframe src="'+url+'" scrolling="no" frameborder="0" allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:300px;"></iframe><hr/>');
     </script>
 
-<div id="Ad_1" style="width:100%; text-align:center; margin:0 auto;">			
+<div id="Ad_1" style="width:100%; height:50px; text-align:center; margin:0 auto;">			
 	<script type="text/javascript">
 		atOptions = {
 			'key' : '915ce044797976c055e7a1752cfc3ea8',
@@ -69,7 +67,7 @@
 </div>
 
 		
-	  <div>	
+	  <div style="height:300px;">	
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759"
 			 crossorigin="anonymous"></script>
 		<ins class="adsbygoogle"
