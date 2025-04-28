@@ -433,7 +433,7 @@
          "logo_splash":"logo_splash.png",
          "img_splash":"img_splash.png",
          "enable_logo":"0",
-         "enable_img":"0",
+         "enable_img":"1",
          "splash_logo_width":"170",
          "splash_logo_height":"100",
          "logo_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/logo_splash.png",
