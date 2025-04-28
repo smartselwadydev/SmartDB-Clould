@@ -432,12 +432,12 @@
          "secondColor":"#7c0c10",
          "logo_splash":"logo_splash.png",
          "img_splash":"img_splash.png",
-         "enable_logo":"1",
+         "enable_logo":"0",
          "enable_img":"0",
          "splash_logo_width":"170",
          "splash_logo_height":"100",
          "logo_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/logo_splash.png",
-         "img_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/img_splash.png"
+         "img_splash_url":"https:\/\/smartdb.smartselwady.org\/\/flutter_apps\/\/AlAhlyEg\/images\/splash\/img_splash2.jpg"
       },
       "userAgent":{
          "id":"1",
