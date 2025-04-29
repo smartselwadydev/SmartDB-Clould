@@ -9,23 +9,30 @@
 
 </head>
 <body>
-
+<div id="Ad_3" style="width:100%; text-align:center; margin:0 auto;">
+	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+	<script>
+		  window.googletag = window.googletag || {cmd: []};
+		  googletag.cmd.push(function() {
+			googletag
+				.defineSlot(
+					'/39382643/ads1', [400, 300], 'banner-ad')
+				.addService(googletag.pubads());
+			googletag.enableServices();
+		  });
+	</script>
+	<div style="min-height:280px; width:100%; padding-top: 10px; overflow: hidden; text-align:center; ">
+		<div id="banner-ad">
+			  <script>
+				googletag.cmd.push(function() {
+				  googletag.display('banner-ad');
+				});
+			  </script>
+		</div>						
+	</div>	
+</div>
 </body>
 <script>
-	let scrollTop, scrollLeft;
-	scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-	window.onscroll = function() {
-		window.scrollTo(scrollLeft, scrollTop);
-	};
-	const centerElements = document.querySelectorAll('center');
-	centerElements.forEach(element => {
-		element.remove();
-	});
-	const hrElements = document.querySelectorAll('hr');
-	hrElements.forEach(element => {
-		element.remove();
-	});
 	const playerDiv = document.createElement('div');
 	playerDiv.id = 'player';
 	playerDiv.style.position = 'absolute';
@@ -41,7 +48,7 @@
 				source: 'https://dokko1new.newkso.ru/dokko1/premium91/mono.m3u8',
 				parentId: '#player',
 				autoPlay: true,
-				height: '100vh',
+				height: '300px',
 				width: '100vw',
 				mute: false,
 				mediacontrol: {
