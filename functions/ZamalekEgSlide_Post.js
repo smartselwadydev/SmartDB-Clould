@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
     };
 
     try {
-		const fetchResponse = await fetch(`https://zamalek-eg.com/customApi/ZamalekEgSlide.php`, settings);
+		const fetchResponse = await fetch(`https://zamalekeg-panel.smartselwady.org/ZamalekEgSlide.php`, settings);
 		const data = await fetchResponse.json();
 		let postData = JSON.stringify(data, null, 2);
 		const database = await context.env.NORTHWIND_DB.prepare("UPDATE ZamalekEgSlide SET fetchDB = ?1 WHERE id = ?2").bind( postData , 1 ).run()
