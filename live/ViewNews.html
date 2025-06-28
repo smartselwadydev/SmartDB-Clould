@@ -111,19 +111,11 @@
 											<div class="swiper-wrapper">
 												<div class="swiper-slide">
 													<a class="view_n1" href="#">
-														<img class="slide1" src="" alt="">
+														<img class="slide1" src="" alt="" style="display:none">
 														<div class="slide_txt slide1_txt"></div>
 													</a>							
 												</div>											
 											</div>
-										</div>
-										<div class="btn-fixed">
-											<button class="btn" id="shareBtn">
-												<i class="fas fa-share-alt"></i> مشاركة الخبر
-											</button>
-											<button class="btn" id="openLinkBtn">
-												<i class="fas fa-external-link-alt"></i> فتح في المتصفح
-											</button>
 										</div>
 									</div>
 									<div class="card custom-card">
@@ -198,7 +190,7 @@ $(document).ready(function () {
                 $(".slide1").attr({
                     "src": imgUrl + "?t=" + new Date().getTime(),
                     "alt": response.title
-                });
+                }).fadeIn();
                 $("#NewsBody").html(contentWithoutImage);
                 $(document).prop("title", response.title);
 
@@ -209,25 +201,6 @@ $(document).ready(function () {
             }
         });
     }
-    $("#shareBtn").on("click", function () {
-        if (navigator.share) {
-            navigator.share({
-                title: document.title,
-                url: postLink
-            }).catch(function (err) {
-                console.error("Error sharing:", err);
-            });
-        } else {
-            alert("المشاركة غير مدعومة على هذا المتصفح");
-        }
-    });
-    $("#openLinkBtn").on("click", function () {
-        if (postLink) {
-            window.open(postLink, "_blank");
-        } else {
-            alert("لم يتم تحميل رابط الخبر بعد");
-        }
-    });
 });
 </script>
 </body>
