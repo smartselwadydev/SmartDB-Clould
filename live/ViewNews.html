@@ -1,634 +1,200 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-nav-layout="horizontal" data-nav-style="menu-click" data-menu-position="fixed" data-theme-mode="light" style="--primary-rgb: 144, 6, 4;">
+
 <head>
+
+    <!-- Meta Data -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تفاصيل الخبر</title>
-    <!-- Bootstrap 5 RTL CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <style>
-/* General Styles */
-body {
-    font-family: 'Tajawal', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-}
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="Author" content="Smarts ElWady">
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    color: #2c3e50;
-}
+    <link rel="icon" href="assets/images/brand-logos/favicon.ico" type="image/x-icon">
+    <script src="https://smartlibrary1.pages.dev/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://smartlibrary1.pages.dev/assets/js/main.js"></script>
+    <link id="style" href="https://smartlibrary1.pages.dev/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link id="style" href="https://smartlibrary1.pages.dev/assets/libs/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet" >
+    <link href="https://smartlibrary1.pages.dev/assets/css/styles.min.css" rel="stylesheet" >
+	<link rel="stylesheet" href="https://smartlibrary1.pages.dev/assets/libs/swiper/swiper-bundle.min.css">
+	<link href="assets/css/custom.css" rel="stylesheet" >
+    <script src="https://smartlibrary1.pages.dev/assets/libs/jquery/jquery.min.js"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
+	<script>
+		var d = new Date();
+		var catchesKey = d.getTime();
+	</script>
+	<style>
+		.horizontal-logo {
+			padding: 0px!important;
+		}
+		.header-logo img {
+				height: 3rem!important;
+				display: inherit;
+		}
+		@media screen and (max-width: 992px) {
+		  .section-bg {
+				padding-top: 10px!important;
+			}
+		}
+		@media (min-width: 992px){
+		.landing-body .app-sidebar.sticky.sticky-pin .landing-logo-container .horizontal-logo .desktop-logo {
+			display: inherit;
+		}
+		}
+		.btn-fixed {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            left: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 999;
+        }
 
-a {
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    color: #0d6efd;
-}
-
-/* Header Styles */
-header {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation Styles */
-.navbar {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-nav .nav-link {
-    padding: 0.5rem 1rem;
-}
-
-/* Article Styles */
-.news-article {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-}
-
-.article-meta {
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-.article-image img {
+		.slide_txt{
+	position: absolute;
+    bottom: 0px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    padding: 0;
+	font-size:16px;
+	padding-right:20px;
+	padding-left:20px;
 }
-
-.article-content p {
-    margin-bottom: 1.5rem;
-    text-align: justify;
+:root {
+  --secondary: #900604;
 }
-
-.article-content img {
-    max-width: 100%;
-    height: auto;
+.prediction-small-view, .see-all-footer-button-container, .see-all-footer{
+  display:none;
 }
-
-/* Sidebar Styles */
-.sidebar .card {
-    border: none;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 1.5rem;
-}
-
-.sidebar .card-header {
-    border-bottom: none;
-}
-
-.list-group-item {
-    border-left: none;
-    border-right: none;
-}
-
-/* Comments Styles */
-.comment-item {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.25rem;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #343a40;
-}
-
-footer a {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-.social-icons a {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    margin-right: 0.5rem;
-}
-
-.social-icons a:hover {
-    background-color: #0d6efd;
-    color: #fff;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 767.98px) {
-    .article-meta {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .article-meta span {
-        margin-bottom: 0.5rem;
-    }
-    
-    .share-buttons .btn {
-        margin-bottom: 0.5rem;
-    }
-}
-
-/* Custom RTL Adjustments */
-.breadcrumb-item + .breadcrumb-item::before {
-    float: right;
-    padding-left: var(--bs-breadcrumb-item-padding-x);
-    padding-right: 0;
-    content: var(--bs-breadcrumb-divider, "/");
-}
-
-/* Blockquote Customization */
-blockquote {
-    position: relative;
-    padding-right: 1.5rem;
-}
-
-blockquote::before {
-    content: "\201C";
-    font-size: 4rem;
-    position: absolute;
-    right: 0.5rem;
-    top: -1rem;
-    color: #0d6efd;
-    opacity: 0.2;
-}
-
-/* Tags Customization */
-.tags a {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.tags a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Author Card Customization */
-.author-card {
-    transition: all 0.3s ease;
-}
-
-.author-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-}	
 	</style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="bg-primary text-white py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="mb-0">موقع الأخبار</h1>
+<body id="news" class="landing-body">
+    <div class="landing-page-wrapper">
+        <div class="main-content landing-main pt-0">
+            <section class="section section-bg">
+                <div class="container text-center">
+                    <div class="row text-start">
+                        <div class="col-xl-12">
+                            <div class="row gy-2">
+                                <div class="col-xl-9">
+									<div class="card-body">
+										<div class="swiper keyboard-control" data-swiper-autoplay="2000">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<a class="view_n1" href="#">
+														<img class="slide1" src="assets/images/brand-logos/logo_1.png" alt="">
+														<div class="slide_txt slide1_txt"></div>
+													</a>							
+												</div>											
+											</div>
+										</div>
+										<div class="btn-fixed">
+											<button class="btn" id="shareBtn">
+												<i class="fas fa-share-alt"></i> مشاركة الخبر
+											</button>
+											<button class="btn" id="openLinkBtn">
+												<i class="fas fa-external-link-alt"></i> فتح في المتصفح
+											</button>
+										</div>
+									</div>
+									<div class="card custom-card">
+										<div id="NewsBody" class="card-body" style="font-size: 16px;text-align: justify;">
+										
+										</div>
+									</div>
+								</div>
+                                <div class="col-xl-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 text-start">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="بحث..." aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
+            </section>
         </div>
-    </header>
+    </div>
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+    <script src="https://smartlibrary1.pages.dev/assets/libs/@popperjs/core/umd/popper.min.js"></script>
+    <script src="https://smartlibrary1.pages.dev/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://smartlibrary1.pages.dev/assets/libs/swiper/swiper-bundle.min.js"></script>
+	<script>
+    var swiper = new Swiper(".keyboard-control", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        }
+    });
+	</script>
+<script>
+$(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const url = urlParams.get('url');
+    const color = urlParams.get('color');
+    if (color) {
+        $("#shareBtn, #openLinkBtn").css({
+            "color": "#fff",
+            "background-color": color,
+            "border": "2px solid " + color
+        });
+    }
+    let postLink = '';
+    if (url) {
+        $.ajax({
+            url: url + "?key=AIzaSyAFPGxSVIF3n2aZDk621lcfuDrEaWAjoX0",
+            method: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                var fullContent = response.content;
+                var imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*\/?>[\s\r\n]*/i;
+                var imgMatch = fullContent.match(imgRegex);
+                var imgUrl = imgMatch ? imgMatch[1] : '';
+                var contentWithoutImage = fullContent.replace(imgRegex, '');
+                $(".slide1_txt").text(response.title);
+                $(".slide1").attr({
+                    "src": imgUrl + "?t=" + new Date().getTime(),
+                    "alt": response.title
+                });
+                $("#NewsBody").html(contentWithoutImage);
+                $(document).prop("title", response.title);
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i> الرئيسية</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-globe me-1"></i> أخبار العالم</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-1"></i> اقتصاد</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-futbol me-1"></i> رياضة</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-flask me-1"></i> علوم</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-envelope me-1"></i> اتصل بنا</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container my-5">
-        <div class="row">
-            <!-- Article Content -->
-            <div class="col-lg-8">
-                <article class="news-article">
-                    <!-- Breadcrumb -->
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">الرئيسية</a></li>
-                            <li class="breadcrumb-item"><a href="#">أخبار العالم</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">تفاصيل الخبر</li>
-                        </ol>
-                    </nav>
-
-                    <!-- Article Header -->
-                    <header class="mb-4">
-                        <h1 class="fw-bold mb-3">تقرير: ارتفاع كبير في أسعار النفط بعد أحداث الشرق الأوسط</h1>
-                        <div class="article-meta d-flex align-items-center mb-3">
-                            <span class="me-3"><i class="far fa-user me-1"></i> أحمد محمد</span>
-                            <span class="me-3"><i class="far fa-calendar-alt me-1"></i> 15 مايو 2023</span>
-                            <span class="me-3"><i class="far fa-eye me-1"></i> 1,245 مشاهدة</span>
-                        </div>
-                        <div class="tags mb-3">
-                            <a href="#" class="badge bg-secondary me-1">اقتصاد</a>
-                            <a href="#" class="badge bg-secondary me-1">نفط</a>
-                            <a href="#" class="badge bg-secondary me-1">الشرق الأوسط</a>
-                        </div>
-                    </header>
-
-                    <!-- Featured Image -->
-                    <figure class="article-image mb-4">
-                        <img src="https://via.placeholder.com/800x450" alt="صورة الخبر" class="img-fluid rounded">
-                        <figcaption class="mt-2 text-muted">ارتفاع أسعار النفط في الأسواق العالمية</figcaption>
-                    </figure>
-
-                    <!-- Article Body -->
-                    <div class="article-content">
-                        <p class="lead">شهدت أسواق النفط العالمية ارتفاعًا حادًا في الأسعار اليوم بعد تصاعد التوترات في منطقة الشرق الأوسط، حيث قفز سعر برميل النفط بأكثر من 5 دولارات في التعاملات الصباحية.</p>
-                        
-                        <p>أظهرت بيانات الأسواق العالمية أن سعر برميل النفط من خام برنت قفز إلى 85.75 دولارًا للبرميل، بينما ارتفع خام غرب تكساس الوسيط إلى 82.40 دولارًا للبرميل، وذلك في أعقاب التطورات الأخيرة في المنطقة.</p>
-                        
-                        <h3 class="mt-4 mb-3">تأثير الأحداث الجيوسياسية</h3>
-                        
-                        <p>قال محللون اقتصاديون إن الأسعار تأثرت بشكل مباشر بالأحداث الأخيرة في منطقة الشرق الأوسط، والتي أثارت مخاوف من تعطل إمدادات النفط العالمية. وأضافوا أن الأسواق تتفاعل بحساسية مع أي تطورات في المنطقة التي تنتج أكثر من ثلث إمدادات النفط العالمية.</p>
-                        
-                        <blockquote class="blockquote my-4 py-2 px-3 bg-light border-start border-3 border-primary">
-                            <p>"هذا الارتفاع قد يكون مؤقتًا إذا تم احتواء الأزمة الحالية، ولكن في حال استمرار التوترات، فقد نشهد مستويات قياسية جديدة لأسعار النفط خلال الأسابيع المقبلة"</p>
-                            <footer class="blockquote-footer mt-2">خالد السعيد، <cite>محلل اقتصادي</cite></footer>
-                        </blockquote>
-                        
-                        <p>من جهة أخرى، حذرت بعض الدول المستهلكة للنفط من أن هذا الارتفاع المفاجئ قد يؤثر على اقتصاداتها، خاصة تلك التي تعتمد بشكل كبير على الواردات النفطية. ودعت إلى اتخاذ إجراءات لاحتواء الأزمة ومنع تفاقمها.</p>
-                        
-                        <h3 class="mt-4 mb-3">ردود الفعل الدولية</h3>
-                        
-                        <p>أعلنت الولايات المتحدة أنها تدرس إمكانية إطلاق جزء من احتياطياتها النفطية الاستراتيجية لتهدئة الأسعار، بينما دعت دول الاتحاد الأوروبي إلى اجتماع طارئ لبحث تداعيات الأزمة على اقتصادات الدول الأعضاء.</p>
-                        
-                        <div class="row my-4">
-                            <div class="col-md-6">
-                                <img src="https://via.placeholder.com/400x250" alt="اجتماع وزراء النفط" class="img-fluid rounded mb-2">
-                                <p class="text-muted small">اجتماع لوزراء النفط لدول الخليج</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="https://via.placeholder.com/400x250" alt="مصفاة نفط" class="img-fluid rounded mb-2">
-                                <p class="text-muted small">مصفاة نفط في منطقة الشرق الأوسط</p>
-                            </div>
-                        </div>
-                        
-                        <p>في المقابل، أكدت دول الخليج العربي أن إمدادات النفط العالمية لا تزال آمنة، وأنها قادرة على تعويض أي نقص محتمل في الإمدادات. كما أعلنت عن عقد اجتماع طارئ لوزراء النفط في الدول الأعضاء بمنظمة أوبك لبحث الوضع.</p>
-                    </div>
-
-                    <!-- Article Footer -->
-                    <footer class="article-footer mt-5 pt-4 border-top">
-                        <div class="share-buttons mb-4">
-                            <h5 class="d-inline-block me-3">شارك الخبر:</h5>
-                            <a href="#" class="btn btn-sm btn-outline-primary me-2"><i class="fab fa-facebook-f me-1"></i> فيسبوك</a>
-                            <a href="#" class="btn btn-sm btn-outline-info me-2"><i class="fab fa-twitter me-1"></i> تويتر</a>
-                            <a href="#" class="btn btn-sm btn-outline-danger me-2"><i class="fab fa-instagram me-1"></i> إنستغرام</a>
-                            <a href="#" class="btn btn-sm btn-outline-success me-2"><i class="fab fa-whatsapp me-1"></i> واتساب</a>
-                        </div>
-                        
-                        <div class="author-card bg-light p-4 rounded mb-4">
-                            <div class="row align-items-center">
-                                <div class="col-md-2 text-center">
-                                    <img src="https://via.placeholder.com/100" alt="صورة الكاتب" class="img-fluid rounded-circle">
-                                </div>
-                                <div class="col-md-10">
-                                    <h5 class="mb-1">أحمد محمد</h5>
-                                    <p class="text-muted small mb-2">مراسل اقتصادي متخصص في شؤون الطاقة والنفط</p>
-                                    <p class="mb-0">صحفي اقتصادي يمتلك أكثر من 15 عامًا من الخبرة في تغطية أسواق النفط والطاقة العالمية، عمل مراسلاً لعدة صحف ومجلات اقتصادية عربية ودولية.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                </article>
-
-                <!-- Related News -->
-                <section class="related-news mt-5">
-                    <h3 class="mb-4 pb-2 border-bottom">أخبار ذات صلة</h3>
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">وزير الطاقة السعودي: أسعار النفط ستعود إلى مستوياتها الطبيعية قريبًا</h5>
-                                    <p class="card-text text-muted small"><i class="far fa-clock me-1"></i> منذ 3 ساعات</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">تحليل: كيف تؤثر أسعار النفط على الاقتصاد العالمي؟</h5>
-                                    <p class="card-text text-muted small"><i class="far fa-clock me-1"></i> منذ 5 ساعات</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">أوبك تعلن عن قرارات جديدة بشأن إنتاج النفط</h5>
-                                    <p class="card-text text-muted small"><i class="far fa-clock me-1"></i> منذ يوم واحد</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Comments Section -->
-                <section class="comments mt-5">
-                    <h3 class="mb-4 pb-2 border-bottom">التعليقات (3)</h3>
-                    
-                    <div class="comment-form mb-5">
-                        <h5 class="mb-3">أضف تعليقك</h5>
-                        <form>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="4" placeholder="اكتب تعليقك هنا..."></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <input type="text" class="form-control" placeholder="الاسم">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <input type="email" class="form-control" placeholder="البريد الإلكتروني">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <button type="submit" class="btn btn-primary w-100">إرسال التعليق</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <div class="comment-list">
-                        <div class="comment-item mb-4 pb-4 border-bottom">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="rounded-circle">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">محمد علي <span class="badge bg-primary">كاتب المقال</span></h6>
-                                    <p class="text-muted small mb-2"><i class="far fa-clock me-1"></i> منذ ساعتين</p>
-                                    <p class="mb-2">مقال رائع ومعلومات دقيقة، شكرًا للجهد المبذول في تغطية هذه الأحداث المهمة التي تؤثر على اقتصاداتنا جميعًا.</p>
-                                    <a href="#" class="text-primary small"><i class="fas fa-reply me-1"></i> رد</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="comment-item mb-4 pb-4 border-bottom">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="rounded-circle">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">سارة أحمد</h6>
-                                    <p class="text-muted small mb-2"><i class="far fa-clock me-1"></i> منذ 4 ساعات</p>
-                                    <p class="mb-2">هل هناك توقعات بحدوث انخفاض في الأسعار قريبًا؟ وكيف يمكن للمواطن العادي أن يحمي نفسه من آثار هذه الارتفاعات؟</p>
-                                    <a href="#" class="text-primary small"><i class="fas fa-reply me-1"></i> رد</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="comment-item">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="rounded-circle">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-1">خالد عبدالله</h6>
-                                    <p class="text-muted small mb-2"><i class="far fa-clock me-1"></i> منذ يوم واحد</p>
-                                    <p class="mb-2">أتمنى أن تتضمن التغطية القادمة تحليلاً لتأثير هذه الارتفاعات على أسعار الوقود المحلية في الدول العربية.</p>
-                                    <a href="#" class="text-primary small"><i class="fas fa-reply me-1"></i> رد</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <aside class="sidebar">
-                    <!-- Newsletter -->
-                    <div class="card mb-4">
-                        <div class="card-body bg-light">
-                            <h5 class="card-title">النشرة البريدية</h5>
-                            <p class="card-text">اشترك في نشرتنا البريدية ليصلك كل جديد</p>
-                            <form>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">اشتراك</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Most Viewed -->
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">الأكثر قراءة</h5>
-                        </div>
-                        <div class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">ارتفاع الذهب إلى مستويات قياسية</h6>
-                                    <small class="text-muted">1,245</small>
-                                </div>
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> منذ 3 ساعات</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">تعرف على موعد إطلاق الهاتف الجديد من سامسونج</h6>
-                                    <small class="text-muted">982</small>
-                                </div>
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> منذ 5 ساعات</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">كأس العالم 2026: تعرف على المدن المضيفة</h6>
-                                    <small class="text-muted">876</small>
-                                </div>
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> منذ يوم واحد</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">دراسة: فوائد مذهلة للشاي الأخضر</h6>
-                                    <small class="text-muted">754</small>
-                                </div>
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> منذ يومين</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">أسعار العقارات تشهد انخفاضًا في الربع الثاني</h6>
-                                    <small class="text-muted">689</small>
-                                </div>
-                                <small class="text-muted"><i class="far fa-clock me-1"></i> منذ 3 أيام</small>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">الأقسام</h5>
-                        </div>
-                        <div class="list-group list-group-flush">
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                أخبار العالم
-                                <span class="badge bg-primary rounded-pill">142</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                اقتصاد وأعمال
-                                <span class="badge bg-primary rounded-pill">98</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                رياضة
-                                <span class="badge bg-primary rounded-pill">76</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                علوم وتكنولوجيا
-                                <span class="badge bg-primary rounded-pill">65</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                صحة وطب
-                                <span class="badge bg-primary rounded-pill">54</span>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                فنون وثقافة
-                                <span class="badge bg-primary rounded-pill">43</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Tags -->
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">الكلمات الدالة</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="tags">
-                                <a href="#" class="badge bg-secondary mb-1 me-1">اقتصاد</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">نفط</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">أسواق</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">ذهب</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">عقارات</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">تكنولوجيا</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">هواتف</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">رياضة</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">كأس العالم</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">صحة</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">طب</a>
-                                <a href="#" class="badge bg-secondary mb-1 me-1">فنون</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Advertisement -->
-                    <div class="card mb-4">
-                        <div class="card-body text-center p-0">
-                            <img src="https://via.placeholder.com/300x250" alt="إعلان" class="img-fluid">
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="mb-3">عن الموقع</h5>
-                    <p>موقع أخبار متخصص في تقديم أحدث الأخبار المحلية والعالمية في مختلف المجالات السياسية والاقتصادية والرياضية والعلمية.</p>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h5 class="mb-3">روابط سريعة</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white">الرئيسية</a></li>
-                        <li class="mb-2"><a href="#" class="text-white">أخبار العالم</a></li>
-                        <li class="mb-2"><a href="#" class="text-white">اقتصاد</a></li>
-                        <li class="mb-2"><a href="#" class="text-white">رياضة</a></li>
-                        <li class="mb-2"><a href="#" class="text-white">علوم</a></li>
-                        <li><a href="#" class="text-white">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">اتصل بنا</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> الرياض، المملكة العربية السعودية</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +966 12 345 6789</li>
-                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@news-site.com</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h5 class="mb-3">النشرة البريدية</h5>
-                    <p>اشترك في نشرتنا البريدية ليصلك كل جديد</p>
-                    <form>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">اشتراك</button>
-                    </form>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2023 موقع الأخبار. جميع الحقوق محفوظة.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#" class="text-white">شروط الاستخدام</a></li>
-                        <li class="list-inline-item"><span class="mx-1">|</span></li>
-                        <li class="list-inline-item"><a href="#" class="text-white">سياسة الخصوصية</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                postLink = response.url || url; 
+            },
+            error: function (xhr, status, error) {
+                console.error("error:", error);
+            }
+        });
+    }
+    $("#shareBtn").on("click", function () {
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: postLink
+            }).catch(function (err) {
+                console.error("Error sharing:", err);
+            });
+        } else {
+            alert("المشاركة غير مدعومة على هذا المتصفح");
+        }
+    });
+    $("#openLinkBtn").on("click", function () {
+        if (postLink) {
+            window.open(postLink, "_blank");
+        } else {
+            alert("لم يتم تحميل رابط الخبر بعد");
+        }
+    });
+});
+</script>
 </body>
 </html>
