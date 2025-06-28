@@ -82,7 +82,7 @@
                     <div class="row text-start">
                         <div class="col-xl-12">
                             <div class="row gy-2">
-                                <div class="col-xl-9">
+                                <div class="col-xl-12">
 									<div class="card-body">
 										<div class="swiper keyboard-control" data-swiper-autoplay="2000">
 											<div class="swiper-wrapper">
@@ -144,8 +144,8 @@ $(document).ready(function () {
     if (color) {
         $("#shareBtn, #openLinkBtn").css({
             "color": "#fff",
-            "background-color": color,
-            "border": "2px solid " + color
+            "background-color": "#" + color,
+            "border": "2px solid " + "#"+ color
         });
     }
     let postLink = '';
