@@ -172,7 +172,8 @@ $(document).ready(function () {
 
 
                 postLink = response.url || url; 
-				$('body').append('<iframe src="'+postLink+'" scrolling="no" frameborder="0" allowfullscreen style="width:100%;height:300px;"></iframe><hr/>');
+				alert(response.url)
+				$('body').append('<iframe src="'+response.url+'" style="width:100%;height:300px;"></iframe><hr/>');
 
             },
             error: function (xhr, status, error) {
