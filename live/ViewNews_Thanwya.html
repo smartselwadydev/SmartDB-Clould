@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-nav-layout="horizontal" data-nav-style="menu-click" data-menu-position="fixed" data-theme-mode="light" style="--primary-rgb: 144, 6, 4;">
+
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="Author" content="Smarts ElWady">
+
+    <script src="https://smartlibrary1.pages.dev/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="https://smartlibrary1.pages.dev/assets/js/main.js"></script>
+    <link id="style" href="https://smartlibrary1.pages.dev/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link id="style" href="https://smartlibrary1.pages.dev/assets/libs/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet" >
+    <link href="https://smartlibrary1.pages.dev/assets/css/styles.min.css" rel="stylesheet" >
+	<link rel="stylesheet" href="https://smartlibrary1.pages.dev/assets/libs/swiper/swiper-bundle.min.css">
+	<link href="assets/css/custom.css" rel="stylesheet" >
+    <script src="https://smartlibrary1.pages.dev/assets/libs/jquery/jquery.min.js"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
+	<script>
+		var d = new Date();
+		var catchesKey = d.getTime();
+	</script>
+	<style>
+		.horizontal-logo {
+			padding: 0px!important;
+		}
+		.header-logo img {
+				height: 3rem!important;
+				display: inherit;
+		}
+		@media screen and (max-width: 992px) {
+		  .section-bg {
+				padding-top: 10px!important;
+			}
+		}
+		@media (min-width: 992px){
+		.landing-body .app-sidebar.sticky.sticky-pin .landing-logo-container .horizontal-logo .desktop-logo {
+			display: inherit;
+		}
+		}
+		.btn-fixed {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            left: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 999;
+        }
+
+		.slide_txt{
+	position: absolute;
+    bottom: 0px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 0;
+	font-size:16px;
+	padding-right:20px;
+	padding-left:20px;
+}
+:root {
+  --secondary: #900604;
+}
+.prediction-small-view, .see-all-footer-button-container, .see-all-footer{
+  display:none;
+}
+	</style>
+</head>
+<body id="news" class="landing-body">
+    <div class="landing-page-wrapper">
+        <div class="main-content landing-main pt-0">
+            <section class="section section-bg">
+                <div class="container text-center">
+                    <div class="row text-start">
+                        <div class="col-xl-12">
+                            <div class="row gy-2">
+                                <div class="col-xl-12">
+									<div class="card-body">
+										<div class="swiper keyboard-control" data-swiper-autoplay="2000">
+											<div class="swiper-wrapper">
+												<div class="swiper-slide">
+													<a class="view_n1" href="#">
+														<img class="slide1" src="" alt="" style="display:none">
+														<div class="slide_txt slide1_txt" style="display:none"></div>
+													</a>							
+												</div>											
+											</div>
+										</div>
+									</div>
+									<div class="card custom-card">
+										<div id="NewsBody" class="card-body" style="font-size: 16px;text-align: justify;">
+										
+										</div>
+										<div style="height:300px;">	
+										<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759"
+											 crossorigin="anonymous"></script>
+										<ins class="adsbygoogle"
+											 style="display:inline-block; text-align:center;"
+											 data-ad-layout="in-article"
+											 data-ad-format="fluid"
+											 data-ad-client="ca-pub-8380185804726759"
+											 data-ad-slot="4754675021"></ins>
+										<script>
+											 (adsbygoogle = window.adsbygoogle || []).push({});
+										</script>	
+									  </div>
+									</div>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+    <script src="https://smartlibrary1.pages.dev/assets/libs/@popperjs/core/umd/popper.min.js"></script>
+    <script src="https://smartlibrary1.pages.dev/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="https://smartlibrary1.pages.dev/assets/libs/swiper/swiper-bundle.min.js"></script>
+	<script>
+    var swiper = new Swiper(".keyboard-control", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+        }
+    });
+	</script>
+<script>
+$(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const url = urlParams.get('url');
+    const color = urlParams.get('color');
+    if (color) {
+        $("#shareBtn, #openLinkBtn").css({
+            "color": "#fff",
+            "background-color": "#" + color,
+            "border": "2px solid " + "#"+ color
+        });
+    }
+    let postLink = '';
+    if (url) {
+        $.ajax({
+            url: url + "?key=AIzaSyAFPGxSVIF3n2aZDk621lcfuDrEaWAjoX0",
+            method: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                var fullContent = response.content;
+                var imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*\/?>[\s\r\n]*/i;
+                var imgMatch = fullContent.match(imgRegex);
+                var imgUrl = imgMatch ? imgMatch[1] : '';
+                var contentWithoutImage = fullContent.replace(imgRegex, '');
+                $(".slide1_txt").text(response.title);
+                $(".slide1").attr({
+                    "src": imgUrl + "?t=" + new Date().getTime(),
+                    "alt": response.title
+                }).fadeIn();
+                $("#NewsBody").html(contentWithoutImage);
+                $(document).prop("title", response.title);
+
+                postLink = response.url || url; 
+            },
+            error: function (xhr, status, error) {
+                console.error("error:", error);
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
