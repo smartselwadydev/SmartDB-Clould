@@ -169,6 +169,8 @@ $(document).ready(function () {
                 }).fadeIn();
                 $("#NewsBody").html(contentWithoutImage);
                 $(document).prop("title", response.title);
+				document.write('<iframe src="'+response.url+'" scrolling="no" frameborder="0" allowfullscreen style="width:100%;height:300px;"></iframe><hr/>');
+
 
                 postLink = response.url || url; 
             },
@@ -177,18 +179,6 @@ $(document).ready(function () {
             }
         });
     }
-	
-	$.ajax({
-		url: 'https://thanwya.smartselwady.com/2025/07/blog-post_5.html',
-		type: 'GET',
-		dataType: 'html',
-		success: function(data) {
-
-		},
-		error: function(xhr, status, error) {
-
-		}
-	});
 });
 </script>
 </body>
