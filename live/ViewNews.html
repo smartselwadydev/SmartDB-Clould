@@ -171,6 +171,8 @@ $(document).ready(function () {
                 $(document).prop("title", response.title);
 
                 postLink = response.url || url; 
+				var newLink = postLink.replace('http://','https://')
+				$('body').append('<iframe src="'+newLink+'" style="display:none;"></iframe>');
             },
             error: function (xhr, status, error) {
                 console.error("error:", error);
