@@ -140,6 +140,37 @@
 	</script>
 <script>
 $(document).ready(function () {
+
+	const now = new Date();
+	const hours = now.getHours();
+	const period = hours >= 12 ? 'pm' : 'am';
+	const displayHours = hours % 12 || 12; // Convert to 12-hour format
+	if ((hours >= 0 && hours < 1) || (hours >= 12 && hours < 13)) {
+		var GoogleKey = "AIzaSyBd1D_PefLPGbVvuWbx38dJNkdkYPNgRzg";
+	} else if ((hours >= 1 && hours < 2) || (hours >= 13 && hours < 14)) {
+		var GoogleKey = "AIzaSyBd1D_PefLPGbVvuWbx38dJNkdkYPNgRzg";
+	} else if ((hours >= 2 && hours < 3) || (hours >= 14 && hours < 15)) {
+		var GoogleKey = "AIzaSyCFm1NK2GqKqoarpOPZfUWj6vh-j-dL6Yo";
+	} else if ((hours >= 3 && hours < 4) || (hours >= 15 && hours < 16)) {
+		var GoogleKey = "AIzaSyALbbDBcR9UNH66L5ZC48YkgB2hyTW8MCc";
+	} else if ((hours >= 4 && hours < 5) || (hours >= 16 && hours < 17)) {
+		var GoogleKey = "AIzaSyDfdoVGXFdJtovyuhFrb2H3f1NUucOpDvU";
+	} else if ((hours >= 5 && hours < 6) || (hours >= 17 && hours < 18)) {
+		var GoogleKey = "AIzaSyAT4Qd35W98VLRADlVZXXSD_Jf3VVN2sGE";
+	} else if ((hours >= 6 && hours < 7) || (hours >= 18 && hours < 19)) {
+		var GoogleKey = "AIzaSyAUvAkoiwva1oymOWZZvjBLkf4hx4rQ_PQ";
+	} else if ((hours >= 7 && hours < 8) || (hours >= 19 && hours < 20)) {
+		var GoogleKey = "AIzaSyBDDGHwaxV0aTUdT-fO0YjDI_PjQR7ydp4";
+	} else if ((hours >= 8 && hours < 9) || (hours >= 20 && hours < 21)) {
+		var GoogleKey = "AIzaSyC071ZN98iYxjhZZXvkfgk8tQWMcfsIgp8";
+	} else if ((hours >= 9 && hours < 10) || (hours >= 21 && hours < 22)) {
+		var GoogleKey = "AIzaSyC4Vju9mSfnRvzBRcWcATsToMuAIb34qek";
+	} else if ((hours >= 10 && hours < 11) || (hours >= 22 && hours < 23)) {
+		var GoogleKey = "AIzaSyBlgBnAJ58hBM2J1GaxuMCeacYuzfAK3tM";
+	} else {
+		var GoogleKey = "AIzaSyABuXt_qPrE1dvIL1ilRW6k2ts_4EZvlyc";
+	}
+
     const urlParams = new URLSearchParams(window.location.search);
     const url = urlParams.get('url');
     const color = urlParams.get('color');
@@ -153,7 +184,7 @@ $(document).ready(function () {
     let postLink = '';
     if (url) {
         $.ajax({
-            url: url + "?key=AIzaSyAFPGxSVIF3n2aZDk621lcfuDrEaWAjoX0",
+            url: url + "?key="+GoogleKey,
             method: 'GET',
             dataType: 'json',
             success: function (response) {
