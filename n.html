@@ -39,7 +39,7 @@
                         </div>
                         <div id="errorContainer" class="mt-3 d-none">
                             <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">Error</h4>
+                                <h4 class="alert-heading">خطأ</h4>
                                 <div id="errorContent"></div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                         $('#loadingSpinner').addClass('d-none');
                         
                         // Display error
-                        $('#errorContent').text('Error: ' + error);
+                        $('#errorContent').text('النتيجة غير متاحة حاليا');
                         $('#errorContainer').removeClass('d-none');
                         
                         console.error('AJAX Error:', error);
