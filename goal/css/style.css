@@ -1,0 +1,72 @@
+/* Custom CSS for a Clean, RTL Mobile Layout */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .bottom-nav {
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            z-index: 20; 
+        }
+        .ad-banner {
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 15; 
+        }
+        .active-tab {
+            color: #037790; /* اللون الأحمر للتبويب النشط */
+            border-top: 2px solid #037790;
+        }
+        /* Style for the news thumbnail */
+        .news-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-left: 1rem; /* Space between image and text */
+        }
+        
+        /* Hide detail view by default */
+        #detail-view {
+            display: none;
+        }
+
+        /* ------------------------------------- */
+        /* FIX: RTL Toggle Switch (Settings Page) */
+        /* ------------------------------------- */
+        .rtl-toggle .peer-checked:after {
+            /* عند التفعيل، يجب أن يتحرك الزر إلى أقصى اليسار */
+            transform: translateX(-100%); /* لجعله يتحرك كامل عرضه */
+            right: auto; /* إلغاء خاصية right */
+            left: 2px; /* تثبيته في الجهة اليسرى (بداية التشغيل) */
+        }
+        /* Adjust the initial position for RTL (right is the start) */
+        .rtl-toggle .after\\:right-\\[2px\\]::after {
+            right: 2px;
+            left: auto;
+        }
+        
+        /* ------------------------------------------- */
+        /* NEW: Transition Effects for Content Sections */
+        /* ------------------------------------------- */
+        .content-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .content-section.active {
+            display: block; /* Show the active section */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .peer:checked ~ .peer-checked\:after\:border-white::after{
+            right:41px;
+        }

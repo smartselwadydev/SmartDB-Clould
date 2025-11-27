@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <base href="https://elwady.dev/ygoal/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق أخبار الرياضة - يلا جول</title>
+    
+    <link rel="manifest" href="manifest.json" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-title" content="يلا جول" />
+	<link rel="apple-touch-icon" href="https://placehold.co/192x192/037790/ffffff?text=192" />
+	<link rel="apple-touch-icon" sizes="512x512" href="https://placehold.co/512x512/037790/ffffff?text=512" />
+	<meta name="theme-color" content="#037790">
+
+    <script src="js/tailwind.js"></script>
+    <link rel="stylesheet" href="css/fontawesome.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" /> </head>
+    <body>
+
+    <div class="app-container">
+
+        <header class="p-4 bg-cyan-800 text-white shadow-lg fixed top-0 w-full max-w-[600px] z-30 flex justify-between items-center">
+            <button id="back-button" class="text-white hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <h1 id="header-title" class="text-xl font-bold text-center flex-grow">يلا جول</h1>
+             </header>
+        
+        <main class="pt-[64px] p-4 pb-0">
+
+            <div id="tab-content-views">
+                <section id="home-content" class="content-section active space-y-4"></section>
+
+                <section id="scores-content" class="content-section space-y-4"></section>
+
+                <section id="teams-content" class="content-section space-y-4"></section>
+
+                <section id="settings-content" class="content-section space-y-4"></section>
+            </div>
+
+            <section id="detail-view" class="pt-[0px] p-4 pb-0 space-y-4">
+                <img id="detail-image" src="" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 id="detail-title" class="text-2xl font-bold text-right mb-2"></h2>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                    <span id="detail-time"></span>
+                    <span id="detail-category" class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs"></span>
+                </div>
+                <p id="detail-text" class="text-gray-700 text-right leading-relaxed"></p>
+                <nav class="bottom-nav fixed bottom-0 w-full max-w-[600px] h-16 flex justify-around items-center border-t border-gray-100">
+
+        
+            <button id="tab-scores" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500 active-tab" data-target="scores-content" data-file="pages/scores.html">
+                <i class="fa-solid fa-calendar-circle-exclamation w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">المباريات</span>
+            </button>
+
+             <button id="tab-home" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="home-content" data-file="pages/home.html">
+                <i class="fa-solid fa-rss w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">الاخبار</span>
+            </button>
+
+            <button id="tab-teams" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="teams-content" data-file="pages/teams.html">
+                <i class="fa-solid fa-medal w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">جدول الترتيب</span>
+            </button>
+
+            <button id="tab-settings" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="settings-content" data-file="pages/settings.html">
+                <i class="fa-solid fa-gear w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">إعدادات</span>
+            </button>
+
+        </nav>
+            </section>
+
+        </main>
+
+        <div class="ad-banner fixed bottom-16 w-full max-w-[600px] h-[50px] bg-gray-100 flex items-center justify-center border-t border-gray-300">
+            <span class="text-sm text-gray-700">مساحة إعلانية (Google AdSense)</span>
+        </div>
+
+        <nav class="bottom-nav fixed bottom-0 w-full max-w-[600px] h-16 flex justify-around items-center border-t border-gray-100">
+
+        
+            <button id="tab-scores" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500 active-tab" data-target="scores-content" data-file="pages/scores.html">
+                <i class="fa-solid fa-calendar-circle-exclamation w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">المباريات</span>
+            </button>
+
+             <button id="tab-home" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="home-content" data-file="pages/home.html">
+                <i class="fa-solid fa-rss w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">الاخبار</span>
+            </button>
+
+            <button id="tab-teams" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="teams-content" data-file="pages/teams.html">
+                <i class="fa-solid fa-medal w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">جدول الترتيب</span>
+            </button>
+
+            <button id="tab-settings" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="settings-content" data-file="pages/settings.html">
+                <i class="fa-solid fa-gear w-6 h-6 mb-1 text-lg"></i>
+                <span class="text-xs font-medium">إعدادات</span>
+            </button>
+
+        </nav>
+
+    </div>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
+
+    
+</body>
+</html>

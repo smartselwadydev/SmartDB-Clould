@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق أخبار الرياضة - يلا جول</title>
+    
+    <!-- يحدد المسار الأساسي (ضروري في بعض سيناريوهات PWA لحل مشاكل المسار) --><base href="/">
+    
+    <!-- PWA / Apple Meta Tags & Manifest Link --><link rel="manifest" href="manifest.json" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="apple-mobile-web-app-title" content="يلا جول" />
+	<!-- الأيقونات الافتراضية - يجب استبدالها بمسارات الأيقونات الحقيقية --><link rel="apple-touch-icon" href="https://placehold.co/192x192/037790/ffffff?text=192" />
+	<link rel="apple-touch-icon" sizes="512x512" href="https://placehold.co/512x512/037790/ffffff?text=512" />
+	<!-- تم توحيد لون الثيم مع لون الشريط العلوي الأحمر (#037790) --><meta name="theme-color" content="#037790">
+
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for a Clean, RTL Mobile Layout */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        .bottom-nav {
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            z-index: 20; 
+        }
+        .ad-banner {
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+            z-index: 15; 
+        }
+        .active-tab {
+            color: #037790; /* اللون الأحمر للتبويب النشط */
+            border-top: 2px solid #037790;
+        }
+        /* Style for the news thumbnail */
+        .news-thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-left: 1rem; /* Space between image and text */
+        }
+        
+        /* Hide detail view by default */
+        #detail-view {
+            display: none;
+        }
+
+        /* ------------------------------------- */
+        /* FIX: RTL Toggle Switch (Settings Page) */
+        /* ------------------------------------- */
+        .rtl-toggle .peer-checked:after {
+            /* عند التفعيل، يجب أن يتحرك الزر إلى أقصى اليسار */
+            transform: translateX(-100%); /* لجعله يتحرك كامل عرضه */
+            right: auto; /* إلغاء خاصية right */
+            left: 2px; /* تثبيته في الجهة اليسرى (بداية التشغيل) */
+        }
+        /* Adjust the initial position for RTL (right is the start) */
+        .rtl-toggle .after\\:right-\\[2px\\]::after {
+            right: 2px;
+            left: auto;
+        }
+        
+        /* ------------------------------------------- */
+        /* NEW: Transition Effects for Content Sections */
+        /* ------------------------------------------- */
+        .content-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .content-section.active {
+            display: block; /* Show the active section */
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Application Container --><div class="app-container">
+
+        <!-- Header --><header class="p-4 bg-cyan-800 text-white shadow-lg fixed top-0 w-full max-w-[600px] z-30 flex justify-between items-center">
+            <button id="back-button" class="text-white hidden">
+                <!-- SVG Icon for Back (Arrow Right for RTL) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <h1 id="header-title" class="text-xl font-bold text-center flex-grow">يلا جول</h1>
+            <div class="w-6"></div> <!-- Spacer for alignment --></header>
+        
+        <!-- Main Content Wrapper (Scrollable area) --><main class="pt-[64px] p-4 pb-0">
+
+            <!-- Content Sections (Simulating different tabs) --><div id="tab-content-views">
+                <!-- 1. Home Section (Active by default) --><section id="home-content" class="content-section active space-y-4">
+                    <!-- News Card 1: Football --><div class="news-card bg-white rounded-xl shadow-lg p-4 transition duration-300 hover:shadow-xl border-r-4 border-red-500 flex items-center cursor-pointer" 
+                         data-title="هدف قاتل يحسم قمة الدوري" 
+                         data-image="https://placehold.co/600x400/037790/ffffff?text=Football+Goal"
+                         data-category="كرة القدم"
+                         data-time="منذ 3 ساعات"
+                         data-details="في مباراة دراماتيكية ومليئة بالإثارة والندية بين الفريقين المتنافسين، سجل المهاجم المخضرم هدف الفوز الحاسم في الدقيقة الأخيرة من الوقت بدل الضائع. هذا الهدف لم يأتِ من فراغ، بل كان نتيجة لتكتيك هجومي محكم وجهود جماعية منقطعة النظير من قبل اللاعبين. الجماهير احتفلت بجنون بعد أن ضمن هذا الفوز لفريقها صدارة جدول الترتيب بشكل مؤقت، مما يزيد من حظوظهم في المنافسة على لقب الدوري هذا الموسم. المباراة كانت شاهدة على عروض فردية مميزة ودفاع صلب من كلا الجانبين، ولكن اللمسة الأخيرة كانت من نصيب الفريق الفائز.">
+                        <img src="https://placehold.co/80x80/037790/ffffff?text=F" alt="Football Goal" class="news-thumbnail">
+                        <div class="flex-grow text-right">
+                            <h3 class="text-lg font-bold mb-1">هدف قاتل يحسم قمة الدوري</h3>
+                            <p class="text-sm text-gray-600 mb-2 line-clamp-2">في مباراة دراماتيكية، سجل المهاجم هدف الفوز في الدقيقة الأخيرة ليؤمن لفريقه صدارة جدول الترتيب.</p>
+                            <div class="flex justify-between items-center text-xs text-gray-400">
+                                <span>كرة القدم</span>
+                                <span>منذ 3 ساعات</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 2: Basketball --><div class="news-card bg-white rounded-xl shadow-lg p-4 transition duration-300 hover:shadow-xl border-r-4 border-blue-500 flex items-center cursor-pointer"
+                         data-title="نجم السلة يعود بتصريح ناري"
+                         data-image="https://placehold.co/600x400/3b82f6/ffffff?text=Basketball+Star"
+                         data-category="كرة السلة"
+                         data-time="يوم أمس"
+                         data-details="أعلن نجم فريق كرة السلة البارز، الذي غاب عن الملاعب لفترة بسبب الإصابة، عن عودته القوية بتصريح ناري لم يتوقعه أحد. أكد اللاعب في مؤتمر صحفي حاشد جاهزيته البدنية والذهنية الكاملة لخوض الموسم القادم، موعدًا الجماهير الغفيرة بتحقيق لقب البطولة الذي طال انتظاره بعد غياب طويل عن منصات التتويج. أثار هذا التصريح حماس الجماهير وزاد من توقعاتهم لموسم حافل بالإنجازات والأداء المميز.">
+                        <img src="https://placehold.co/80x80/3b82f6/ffffff?text=B" alt="Basketball Star" class="news-thumbnail">
+                        <div class="flex-grow text-right">
+                            <h3 class="text-lg font-bold mb-1">نجم السلة يعود بتصريح ناري</h3>
+                            <p class="text-sm text-gray-600 mb-2 line-clamp-2">أعلن نجم فريق كرة السلة جاهزيته الكاملة للموسم القادم، واعدًا الجماهير بتحقيق البطولة بعد غياب طويل.</p>
+                            <div class="flex justify-between items-center text-xs text-gray-400">
+                                <span>كرة السلة</span>
+                                <span>يوم أمس</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 3: Tennis --><div class="news-card bg-white rounded-xl shadow-lg p-4 transition duration-300 hover:shadow-xl border-r-4 border-green-500 flex items-center cursor-pointer"
+                         data-title="المصنفة الأولى تتوج بلقب روما"
+                         data-image="https://placehold.co/600x400/10b981/ffffff?text=Tennis+Champ"
+                         data-category="التنس"
+                         data-time="منذ يومين"
+                         data-details="احتفظت اللاعبة المصنفة الأولى عالمياً في رياضة التنس بلقبها في بطولة روما المرموقة، بعد أن قدمت أداءً استثنائياً في المباراة النهائية. فازت اللاعبة بمجموعتين نظيفتين في مواجهة مثيرة ومليئة بالندية ضد منافستها العنيدة. هذا الفوز يؤكد هيمنتها على منافسات التنس النسائية ويضيف لقباً جديداً إلى سجلها الحافل بالانتصارات.">
+                        <img src="https://placehold.co/80x80/10b981/ffffff?text=T" alt="Tennis Champion" class="news-thumbnail">
+                        <div class="flex-grow text-right">
+                            <h3 class="text-lg font-bold mb-1">المصنفة الأولى تتوج بلقب روما</h3>
+                            <p class="text-sm text-gray-600 mb-2 line-clamp-2">احتفظت لاعبة التنس بلقبها في بطولة روما بعد فوزها بمجموعتين نظيفتين في النهائي المثير.</p>
+                            <div class="flex justify-between items-center text-xs text-gray-400">
+                                <span>التنس</span>
+                                <span>منذ يومين</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Scores Section (Updated for Yesterday, Today, Tomorrow) --><section id="scores-content" class="content-section space-y-4">
+                   
+                    <!-- Date Navigation Tabs -->
+                    <div class="flex justify-around bg-gray-100 p-1 rounded-xl shadow-inner">
+                        <button data-date="tomorrow" class="date-tab flex-1 py-2 text-center text-sm font-semibold text-gray-600 rounded-lg transition duration-150 hover:bg-white hover:shadow-sm">الغد</button>
+                        <!-- 'Today' is active by default in the initial HTML and JS -->
+                        <button data-date="today" class="date-tab flex-1 py-2 text-center text-sm font-bold text-white bg-cyan-800 rounded-lg shadow-md transition duration-150">اليوم</button>
+                        <button data-date="yesterday" class="date-tab flex-1 py-2 text-center text-sm font-semibold text-gray-600 rounded-lg transition duration-150 hover:bg-white hover:shadow-sm">الأمس</button>
+                    </div>
+
+                    <!-- Match List Container - Content will be injected here by JavaScript -->
+                    <div id="match-list-container" class="space-y-4 pt-2">
+                        <!-- Content will be rendered by renderMatches('today') in JS -->
+                    </div>
+                </section>
+
+                <!-- 3. Teams Section --><section id="teams-content" class="content-section space-y-4">
+
+                    <ul class="space-y-3">
+                        <li class="bg-white rounded-xl shadow p-3 flex justify-end items-center transition duration-150 hover:bg-gray-50">
+                            <span class="text-red-600 font-bold ml-3">كرة قدم</span>
+                            <span class="flex-grow text-right">نادي الصقور</span>
+                            <span class="text-xl">🦅</span>
+                        </li>
+                        <li class="bg-white rounded-xl shadow p-3 flex justify-end items-center transition duration-150 hover:bg-gray-50">
+                            <span class="text-blue-600 font-bold ml-3">سلة</span>
+                            <span class="flex-grow text-right">ملوك السلة</span>
+                            <span class="text-xl">👑</span>
+                        </li>
+                        <li class="bg-white rounded-xl shadow p-3 flex justify-end items-center transition duration-150 hover:bg-gray-50">
+                            <span class="text-green-600 font-bold ml-3">تنس</span>
+                            <span class="flex-grow text-right">أبطال المضرب</span>
+                            <span class="text-xl">🎾</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 4. Settings Section (Toggle Fixed) --><section id="settings-content" class="content-section space-y-4">
+                    <div class="bg-white rounded-xl shadow p-4 space-y-3">
+                        
+                        <!-- Toggle 1: Notifications (Fixed for RTL) -->
+                        <div class="flex justify-between items-center text-right border-b pb-2">
+                            <span>إشعارات النتائج</span>
+                            <label class="rtl-toggle relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer" checked>
+                                <!-- The internal toggle logic is adjusted via custom CSS (.rtl-toggle) -->
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-800"></div>
+                            </label>
+                        </div>
+                        
+                        <!-- Toggle 2: Dark Mode (Fixed for RTL) -->
+                        <div class="flex justify-between items-center text-right border-b pb-2">
+                            <span>الوضع الليلي</span>
+                            <label class="rtl-toggle relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <!-- The internal toggle logic is adjusted via custom CSS (.rtl-toggle) -->
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-cyan-800"></div>
+                            </label>
+                        </div>
+                        <p class="pt-2 text-sm text-gray-500 text-center">الإصدار 1.0.0</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- News Detail View (Hidden by default) --><section id="detail-view" class="pt-[0px] p-4 pb-0 space-y-4">
+                <img id="detail-image" src="" alt="News Image" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h2 id="detail-title" class="text-2xl font-bold text-right mb-2"></h2>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                    <span id="detail-time"></span>
+                    <span id="detail-category" class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs"></span>
+                </div>
+                <p id="detail-text" class="text-gray-700 text-right leading-relaxed"></p>
+                <button id="back-to-home" class="mt-6 w-full bg-cyan-800 text-white py-3 rounded-lg font-semibold hidden">العودة للرئيسية</button>
+            </section>
+
+        </main>
+
+        <!-- Bottom Ad Banner (Placeholder for Google AdSense) --><div class="ad-banner fixed bottom-16 w-full max-w-[600px] h-[50px] bg-gray-100 flex items-center justify-center border-t border-gray-300">
+            <span class="text-sm text-gray-700">مساحة إعلانية (Google AdSense)</span>
+        </div>
+
+        <!-- Bottom Tab Navigation Bar (Fixed) --><nav class="bottom-nav fixed bottom-0 w-full max-w-[600px] h-16 flex justify-around items-center border-t border-gray-100">
+            
+            <!-- Tab 1: Home --><button id="tab-home" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500 active-tab" data-target="home-content">
+                <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="text-xs font-medium">الرئيسية</span>
+            </button>
+
+            <!-- Tab 2: Scores --><button id="tab-scores" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="scores-content">
+                <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M15 3H9"/><path d="M12 15a4 4 0 0 0 4 4h-8a4 4 0 0 0 4-4Z"/><path d="M8 22h8"/></svg>
+                <span class="text-xs font-medium">النتائج</span>
+            </button>
+
+            <!-- Tab 3: Teams --><button id="tab-teams" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="teams-content">
+                <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span class="text-xs font-medium">الفِرَق</span>
+            </button>
+
+            <!-- Tab 4: Settings --><button id="tab-settings" class="tab-button flex flex-col items-center justify-center h-full w-1/4 text-gray-500" data-target="settings-content">
+                <svg class="w-6 h-6 mb-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 0-.77 3.3l.23.18a2 2 0 0 1-.72 3.15l-.46.33a2 2 0 0 0-.25 2.58l.3.35a2 2 0 0 1-.36 3.49l-.27.21a2 2 0 0 0 1.25 3.48h2.33a2 2 0 0 0 1.77-1l.19-.34a2 2 0 0 1 2.47-.72l.45.24a2 2 0 0 0 2.42-.51l.24-.3a2 2 0 0 1 2.15-2.64l.15-.09a2 2 0 0 0 2.76-1.57v-1.16a2 2 0 0 0-1.77-1.85l-.3-.08a2 2 0 0 1-1.01-1.76v-.5a2 2 0 0 0-.16-.92l-.33-.52a2 2 0 0 1-1.28-2.12v-.2l-.12-.13A2 2 0 0 0 12.22 2z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span class="text-xs font-medium">إعدادات</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- JavaScript for Tab Switching, PWA Setup, and New Scores Logic --><script>
+        // Simulated Match Data (New Feature)
+        const matchData = [
+            // Yesterday's Matches (Finished)
+            { date: 'yesterday', teamA: 'الريال', teamB: 'برشلونة', scoreA: 3, scoreB: 1, status: 'انتهت', statusColor: 'gray-500', isLive: false, league: 'دوري أبطال أوروبا' },
+            { date: 'yesterday', teamA: 'فريق النجوم', teamB: 'العمالقة', scoreA: 95, scoreB: 98, status: 'انتهت', statusColor: 'gray-500', isLive: false, league: 'دوري كرة السلة' },
+
+            // Today's Matches (Live/Upcoming)
+            { date: 'today', teamA: 'الأهلي', teamB: 'الزمالك', scoreA: 1, scoreB: 1, status: 'جاري اللعب (د: 75)', statusColor: 'red-600', isLive: true, league: 'الدوري المحلي' },
+            { date: 'today', teamA: 'ليفربول', teamB: 'مانشستر سيتي', scoreA: 0, scoreB: 0, status: 'تبدأ 20:00', statusColor: 'blue-500', isLive: false, league: 'الدوري الإنجليزي' },
+            { date: 'today', teamA: 'بايرن ميونخ', teamB: 'دورتموند', scoreA: 2, scoreB: 0, status: 'جاري اللعب (الشوط 1)', statusColor: 'red-600', isLive: true, league: 'الدوري الألماني' },
+
+            // Tomorrow's Matches (Upcoming)
+            { date: 'tomorrow', teamA: 'إيطاليا', teamB: 'إسبانيا', scoreA: null, scoreB: null, status: 'غداً 19:45', statusColor: 'green-600', isLive: false, league: 'تصفيات اليورو' },
+            { date: 'tomorrow', teamA: 'الهلال', teamB: 'النصر', scoreA: null, scoreB: null, status: 'غداً 21:00', statusColor: 'green-600', isLive: false, league: 'الدوري السعودي' },
+        ];
+
+        // Function to generate HTML for a single match card
+        const createMatchCard = (match) => {
+            const scoreA = match.isLive || !match.isLive && match.scoreA !== null ? `<span class="font-extrabold text-${match.isLive ? 'red-600' : 'gray-800'} text-xl">${match.scoreA !== null ? match.scoreA : '-'}</span>` : '';
+            const scoreB = match.isLive || !match.isLive && match.scoreB !== null ? `<span class="font-extrabold text-${match.isLive ? 'red-600' : 'gray-800'} text-xl">${match.scoreB !== null ? match.scoreB : '-'}</span>` : '';
+            
+            // Determine the border color based on live status
+            const borderColor = match.isLive ? 'border-red-500' : 'border-gray-300';
+            const bgColor = match.isLive ? 'bg-red-50' : 'bg-white';
+            
+            // Text color for the teams
+            const teamTextColor = match.isLive ? 'text-red-800' : 'text-gray-800';
+
+            return `
+                <div class="match-card ${bgColor} rounded-xl shadow-md p-4 transition duration-300 hover:shadow-lg border-r-4 ${borderColor} space-y-2">
+                    <!-- League/Category Header -->
+                    <div class="text-xs font-medium text-gray-500 text-right border-b border-gray-100 pb-2 mb-2">
+                        ${match.league}
+                    </div>
+
+                    <!-- Teams and Score Line -->
+                    <div class="flex items-center justify-between">
+                        <!-- Team A -->
+                        <div class="flex flex-col items-center w-1/3 text-right">
+                            <span class="text-sm font-semibold ${teamTextColor}">${match.teamA}</span>
+                        </div>
+                        
+                        <!-- Score / Separator -->
+                        <div class="flex flex-col items-center w-1/3">
+                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                ${scoreA}
+                                <span class="text-lg font-bold text-gray-400 mx-2">${match.isLive ? 'VS' : '-'}</span>
+                                ${scoreB}
+                            </div>
+                        </div>
+
+                        <!-- Team B -->
+                        <div class="flex flex-col items-center w-1/3 text-left">
+                            <span class="text-sm font-semibold ${teamTextColor}">${match.teamB}</span>
+                        </div>
+                    </div>
+
+                    <!-- Status Footer -->
+                    <div class="text-center pt-2 border-t border-dashed border-gray-200">
+                        <span class="text-xs font-bold text-${match.statusColor} p-1 rounded-md bg-opacity-10">${match.status}</span>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Function to render matches for a specific date
+        const renderMatches = (dateFilter) => {
+            const container = document.getElementById('match-list-container');
+            // Add fade-out effect before clearing content
+            container.style.opacity = 0;
+            
+            setTimeout(() => {
+                container.innerHTML = ''; // Clear previous content
+                
+                const filteredMatches = matchData.filter(match => match.date === dateFilter);
+
+                if (filteredMatches.length === 0) {
+                    container.innerHTML = `
+                        <div class="bg-gray-50 p-6 rounded-xl text-center text-gray-600 shadow-inner mt-4">
+                            <p class="text-lg font-semibold">لا توجد مباريات مقررة ${dateFilter === 'yesterday' ? 'بالأمس' : dateFilter === 'today' ? 'اليوم' : 'غداً'}.</p>
+                        </div>
+                    `;
+                } else {
+                    filteredMatches.forEach(match => {
+                        container.innerHTML += createMatchCard(match);
+                    });
+                }
+                // Add fade-in effect after content is rendered
+                container.style.opacity = 1; 
+            }, 150); // Delay matches the CSS transition time for smoothness
+        };
+
+        // Function to handle date tab switching in the scores section
+        const switchDateTab = (selectedButton) => {
+            document.querySelectorAll('.date-tab').forEach(btn => {
+                btn.classList.remove('bg-cyan-800', 'text-white', 'shadow-md');
+                btn.classList.add('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+            });
+
+            selectedButton.classList.add('bg-cyan-800', 'text-white', 'shadow-md');
+            selectedButton.classList.remove('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+            
+            const dateFilter = selectedButton.dataset.date;
+            renderMatches(dateFilter);
+        };
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-button');
+            const tabContentViews = document.getElementById('tab-content-views');
+            const contentSections = document.querySelectorAll('.content-section');
+            const newsCards = document.querySelectorAll('.news-card');
+            const detailView = document.getElementById('detail-view');
+            const detailTitle = document.getElementById('detail-title');
+            const detailImage = document.getElementById('detail-image');
+            const detailCategory = document.getElementById('detail-category');
+            const detailTime = document.getElementById('detail-time');
+            const detailText = document.getElementById('detail-text');
+            const appContainer = document.querySelector('.app-container');
+            const backButton = document.getElementById('back-button');
+            const headerTitle = document.getElementById('header-title');
+            const bottomNav = document.querySelector('.bottom-nav');
+            const adBanner = document.querySelector('.ad-banner');
+
+            let currentView = 'home'; // Tracks whether we are in tab view or detail view
+
+            // وظيفة لتعديل ارتفاع المحتوى الرئيسي ليتناسب مع العرض على الأجهزة المختلفة
+            function adjustHeight() {
+                const headerHeight = 64; 
+                const navHeight = 64; 
+                const adHeight = 50; 
+                const totalFixedBottomHeight = navHeight + adHeight;
+
+                const viewportHeight = window.innerHeight;
+                
+                appContainer.style.minHeight = `${viewportHeight}px`;
+
+                // Main content padding to ensure it scrolls above fixed elements
+                document.querySelector('main').style.paddingBottom = `${totalFixedBottomHeight + 16}px`; 
+            }
+
+            adjustHeight();
+            window.addEventListener('resize', adjustHeight);
+
+            // Function to handle tab switching
+            const switchTab = (targetId, currentTab) => {
+                currentView = 'home'; // Reset view to home when switching tabs
+                
+                // 1. Hide detail view if active
+                detailView.style.display = 'none';
+                tabContentViews.style.display = 'block';
+
+                // 2. Deactivate all tabs and hide all content (with transition effects)
+                tabs.forEach(tab => tab.classList.remove('active-tab'));
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 3. Activate the current tab button
+                currentTab.classList.add('active-tab');
+
+                // 4. Show the target content section after a slight delay for smooth transition
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                     // Scroll to top before showing new content
+                    document.querySelector('main').scrollTo(0, 0); 
+
+                    // Use setTimeout to ensure the content is hidden (opacity 0) before showing the new one
+                    setTimeout(() => {
+                        targetSection.classList.add('active');
+                    }, 10); // Minimal delay to trigger CSS transition
+                }
+
+                // 5. Update header and back button visibility
+                headerTitle.textContent = 'أخبار الرياضة';
+                backButton.classList.add('hidden');
+                bottomNav.classList.remove('hidden');
+                adBanner.classList.remove('hidden');
+            };
+
+            // Function to show news details
+            const showNewsDetail = (card) => {
+                currentView = 'detail';
+                // 1. Hide tab content views (Use transition classes)
+                contentSections.forEach(section => section.classList.remove('active'));
+                
+                // Hide container element to remove from flow
+                tabContentViews.style.display = 'none';
+                
+                // 2. Show detail view
+                detailView.style.display = 'block';
+                detailView.style.opacity = 0;
+                detailView.style.transform = 'translateY(10px)';
+
+
+                // 3. Populate detail view with data from the clicked card
+                detailTitle.textContent = card.dataset.title;
+                detailImage.src = card.dataset.image;
+                detailCategory.textContent = card.dataset.category;
+                detailTime.textContent = card.dataset.time;
+                detailText.textContent = card.dataset.details;
+
+                // 4. Hide bottom nav and ad banner
+                bottomNav.classList.add('hidden');
+                adBanner.classList.add('hidden');
+                
+                // 5. Update header and show back button
+                headerTitle.textContent = 'تفاصيل الخبر';
+                backButton.classList.remove('hidden');
+
+                // 6. Apply transition for detail view
+                setTimeout(() => {
+                    detailView.style.opacity = 1;
+                    detailView.style.transform = 'translateY(0)';
+                }, 50);
+
+                // Scroll to top of main content for detail view
+                document.querySelector('main').scrollTo(0, 0);
+            };
+
+            // Add click listeners to all tab buttons
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetId = tab.getAttribute('data-target');
+                    switchTab(targetId, tab);
+                });
+            });
+
+            // Add click listeners to all news cards
+            newsCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    showNewsDetail(card);
+                });
+            });
+
+            // Back button functionality
+            backButton.addEventListener('click', () => {
+                // If in detail view, go back to home tab
+                if (currentView === 'detail') {
+                    // Hide detail content first
+                    detailView.style.opacity = 0;
+                    detailView.style.transform = 'translateY(10px)';
+
+                    // Switch tab after fade out
+                    setTimeout(() => {
+                        switchTab('home-content', document.getElementById('tab-home'));
+                    }, 300); // Wait for fade out
+                }
+            });
+
+            // NEW: Score Tab Logic Initialization
+            const dateTabs = document.querySelectorAll('.date-tab');
+            if (dateTabs.length > 0) {
+                // Find and activate the 'Today' tab initially
+                const todayTab = document.querySelector('.date-tab[data-date="today"]');
+                if (todayTab) {
+                    renderMatches('today'); // Initial load for 'Today'
+                }
+                
+                // Add click listeners to date tabs (Yesterday, Today, Tomorrow)
+                dateTabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        switchDateTab(e.currentTarget);
+                    });
+                });
+            }
+
+            // --- PWA Service Worker Registration ---
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').then(registration => {
+                        console.log('Service Worker registered successfully with scope: ', registration.scope);
+                    }).catch(error => {
+                        console.log('Service Worker registration failed: ', error);
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
