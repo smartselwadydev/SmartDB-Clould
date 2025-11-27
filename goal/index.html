@@ -17,7 +17,10 @@
     <script src="js/tailwind.js"></script>
     <link rel="stylesheet" href="css/fontawesome.css" />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" /> </head>
+    <link rel="stylesheet" href="css/style.css" /> 
+	<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+
+	</head>
     <body>
 
     <div class="app-container">
@@ -77,8 +80,16 @@
 
         </main>
 
-        <div class="ad-banner fixed bottom-16 w-full max-w-[600px] h-[50px] bg-gray-100 flex items-center justify-center border-t border-gray-300">
-            <span class="text-sm text-gray-700">مساحة إعلانية (Google AdSense)</span>
+        <div class="ad-banner fixed bottom-16 w-full max-w-[600px] h-[60px] bg-gray-100 flex items-center justify-center border-t border-gray-300">
+            <amp-ad
+				 layout="fixed"
+				 width="400"
+				 height="60"
+				 type="adsense"
+				 data-ad-client="ca-pub-8380185804726759"
+				 data-ad-slot="7630065084">
+			</amp-ad>
+
         </div>
 
         <nav class="bottom-nav fixed bottom-0 w-full max-w-[600px] h-16 flex justify-around items-center border-t border-gray-100">
