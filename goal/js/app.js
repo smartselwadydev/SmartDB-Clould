@@ -501,3 +501,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+function closeAdBanner() {
+        const adBanner = document.getElementById('ad-banner-container');
+        if (adBanner) {
+            adBanner.style.display = 'none';
+        }
+}
