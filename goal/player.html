@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { margin: 0; padding: 0; background: #000; }
+        video { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <video id="videoPlayer" controls playsinline autoplay muted>
+        Your browser does not support the video tag.
+    </video>
+    
+    <script>
+        var params = {};
+        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+            params[key] = value;
+        });
+        
+        var url = params["ch"];
+        var video = document.getElementById('videoPlayer');
+        
+        // Check for HLS stream
+        if (url && url.includes('.m3u8')) {
+            if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // iOS Safari
+                video.src = url;
+            } else if (Hls && Hls.isSupported()) {
+                // Android/Desktop with HLS.js
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(video);
+            } else {
+                alert("Your device doesn't support HLS playback");
+            }
+        } else if (url) {
+            // Direct video file
+            video.src = url;
+        }
+        
+        // Try to unmute after user interaction
+        document.addEventListener('click', function() {
+            video.muted = false;
+        });
+    </script>
+    
+    <!-- Load HLS.js for Android -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</body>
+</html>

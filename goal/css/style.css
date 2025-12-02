@@ -31,6 +31,13 @@
             border-radius: 8px;
             margin-left: 1rem; /* Space between image and text */
         }
+        .chanel-thumbnail {
+            width: 110px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-left: 1rem; /* Space between image and text */
+        }
         
         /* Hide detail view by default */
         #detail-view {
@@ -70,3 +77,61 @@
         .peer:checked ~ .peer-checked\:after\:border-white::after{
             right:41px;
         }
+
+        .channel-sheet {
+    pointer-events: none;
+}
+
+.channel-sheet.hidden {
+    display: none;
+}
+
+.channel-sheet:not(.hidden) {
+    pointer-events: auto;
+}
+
+.sheet-overlay {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.sheet-content {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.button-fill {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+#links-data {
+    direction: ltr;
+    text-align: center;
+}
+
+#links-data iframe,
+#links-data video,
+#links-data .video-player {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px;
+    border-radius: 10px;
+}
+
+.ql-editor{
+    text-align: justify !important;
+}
+
+video{
+    display:inline-block !important;
+}
