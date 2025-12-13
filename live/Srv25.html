@@ -78,6 +78,16 @@
 <script>(function(s){s.dataset.zone='10319632',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
 <script>
+	var params={};
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+	var id = params["id"];
+	if (localStorage.getItem('DeviceUDID') == null ) {
+		const rand=()=>Math.random(0).toString(36).substr(2);
+		const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
+		localStorage.setItem('DeviceUDID', token(40));
+	}
+	$.ajax({ url: "https://www.google-analytics.com/g/collect?v=2&tid=G-LFSG3FTWF4&gtm=45je49b0v9194873941za200&_p=1726238694775&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&_fid=dClwYdJTDoxegJlsXpE1cS&cid="+localStorage.getItem('DeviceUDID')+"&ul=&sr=&uaa=&uab=&uafvl=&uamb=0&uam=&uap=&uapv=&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid="+localStorage.getItem('DeviceUDID')+"&sct=1&seg=1&dl=&dt=Stream-"+id+"&en=page_view&_ee=1",success: function (e) {	} });	 
+
 	function isMobileDevice() {
 		return (/Android|REDLINECLIENT|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 	}
