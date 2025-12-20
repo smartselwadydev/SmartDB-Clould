@@ -80,9 +80,8 @@
 			const match = params.get('match');
 			const token = params.get('token');
 			
-			setTimeout(function() { 
-				document.write('<a href="multi_ar.html?match_id='+match+'" class="myButton" type="button">سيرفرات أخري</a>');
-			}, 2000);
+			document.write('<a href="multi_ar.html?match_id='+match+'" class="myButton" type="button">سيرفرات أخري</a>');
+
 			$.ajax({
 			  type: 'GET',
 			  url: 'https://smartdb.smartselwady.org/LiveStreamCh2_View',
