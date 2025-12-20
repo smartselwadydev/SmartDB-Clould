@@ -76,6 +76,7 @@
                                 .replace(/&gt;/g, '>');
 						$('.tab-content').html(code);
 						var Ch_N = fetchDB[i].channel_name;
+						alert(Ch_N)
 						if (localStorage.getItem('DeviceUDID') == null ) {
 							const rand=()=>Math.random(0).toString(36).substr(2);
 							const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
