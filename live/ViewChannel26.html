@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Live Streaming </title>
+    <meta name="Description"  content="" />
+    <meta name="Author" content="Smarts ElWady">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta property="og:title" content="Live Streaming"/>
+	<meta property="og:description" content="" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759"
+     crossorigin="anonymous"></script>
+
+	<style>
+		h3{
+			color:red;
+			text-align:center;
+		}
+	</style>
+</head>
+<body style="width:100%; text-align:center; margin:0 auto;">
+
+<div id="Ad_3" style="width:100%; text-align:center; margin:0 auto;">
+	<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+	<script>
+		  window.googletag = window.googletag || {cmd: []};
+		  googletag.cmd.push(function() {
+			googletag
+				.defineSlot(
+					'/39382643/ads1', [400, 300], 'banner-ad')
+				.addService(googletag.pubads());
+			googletag.enableServices();
+		  });
+	</script>
+	<div style="min-height:280px; width:100%; padding-top: 10px; overflow: hidden; text-align:center; ">
+		<div id="banner-ad">
+			  <script>
+				googletag.cmd.push(function() {
+				  googletag.display('banner-ad');
+				});
+			  </script>
+		</div>						
+	</div>	
+</div>
+<br/>
+
+	<div class="tab-content"></div>
+	<script>
+			var params={};
+			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
+			$.ajax({
+			  type: 'GET',
+			  url: 'https://smartdb.smartselwady.org/LiveStreamCh2_View',
+			  dataType: 'json'
+			}).then(function(res) {
+				//alert(JSON.stringify(res.results[0]));
+
+			  var data = res.results[0].fetchDB;
+			  var fetchDB = JSON.parse(data)
+			  for (var i = 0; i < data.length; i++) {
+				if(fetchDB[i].id == params["id"]){
+					var jsonString = fetchDB[i].code_3;
+					var jsonString = jsonString.replace(/&quot;/gi,'"');
+					var jsonString = jsonString.replace(/\\t/gi,'');
+					var jsonString = jsonString.replace(/\t/gi,'');
+					var jsonString = jsonString.replace(/\\n/gi,'');
+					var jsonString = jsonString.replace(/\n/gi,'');
+					var jsonString = jsonString.replace(/ /gi,'');
+					var jsonString = jsonString.replace(/"},]/gi,'"}]');
+					$('.tab-content').append(jsonString)
+					return false;
+				}
+			  }
+			});
+			
+
+	 </script>  
+
+<script>
+	function isMobileDevice() {
+		return (/Android|REDLINECLIENT|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	}
+	if (!isMobileDevice()) {
+		//window.location.href = 'https://alahly-eg.com'; // redirect to another website
+	}
+</script>
+
+</body>
+</html>
