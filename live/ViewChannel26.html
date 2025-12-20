@@ -75,11 +75,14 @@
 	
 
 	<script>
-			var params={};
-			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
+			const params = new URLSearchParams(window.location.search);
+			const id = params.get('id');
+			const match = params.get('match');
+			const token = params.get('token');
+			
 			setTimeout(function() { 
-				document.write('<a href="multi_ar.html?match_id='+params["match"]+'" class="myButton" type="button">سيرفرات أخري</a>');
-				alert(params["match"])
+				document.write('<a href="multi_ar.html?match_id='+match+'" class="myButton" type="button">سيرفرات أخري</a>');
+				alert(match)
 			}, 2000);
 			$.ajax({
 			  type: 'GET',
@@ -91,7 +94,7 @@
 			  var data = res.results[0].fetchDB;
 			  var fetchDB = JSON.parse(data)
 			  for (var i = 0; i < data.length; i++) {
-				if(fetchDB[i].id == params["id"]){
+				if(fetchDB[i].id == id){
 						var codeValue = fetchDB[i].code_3;
 						var code = codeValue.replace(/&amp;/g, '&')
                                 .replace(/&quot;/g, '"')
