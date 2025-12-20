@@ -53,7 +53,7 @@
 </div>
 <br/>
 
-	<div class="tab-content"></div>
+	<div class="tab-content" style="max-width:500px; text-align:center; margin:0 auto;"></div>
 	<script>
 			var params={};
 			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
@@ -83,7 +83,31 @@
 
 	 </script>  
 
+	  <div style="width:100%; text-align:center; margin:0 auto;">
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759"
+			 crossorigin="anonymous"></script>
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-format="autorelaxed"
+			 data-ad-client="ca-pub-8380185804726759"
+			 data-ad-slot="8102930618"></ins>
+		<script>
+			 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	  </div>
+
 <script>
+	var params={};
+	window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+	var Ch_N = fetchDB[i].channel_name;
+	alert(Ch_N)
+	if (localStorage.getItem('DeviceUDID') == null ) {
+		const rand=()=>Math.random(0).toString(36).substr(2);
+		const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
+		localStorage.setItem('DeviceUDID', token(40));
+	}
+	$.ajax({ url: "https://www.google-analytics.com/g/collect?v=2&tid=G-LFSG3FTWF4&gtm=45je49b0v9194873941za200&_p=1726238694775&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&_fid=dClwYdJTDoxegJlsXpE1cS&cid="+localStorage.getItem('DeviceUDID')+"&ul=&sr=&uaa=&uab=&uafvl=&uamb=0&uam=&uap=&uapv=&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid="+localStorage.getItem('DeviceUDID')+"&sct=1&seg=1&dl=&dt=LIVE_"+Ch_N+"&en=page_view&_ee=1",success: function (e) {	} });	 
+
 	function isMobileDevice() {
 		return (/Android|REDLINECLIENT|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 	}
