@@ -77,13 +77,12 @@
 						$('.tab-content').html(code);
 						var Ch_N = fetchDB[i].channel_name_en;
 						var Ch_N = Ch_N.replace(/ /g, '_')
-						alert(Ch_N)
 						if (localStorage.getItem('DeviceUDID') == null ) {
 							const rand=()=>Math.random(0).toString(36).substr(2);
 							const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
 							localStorage.setItem('DeviceUDID', token(40));
 						}
-						$.ajax({ url: "https://www.google-analytics.com/g/collect?v=2&tid=G-LFSG3FTWF4&gtm=45je49b0v9194873941za200&_p=1726238694775&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&_fid=dClwYdJTDoxegJlsXpE1cS&cid="+localStorage.getItem('DeviceUDID')+"&ul=&sr=&uaa=&uab=&uafvl=&uamb=0&uam=&uap=&uapv=&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid="+localStorage.getItem('DeviceUDID')+"&sct=1&seg=1&dl=&dt=LIVE_"+Ch_N+"&en=page_view&_ee=1",success: function (e) {	} });	 
+						$.ajax({ url: "https://www.google-analytics.com/g/collect?v=2&tid=G-LFSG3FTWF4&gtm=45je49b0v9194873941za200&_p=1726238694775&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&_fid=dClwYdJTDoxegJlsXpE1cS&cid="+localStorage.getItem('DeviceUDID')+"&ul=&sr=&uaa=&uab=&uafvl=&uamb=0&uam=&uap=&uapv=&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid="+localStorage.getItem('DeviceUDID')+"&sct=1&seg=1&dl=&dt="+Ch_N+"&en=page_view&_ee=1",success: function (e) {	} });	 
 
 					return false;
 				}
