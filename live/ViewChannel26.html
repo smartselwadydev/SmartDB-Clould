@@ -25,6 +25,20 @@
 			color:red;
 			text-align:center;
 		}
+		.myButton {
+		  background-color: #4CAF50; /* Green background */
+		  border: none;
+		  color: white; /* White text */
+		  padding: 15px 32px; /* Some padding */
+		  text-align: center;
+		  text-decoration: none; /* Remove underline for anchor tags */
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer; /* Change cursor to a hand pointer */
+		  border-radius: 8px; /* Rounded corners */
+		}
+
 	</style>
 </head>
 <body style="width:100%; text-align:center; margin:0 auto;">
@@ -54,9 +68,14 @@
 <br/>
 
 	<div class="tab-content" style="max-width:500px; text-align:center; margin:0 auto;"></div>
+
+	
+
 	<script>
 			var params={};
 			window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
+			document.write('<button href="multi_ar.html?match_id='+params["match"]+'" class="myButton" type="button">سيرفرات أخري</button>');
+
 			$.ajax({
 			  type: 'GET',
 			  url: 'https://smartdb.smartselwady.org/LiveStreamCh2_View',
