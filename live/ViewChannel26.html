@@ -68,15 +68,13 @@
 			  var fetchDB = JSON.parse(data)
 			  for (var i = 0; i < data.length; i++) {
 				if(fetchDB[i].id == params["id"]){
-					var jsonString = fetchDB[i].code_3;
-					var jsonString = jsonString.replace(/&quot;/gi,'"');
-					var jsonString = jsonString.replace(/\\t/gi,'');
-					var jsonString = jsonString.replace(/\t/gi,'');
-					var jsonString = jsonString.replace(/\\n/gi,'');
-					var jsonString = jsonString.replace(/\n/gi,'');
-					var jsonString = jsonString.replace(/ /gi,'');
-					var jsonString = jsonString.replace(/"},]/gi,'"}]');
-					$('.tab-content').append(jsonString)
+						var codeValue = fetchDB[i].code_3;
+						var code = codeValue.replace(/&amp;/g, '&')
+                                .replace(/&quot;/g, '"')
+                                .replace(/&#39;/g, "'")
+                                .replace(/&lt;/g, '<')
+                                .replace(/&gt;/g, '>');
+						$('.tab-content').html(code);
 					return false;
 				}
 			  }
