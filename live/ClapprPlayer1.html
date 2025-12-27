@@ -9,7 +9,8 @@
     <meta name="referrer" content="no-referrer">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
-	<script src="js/clappr.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
         .artplayer-app { width: 100%; height: 100%; }
@@ -124,10 +125,12 @@
             lang: 'ar',
         });
         art.on('ready', () => { 
+			addAtrrs()
 			art.play(); 
+			
 		});
 		
-document.addEventListener('DOMContentLoaded', function() {
+function addAtrrs() {
   const video = document.createElement('video');
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
@@ -170,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
       await requestWakeLock();
     }
   });
-});
+};
     </script>
 </body>
 </html>

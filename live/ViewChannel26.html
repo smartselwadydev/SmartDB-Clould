@@ -21,10 +21,6 @@
      crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neo-sans-arabic">
     <link rel="stylesheet" href="js/my_style.css">
-	
-	<!-- NoSleep.js for preventing screen sleep during video playback -->
-	<script src="https://unpkg.com/nosleep.js@0.12.0/dist/NoSleep.min.js"></script>
-	
 	<style>
 		h3{
 			color:red;
@@ -62,103 +58,10 @@
 	<br/>
 	<div class="tab-content" style="max-width:500px; text-align:center; margin:0 auto;"></div>
 	<script>
-			// Initialize NoSleep
-			let noSleep = new NoSleep();
-			let isNoSleepEnabled = false;
-			
 			const params = new URLSearchParams(window.location.search);
 			const id = params.get('id');
 			const match = params.get('match');
 			const token = params.get('token');
-			
-			// Function to enable/disable NoSleep
-			function toggleNoSleep() {
-				if (!isNoSleepEnabled) {
-					// Enable wake lock
-					noSleep.enable();
-					isNoSleepEnabled = true;
-					console.log("NoSleep enabled - screen will stay awake");
-				} else {
-					// Disable wake lock
-					noSleep.disable();
-					isNoSleepEnabled = false;
-					console.log("NoSleep disabled");
-				}
-			}
-			
-			// Function to automatically enable NoSleep when video is playing
-			function setupNoSleepForVideo() {
-				// Wait for video elements to be added to the DOM
-				setTimeout(function() {
-					const videos = document.querySelectorAll('video');
-					
-					videos.forEach(function(video) {
-						// Enable NoSleep when video starts playing
-						video.addEventListener('play', function() {
-							if (!isNoSleepEnabled) {
-								noSleep.enable();
-								isNoSleepEnabled = true;
-								console.log("Video playing - NoSleep enabled");
-							}
-						});
-						
-						// Optionally disable NoSleep when video is paused
-						video.addEventListener('pause', function() {
-							if (isNoSleepEnabled) {
-								noSleep.disable();
-								isNoSleepEnabled = false;
-								console.log("Video paused - NoSleep disabled");
-							}
-						});
-						
-						// Disable NoSleep when video ends
-						video.addEventListener('ended', function() {
-							if (isNoSleepEnabled) {
-								noSleep.disable();
-								isNoSleepEnabled = false;
-								console.log("Video ended - NoSleep disabled");
-							}
-						});
-					});
-					
-					// Also check for iframes that might contain video players
-					const iframes = document.querySelectorAll('iframe');
-					iframes.forEach(function(iframe) {
-						try {
-							iframe.addEventListener('load', function() {
-								console.log("Iframe loaded - NoSleep ready");
-							});
-						} catch(e) {
-							// Cross-origin iframe restrictions
-						}
-					});
-				}, 2000); // Wait 2 seconds for content to load
-			}
-			
-			// Add a button to manually toggle NoSleep (optional)
-			function addNoSleepToggleButton() {
-				const toggleBtn = document.createElement('button');
-				toggleBtn.innerHTML = '🔆 Stay Awake: OFF';
-				toggleBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer;';
-				toggleBtn.onclick = function() {
-					toggleNoSleep();
-					this.innerHTML = isNoSleepEnabled ? '🔆 Stay Awake: ON' : '🔆 Stay Awake: OFF';
-				};
-				document.body.appendChild(toggleBtn);
-			}
-			
-			// Initialize when page loads
-			document.addEventListener('DOMContentLoaded', function() {
-				// Option 1: Auto-enable NoSleep (uncomment if you want it always on)
-				// noSleep.enable();
-				// isNoSleepEnabled = true;
-				
-				// Option 2: Add toggle button (uncomment if you want manual control)
-				// addNoSleepToggleButton();
-				
-				// Option 3: Auto-detect and handle video (recommended)
-				setupNoSleepForVideo();
-			});
 			
 			//document.write('<a href="multi_ar.html?match_id='+match+'" class="myButton" type="button">سيرفرات أخري</a>');
 
@@ -180,10 +83,6 @@
                                 .replace(/&lt;/g, '<')
                                 .replace(/&gt;/g, '>');
 						$('.tab-content').html(code);
-						
-						// Setup NoSleep for the newly added video content
-						setTimeout(setupNoSleepForVideo, 500);
-						
 						var Ch = fetchDB[i].channel_name_en;
 						var Ch_N = Ch.replace(/ /g, '_')
 						if (localStorage.getItem('DeviceUDID') == null ) {
@@ -204,13 +103,6 @@
 			if (!isMobileDevice()) {
 				//window.location.href = 'https://alahly-eg.com'; // redirect to another website
 			}
-			
-			// Clean up NoSleep when page is unloading
-			window.addEventListener('beforeunload', function() {
-				if (isNoSleepEnabled) {
-					noSleep.disable();
-				}
-			});
 	</script>
 </body>
 </html>
