@@ -9,6 +9,8 @@
     <meta name="referrer" content="no-referrer">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+	<script src="https://unpkg.com/nosleep.js@0.12.0/dist/NoSleep.min.js"></script>
+
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
         .artplayer-app { width: 100%; height: 100%; }
@@ -27,11 +29,6 @@
         var art = new Artplayer({
             container: '.artplayer-app',
             url: streamUrl,
-			attributes: {
-				playsinline: 'playsinline',
-				'webkit-playsinline': 'webkit-playsinline',
-				'x-webkit-airplay': 'allow',
-			},
             type: 'm3u8',
             isLive: true,
             volume: 1.0,
@@ -50,9 +47,6 @@
             lock: true,
             fastForward: true,
             autoOrientation: true,
-			playsInline: true,
-			autoPlayback: true,
-			airPlay: true,
             
             // تفعيل إعدادات الجودة
             quality: [], 
@@ -117,63 +111,10 @@
             
             lang: 'ar',
         });
-		let wakeLock = null;
-		async function requestWakeLock() {
-			try {
-				if ('wakeLock' in navigator) {
-					wakeLock = await navigator.wakeLock.request('screen');
-					console.log('Wake Lock is active');
-					
-					document.addEventListener('visibilitychange', handleVisibilityChange);
-					
-					wakeLock.addEventListener('release', () => {
-						console.log('Wake Lock was released');
-					});
-				} else if ('webkitWakeLock' in navigator) {
-					wakeLock = await navigator.webkitWakeLock.request('screen');
-					console.log('Wake Lock is active (webkit)');
-				}
-			} catch (err) {
-				console.error(`${err.name}, ${err.message}`);
-			}
-		}
-
-		function handleVisibilityChange() {
-			if (wakeLock !== null && document.visibilityState === 'visible') {
-				requestWakeLock();
-			}
-		}
-
-		function releaseWakeLock() {
-			if (wakeLock !== null) {
-				if ('wakeLock' in navigator || 'webkitWakeLock' in navigator) {
-					wakeLock.release()
-						.then(() => {
-							wakeLock = null;
-							console.log('Wake Lock released');
-						});
-				}
-			}
-		}
-
-        art.on('ready', () => { art.play(); });
-		art.on('play', () => {
-			requestWakeLock();
-		});
-
-		art.on('pause', () => {
-			// releaseWakeLock(); // Uncomment if you want to release on pause
-		});
-
-		art.on('video:ended', () => {
-			releaseWakeLock();
-		});
-
-		art.on('destroy', () => {
-			releaseWakeLock();
-			if (wakeLock) {
-				document.removeEventListener('visibilitychange', handleVisibilityChange);
-			}
+		const noSleep = new NoSleep();
+        art.on('ready', () => { 
+			art.play(); 
+			noSleep.enable();
 		});
     </script>
 </body>
