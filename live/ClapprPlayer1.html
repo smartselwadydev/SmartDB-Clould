@@ -127,11 +127,67 @@
 			art.play(); 
 		});
 		
-		const video = document.createElement('video');
-		video.setAttribute('playsinline', '');
-		video.setAttribute('webkit-playsinline', ''); // For iOS Safari compatibility
-		video.controls = true;
-		document.body.appendChild(video);
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.createElement('video');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.controls = true;
+  document.body.appendChild(video);
+
+  // Screen Wake Lock variables
+  let wakeLock = null;
+
+  // Function to request screen wake lock
+  async function requestWakeLock() {
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Screen Wake Lock is active');
+        
+        // Listen for release
+        wakeLock.addEventListener('release', () => {
+          console.log('Screen Wake Lock was released');
+        });
+      } else {
+        console.warn('Screen Wake Lock API not supported');
+      }
+    } catch (err) {
+      console.error(`Failed to request wake lock: ${err.message}`);
+    }
+  }
+
+  // Function to release screen wake lock
+  function releaseWakeLock() {
+    if (wakeLock !== null) {
+      wakeLock.release();
+      wakeLock = null;
+      console.log('Screen Wake Lock released');
+    }
+  }
+
+  // Request wake lock when video starts playing
+  video.addEventListener('play', async () => {
+    await requestWakeLock();
+  });
+
+  // Release wake lock when video pauses
+  video.addEventListener('pause', () => {
+    releaseWakeLock();
+  });
+
+  // Release wake lock when video ends
+  video.addEventListener('ended', () => {
+    releaseWakeLock();
+  });
+
+  // Handle visibility change (when user switches tabs)
+  document.addEventListener('visibilitychange', async () => {
+    if (document.visibilityState === 'visible' && !video.paused) {
+      // Re-request wake lock when user comes back to tab
+      await requestWakeLock();
+    }
+  });
+});
     </script>
 </body>
 </html>
