@@ -1,195 +1,45 @@
 <!doctype html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            overflow: hidden;
-            background-color: #000;
-        }
-        #player {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-        }
-        #video {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+	#player {
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
+<script src="js/clappr.min.js"></script>
 </head>
 <body>
-    <div id="player">
-        <video id="video" autoplay playsinline muted></video>
-    </div>
-    
+    <div id="player"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get URL parameters
-            var params = {};
-            window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
-                params[key] = value;
-            });
-            
-            var url = params["ch"];
-            
-            // Get video element
-            var video = document.getElementById('video');
-            
-            // Keep screen awake (Screen Wake Lock API)
-            let wakeLock = null;
-            
-            async function keepScreenOn() {
-                try {
-                    if ('wakeLock' in navigator) {
-                        wakeLock = await navigator.wakeLock.request('screen');
-                        console.log('Screen Wake Lock is active');
-                        
-                        // Re-acquire wake lock when visibility changes
-                        document.addEventListener('visibilitychange', async () => {
-                            if (wakeLock !== null && document.visibilityState === 'visible') {
-                                wakeLock = await navigator.wakeLock.request('screen');
-                            }
-                        });
-                    }
-                } catch (err) {
-                    // Fail silently - wake lock not supported or permission denied
-                }
-            }
-            
-            // Start keeping screen on
-            keepScreenOn();
-            
-            // Auto-play and mute to prevent interruption
-            video.muted = true;
-            
-            // Check for HLS support and load stream
-            if (Hls.isSupported()) {
-                var hls = new Hls({
-                    enableWorker: true,
-                    lowLatencyMode: true,
-                    backBufferLength: 90,
-                    maxMaxBufferLength: 30,
-                    maxBufferSize: 60 * 1000 * 1000,
-                    maxBufferLength: 30,
-                    liveSyncDurationCount: 3,
-                    liveMaxLatencyDurationCount: 10,
-                    fragLoadingTimeOut: 20000,
-                    manifestLoadingTimeOut: 20000,
-                    levelLoadingTimeOut: 20000,
-                });
-                
-                // Load the stream silently
-                hls.loadSource(url);
-                hls.attachMedia(video);
-                
-                // Handle HLS events without showing errors
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    video.play().catch(() => {
-                        // Silently retry play if needed
-                        setTimeout(() => video.play(), 1000);
-                    });
-                });
-                
-                hls.on(Hls.Events.ERROR, function(event, data) {
-                    // Silently handle errors without showing to user
-                    if (data.fatal) {
-                        switch(data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                hls.startLoad();
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                hls.recoverMediaError();
-                                break;
-                            default:
-                                // Destroy and recreate HLS instance
-                                hls.destroy();
-                                setTimeout(() => {
-                                    hls = new Hls();
-                                    hls.loadSource(url);
-                                    hls.attachMedia(video);
-                                }, 3000);
-                                break;
-                        }
-                    }
-                });
-                
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                // Native HLS support (Safari)
-                video.src = url;
-                video.play().catch(() => {
-                    setTimeout(() => video.play(), 1000);
-                });
-            }
-            
-            // Auto-retry play if paused (e.g., due to browser policies)
-            video.addEventListener('pause', function() {
-                setTimeout(() => {
-                    if (video.paused) {
-                        video.play();
-                    }
-                }, 1000);
-            });
-            
-            // Auto-retry on any error
-            video.addEventListener('error', function() {
-                setTimeout(() => {
-                    if (video.error) {
-                        video.src = url;
-                        video.play();
-                    }
-                }, 3000);
-            });
-            
-            // Prevent context menu
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            });
-            
-            // Disable any selection
-            document.addEventListener('selectstart', function(e) {
-                e.preventDefault();
-            });
-            
-            // Prevent zoom gestures on mobile
-            document.addEventListener('touchmove', function(e) {
-                if (e.touches.length > 1) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-            
-            // Keep trying to play if interrupted
-            setInterval(() => {
-                if (video.paused && document.visibilityState === 'visible') {
-                    video.play();
-                }
-            }, 5000);
-            
-            // Release wake lock when page is hidden/unloaded
-            document.addEventListener('visibilitychange', () => {
-                if (document.visibilityState === 'hidden' && wakeLock !== null) {
-                    wakeLock.release();
-                    wakeLock = null;
-                }
-            });
-            
-            window.addEventListener('beforeunload', () => {
-                if (wakeLock !== null) {
-                    wakeLock.release();
-                }
-            });
-        });
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var url = params["ch"];
+			var player = new Clappr.Player({
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+			});
     </script>
+	
+	
 </body>
 </html>
