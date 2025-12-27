@@ -9,7 +9,7 @@
     <meta name="referrer" content="no-referrer">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
-
+	<script src="js/clappr.min.js"></script>
     <style>
         body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
         .artplayer-app { width: 100%; height: 100%; }
@@ -133,18 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
   video.setAttribute('webkit-playsinline', '');
   video.controls = true;
   document.body.appendChild(video);
-
-  // Screen Wake Lock variables
   let wakeLock = null;
-
-  // Function to request screen wake lock
   async function requestWakeLock() {
     try {
       if ('wakeLock' in navigator) {
         wakeLock = await navigator.wakeLock.request('screen');
         console.log('Screen Wake Lock is active');
-        
-        // Listen for release
         wakeLock.addEventListener('release', () => {
           console.log('Screen Wake Lock was released');
         });
@@ -155,8 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error(`Failed to request wake lock: ${err.message}`);
     }
   }
-
-  // Function to release screen wake lock
   function releaseWakeLock() {
     if (wakeLock !== null) {
       wakeLock.release();
@@ -164,26 +156,17 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Screen Wake Lock released');
     }
   }
-
-  // Request wake lock when video starts playing
   video.addEventListener('play', async () => {
     await requestWakeLock();
   });
-
-  // Release wake lock when video pauses
   video.addEventListener('pause', () => {
     releaseWakeLock();
   });
-
-  // Release wake lock when video ends
   video.addEventListener('ended', () => {
     releaseWakeLock();
   });
-
-  // Handle visibility change (when user switches tabs)
   document.addEventListener('visibilitychange', async () => {
     if (document.visibilityState === 'visible' && !video.paused) {
-      // Re-request wake lock when user comes back to tab
       await requestWakeLock();
     }
   });
