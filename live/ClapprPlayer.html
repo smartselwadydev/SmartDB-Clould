@@ -116,6 +116,9 @@
 			art.play(); 
 			noSleep.enable();
 		});
+		art.on('play', () => {
+			noSleep.enable()
+		});
     </script>
 </body>
 </html>
