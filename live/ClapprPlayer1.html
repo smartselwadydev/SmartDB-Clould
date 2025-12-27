@@ -131,6 +131,8 @@
 		});
 		
 function addAtrrs() {
+  $('.art-video').attr('controls').attr('playsinline');
+  alert(1)
   const video = document.createElement('video');
   video.setAttribute('playsinline', '');
   video.setAttribute('webkit-playsinline', '');
