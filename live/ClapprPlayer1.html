@@ -125,57 +125,58 @@
             lang: 'ar',
         });
         art.on('ready', () => { 
-			addAtrrs()
 			art.play(); 
 			
 		});
-		
-function addAtrrs() {
-  $('.art-video').attr('controls').attr('playsinline');
-  alert(1)
-  const video = document.createElement('video');
-  video.setAttribute('playsinline', '');
-  video.setAttribute('webkit-playsinline', '');
-  video.controls = true;
-  document.body.appendChild(video);
-  let wakeLock = null;
-  async function requestWakeLock() {
-    try {
-      if ('wakeLock' in navigator) {
-        wakeLock = await navigator.wakeLock.request('screen');
-        console.log('Screen Wake Lock is active');
-        wakeLock.addEventListener('release', () => {
-          console.log('Screen Wake Lock was released');
-        });
-      } else {
-        console.warn('Screen Wake Lock API not supported');
-      }
-    } catch (err) {
-      console.error(`Failed to request wake lock: ${err.message}`);
-    }
-  }
-  function releaseWakeLock() {
-    if (wakeLock !== null) {
-      wakeLock.release();
-      wakeLock = null;
-      console.log('Screen Wake Lock released');
-    }
-  }
-  video.addEventListener('play', async () => {
-    await requestWakeLock();
-  });
-  video.addEventListener('pause', () => {
-    releaseWakeLock();
-  });
-  video.addEventListener('ended', () => {
-    releaseWakeLock();
-  });
-  document.addEventListener('visibilitychange', async () => {
-    if (document.visibilityState === 'visible' && !video.paused) {
-      await requestWakeLock();
-    }
-  });
-};
+$(document).ready(function() {
+	 $('.art-video').attr({
+				'playsinline': '',
+				'controls': true,
+				'preload': 'metadata'
+	  });
+	  const video = document.createElement('video');
+	  video.setAttribute('playsinline', '');
+	  video.setAttribute('webkit-playsinline', '');
+	  video.controls = true;
+	  document.body.appendChild(video);
+	  let wakeLock = null;
+	  async function requestWakeLock() {
+		try {
+		  if ('wakeLock' in navigator) {
+			wakeLock = await navigator.wakeLock.request('screen');
+			console.log('Screen Wake Lock is active');
+			wakeLock.addEventListener('release', () => {
+			  console.log('Screen Wake Lock was released');
+			});
+		  } else {
+			console.warn('Screen Wake Lock API not supported');
+		  }
+		} catch (err) {
+		  console.error(`Failed to request wake lock: ${err.message}`);
+		}
+	  }
+	  function releaseWakeLock() {
+		if (wakeLock !== null) {
+		  wakeLock.release();
+		  wakeLock = null;
+		  console.log('Screen Wake Lock released');
+		}
+	  }
+	  video.addEventListener('play', async () => {
+		await requestWakeLock();
+	  });
+	  video.addEventListener('pause', () => {
+		releaseWakeLock();
+	  });
+	  video.addEventListener('ended', () => {
+		releaseWakeLock();
+	  });
+	  document.addEventListener('visibilitychange', async () => {
+		if (document.visibilityState === 'visible' && !video.paused) {
+		  await requestWakeLock();
+		}
+	  });
+});	
     </script>
 </body>
 </html>
