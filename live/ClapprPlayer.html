@@ -1,77 +1,45 @@
-<!-- Alternative version with more hls.js configuration options -->
 <!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-      html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        overflow: hidden;
-      }
-      #player {
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-    
-    <!-- Load hls.js first -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <!-- Then load Clappr -->
-    <script src="js/clappr.min.js"></script>
-    
-  </head>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+	#player {
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
+<script src="js/clappr.min.js"></script>
+</head>
 <body>
     <div id="player"></div>
     <script>
-      var params = {};
-      window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
-        params[key] = value;
-      });
-      var url = params["ch"];
-      
-      // Create player with hls.js configuration
-      var player = new Clappr.Player({
-        source: url,
-        maxBufferLength: 30,
-        poster: 'live2.jpg',
-        mute: false,
-        autoPlay: true, // Consider adding autoPlay for live streams
-        width: '100%',
-        height: '100%',
-        playback: {
-          playInline: true,
-          // Additional hls.js configuration for better live streaming
-          hlsjsConfig: {
-            enableWorker: true,
-            enableSoftwareAES: true,
-            debug: false, // Set to true for debugging
-            capLevelToPlayerSize: true, // Adapt quality to player size
-            maxBufferSize: 0, // 0 for auto
-            maxBufferLength: 30,
-            liveSyncDurationCount: 3,
-            liveMaxLatencyDurationCount: 10,
-            liveDurationInfinity: true,
-            abrEwmaDefaultEstimate: 500000, // 500kbps default estimate
-            startLevel: -1, // Auto quality selection
-          }
-        },
-        parentId: '#player',
-        // Optional: Add events for debugging
-        events: {
-          onError: function(e) {
-            console.error('Player error:', e);
-          },
-          onReady: function() {
-            console.log('Player is ready');
-          }
-        }
-      });
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var url = params["ch"];
+			var player = new Clappr.Player({
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+			});
     </script>
+	
+	
 </body>
 </html>
