@@ -137,6 +137,119 @@ $(document).ready(function() {
         'controls': true,
 		'loop': true		
 	  });
+	  
+    let wakeLock = null;
+    let isVideoPlaying = false;
+    
+    // Check Wake Lock API support
+    const isWakeLockSupported = 'wakeLock' in navigator;
+    
+    if (!isWakeLockSupported) {
+        console.warn('Wake Lock API not supported - using fallback methods');
+        $('.wake-lock-indicator').text('Not Supported').addClass('warning');
+    }
+    
+    // Function to manage wake lock
+    async function manageWakeLock() {
+        if (!isWakeLockSupported) return;
+        
+        if (isVideoPlaying && !wakeLock) {
+            // Request wake lock
+            try {
+                wakeLock = await navigator.wakeLock.request('screen');
+                updateWakeLockUI(true);
+                
+                wakeLock.addEventListener('release', () => {
+                    wakeLock = null;
+                    updateWakeLockUI(false);
+                });
+            } catch (err) {
+                console.error('Failed to acquire wake lock:', err);
+            }
+        } else if (!isVideoPlaying && wakeLock) {
+            // Release wake lock
+            wakeLock.release();
+            wakeLock = null;
+            updateWakeLockUI(false);
+        }
+    }
+    
+    // Update UI based on wake lock state
+    function updateWakeLockUI(isActive) {
+        const $indicator = $('.wake-lock-indicator');
+        const $status = $('.wake-lock-status');
+        
+        if (isActive) {
+            $indicator.removeClass('inactive error').addClass('active');
+            $indicator.html('<i class="fas fa-bolt"></i> Active');
+            $status.text('Screen will stay awake');
+        } else {
+            $indicator.removeClass('active').addClass('inactive');
+            $indicator.html('<i class="fas fa-moon"></i> Inactive');
+            $status.text('Screen may sleep');
+        }
+    }
+    
+    // Video player events
+    $('video').each(function() {
+        const $video = $(this);
+        
+        // Add wake lock attributes
+        $video.attr({
+            'playsinline': '',
+            'webkit-playsinline': ''
+        });
+        
+        // Monitor playback
+        $video.on('play', function() {
+            isVideoPlaying = true;
+            manageWakeLock();
+        });
+        
+        $video.on('pause ended', function() {
+            isVideoPlaying = false;
+            manageWakeLock();
+        });
+    });
+    
+    // Manual controls
+    $('#enableWakeLock').on('click', async function(e) {
+        e.preventDefault();
+        
+        if (!isWakeLockSupported) {
+            alert('Wake Lock API is not supported in your browser');
+            return;
+        }
+        
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            updateWakeLockUI(true);
+            console.log('Manual wake lock activated');
+        } catch (err) {
+            console.error('Manual wake lock failed:', err);
+            $('.wake-lock-indicator').addClass('error').html('<i class="fas fa-times"></i> Error');
+        }
+    });
+    
+    $('#disableWakeLock').on('click', function(e) {
+        e.preventDefault();
+        if (wakeLock) {
+            wakeLock.release();
+        }
+    });
+    
+    // Handle visibility changes
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && wakeLock) {
+            wakeLock.release();
+        }
+    });
+    
+    // Initialize UI
+    updateWakeLockUI(false);
+
+	  
+	  
 });	
     </script>
 </body>
