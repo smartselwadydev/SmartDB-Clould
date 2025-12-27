@@ -27,6 +27,11 @@
         var art = new Artplayer({
             container: '.artplayer-app',
             url: streamUrl,
+			attributes: {
+				playsinline: 'playsinline',
+				'webkit-playsinline': 'webkit-playsinline',
+				'x-webkit-airplay': 'allow',
+			},
             type: 'm3u8',
             isLive: true,
             volume: 1.0,
@@ -45,6 +50,9 @@
             lock: true,
             fastForward: true,
             autoOrientation: true,
+			playsInline: true,
+			autoPlayback: true,
+			airPlay: true,
             
             // تفعيل إعدادات الجودة
             quality: [], 
