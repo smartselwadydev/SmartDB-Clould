@@ -1,45 +1,299 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<style>
-	html, body {
-	  height: 100%;
-	  width: 100%;
-	  margin: 0;
-	  padding: 0;
-	  border: 0;
-	  overflow: hidden;
-	}
-	#player {
-	  width: 100%;
-	  height: 100%;
-	}
-	</style>
-<script src="js/clappr.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #player {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #player:hover .controls {
+            opacity: 1;
+        }
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .error-message {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
-    <div id="player"></div>
+    <div id="player">
+        <video id="video" controls autoplay playsinline></video>
+        <div class="controls">
+            <button class="control-btn" id="playBtn">Play</button>
+            <button class="control-btn" id="pauseBtn">Pause</button>
+            <button class="control-btn" id="muteBtn">Mute</button>
+            <button class="control-btn" id="fullscreenBtn">Fullscreen</button>
+        </div>
+        <div id="loading" class="loading" style="display: none;">Loading stream...</div>
+    </div>
+    
     <script>
-			var params={};
-			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-			var url = params["ch"];
-			var player = new Clappr.Player({
-				source: url,
-				maxBufferLength: 30,
-				poster: 'live2.jpg',
-				mute: false,
-				width: '100%',
-				height: '100%',
-				playback: {
-					playInline: true,
-				},
-				parentId: '#player',
-			});
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            var params = {};
+            window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+                params[key] = value;
+            });
+            
+            var url = params["ch"];
+            
+            // Get DOM elements
+            var video = document.getElementById('video');
+            var playerDiv = document.getElementById('player');
+            var loadingElement = document.getElementById('loading');
+            var playBtn = document.getElementById('playBtn');
+            var pauseBtn = document.getElementById('pauseBtn');
+            var muteBtn = document.getElementById('muteBtn');
+            var fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            // Check if URL is provided
+            if (!url) {
+                playerDiv.innerHTML = '<div class="error-message"><h3>No stream URL provided</h3><p>Please provide a stream URL using the "ch" parameter, e.g., ?ch=https://example.com/stream.m3u8</p></div>';
+                return;
+            }
+            
+            // Check for HLS support
+            if (Hls.isSupported()) {
+                // Create HLS instance with configuration similar to Clappr's
+                var hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90,
+                    maxMaxBufferLength: 30,
+                    maxBufferSize: 60 * 1000 * 1000, // 60MB
+                    maxBufferLength: 30,
+                    liveSyncDurationCount: 3,
+                    liveMaxLatencyDurationCount: 10,
+                    fragLoadingTimeOut: 20000,
+                    manifestLoadingTimeOut: 20000,
+                    levelLoadingTimeOut: 20000,
+                });
+                
+                // Load the stream
+                hls.loadSource(url);
+                hls.attachMedia(video);
+                
+                // Show loading indicator
+                loadingElement.style.display = 'block';
+                
+                // Handle HLS events
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    console.log('Manifest parsed, starting playback');
+                    loadingElement.style.display = 'none';
+                    video.play().catch(function(e) {
+                        console.log('Autoplay prevented:', e);
+                        // Show play button if autoplay is blocked
+                        video.controls = true;
+                    });
+                });
+                
+                hls.on(Hls.Events.ERROR, function(event, data) {
+                    console.error('HLS Error:', data);
+                    
+                    if (data.fatal) {
+                        switch(data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                console.log('Network error, trying to recover...');
+                                hls.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                console.log('Media error, trying to recover...');
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                console.log('Fatal error, cannot recover');
+                                showError('Stream error: ' + data.details);
+                                hls.destroy();
+                                break;
+                        }
+                    }
+                });
+                
+                hls.on(Hls.Events.BUFFER_CREATED, function() {
+                    console.log('Buffer created');
+                });
+                
+                hls.on(Hls.Events.LEVEL_LOADED, function(event, data) {
+                    console.log('Level loaded:', data.level);
+                });
+                
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                console.log('Using native HLS support');
+                video.src = url;
+                loadingElement.style.display = 'block';
+                
+                video.addEventListener('loadeddata', function() {
+                    loadingElement.style.display = 'none';
+                    video.play().catch(function(e) {
+                        console.log('Autoplay prevented:', e);
+                        video.controls = true;
+                    });
+                });
+                
+            } else {
+                // No HLS support
+                showError('Your browser does not support HLS streaming');
+                return;
+            }
+            
+            // Control button handlers
+            playBtn.addEventListener('click', function() {
+                video.play();
+                video.controls = false; // Hide default controls when using custom buttons
+            });
+            
+            pauseBtn.addEventListener('click', function() {
+                video.pause();
+            });
+            
+            muteBtn.addEventListener('click', function() {
+                video.muted = !video.muted;
+                muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+            });
+            
+            fullscreenBtn.addEventListener('click', function() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            });
+            
+            // Video event listeners
+            video.addEventListener('play', function() {
+                console.log('Video playing');
+            });
+            
+            video.addEventListener('pause', function() {
+                console.log('Video paused');
+            });
+            
+            video.addEventListener('waiting', function() {
+                loadingElement.style.display = 'block';
+            });
+            
+            video.addEventListener('playing', function() {
+                loadingElement.style.display = 'none';
+            });
+            
+            video.addEventListener('error', function(e) {
+                console.error('Video error:', e);
+                showError('Video playback error');
+            });
+            
+            // Hide default controls when interacting with custom controls
+            video.addEventListener('click', function() {
+                video.controls = false;
+            });
+            
+            // Show default controls when video is hovered (fallback)
+            video.addEventListener('mouseenter', function() {
+                video.controls = true;
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                switch(e.key) {
+                    case ' ':
+                    case 'k':
+                        e.preventDefault();
+                        if (video.paused) video.play();
+                        else video.pause();
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        video.muted = !video.muted;
+                        muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        if (video.requestFullscreen) video.requestFullscreen();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        video.currentTime -= 10;
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        video.currentTime += 10;
+                        break;
+                }
+            });
+            
+            // Function to show error messages
+            function showError(message) {
+                loadingElement.style.display = 'none';
+                playerDiv.innerHTML = '<div class="error-message"><h3>Error</h3><p>' + message + '</p><p>URL: ' + url + '</p></div>';
+            }
+            
+            // Add a poster/thumbnail if available (optional)
+            // video.poster = 'live2.jpg';
+            
+            // Log initialization
+            console.log('HLS.js Player initialized with URL:', url);
+        });
     </script>
-	
-	
 </body>
 </html>
