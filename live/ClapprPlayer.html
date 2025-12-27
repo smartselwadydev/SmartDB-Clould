@@ -117,8 +117,64 @@
             
             lang: 'ar',
         });
+		let wakeLock = null;
+		async function requestWakeLock() {
+			try {
+				if ('wakeLock' in navigator) {
+					wakeLock = await navigator.wakeLock.request('screen');
+					console.log('Wake Lock is active');
+					
+					document.addEventListener('visibilitychange', handleVisibilityChange);
+					
+					wakeLock.addEventListener('release', () => {
+						console.log('Wake Lock was released');
+					});
+				} else if ('webkitWakeLock' in navigator) {
+					wakeLock = await navigator.webkitWakeLock.request('screen');
+					console.log('Wake Lock is active (webkit)');
+				}
+			} catch (err) {
+				console.error(`${err.name}, ${err.message}`);
+			}
+		}
+
+		function handleVisibilityChange() {
+			if (wakeLock !== null && document.visibilityState === 'visible') {
+				requestWakeLock();
+			}
+		}
+
+		function releaseWakeLock() {
+			if (wakeLock !== null) {
+				if ('wakeLock' in navigator || 'webkitWakeLock' in navigator) {
+					wakeLock.release()
+						.then(() => {
+							wakeLock = null;
+							console.log('Wake Lock released');
+						});
+				}
+			}
+		}
 
         art.on('ready', () => { art.play(); });
+		art.on('play', () => {
+			requestWakeLock();
+		});
+
+		art.on('pause', () => {
+			// releaseWakeLock(); // Uncomment if you want to release on pause
+		});
+
+		art.on('video:ended', () => {
+			releaseWakeLock();
+		});
+
+		art.on('destroy', () => {
+			releaseWakeLock();
+			if (wakeLock) {
+				document.removeEventListener('visibilitychange', handleVisibilityChange);
+			}
+		});
     </script>
 </body>
 </html>
