@@ -24,6 +24,9 @@
 		var params={};
 		window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
         var streamUrl = params["ch"];
+		if (streamUrl == "tele"){
+			var streamUrl = "https://live1.beinconnect.us/tele_server.php?id="+params["id"];
+		}
         var logoUrl = "";
 
         var art = new Artplayer({
