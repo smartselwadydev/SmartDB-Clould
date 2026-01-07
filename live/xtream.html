@@ -7,13 +7,8 @@
     <title>Channels</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 
 <style>
     :root {
@@ -44,7 +39,7 @@
     }
 
     .tab-btn {
-        color: var(--gray);
+        color: #000;
         border-bottom: 4px solid transparent;
         transition: all 0.3s ease;
         cursor: pointer;
@@ -68,7 +63,7 @@
 
         <div class="flex border-b shadow-lg">
             <a
-                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent "
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold  hover:text-black border-b-4 border-transparent "
                 data-tab="server1"
                 data-url="https://live1.cloud1-e3f.workers.dev/id_.m3u8"
                 data-active="true" style="text-align: center;">
@@ -76,7 +71,7 @@
             </a>
 
             <a
-                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent  "
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold  hover:text-black border-b-4 border-transparent  "
                 data-tab="server2"
                 data-url="https://live2.cloud1-e3f.workers.dev/id_.m3u8"
                 data-active="false" style="text-align: center;">
@@ -84,7 +79,7 @@
             </a>
 
             <a
-                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent  "
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold hover:text-black border-b-4 border-transparent  "
                 data-tab="server3"
                 data-url="https://xtream1.cloud1-e3f.workers.dev/id_.m3u8"
                 data-active="false" style="text-align: center;">
@@ -120,7 +115,6 @@
                 }
 
                 const finalUrl = baseUrl.replace('id_', chId + '_');
-				$content.html('');
                 $content.html(`
                     <div class="h-full overflow-auto">
                         <embed type="text/html"  src="ClapprPlayer?ch=${finalUrl}" style="width:100%; height:100%; border:none;" />
@@ -135,7 +129,8 @@
                 $('.tab-btn').attr('data-active', 'false');
                 $(this).attr('data-active', 'true');
 
-                $('.tab-content').addClass('hidden');
+                $('.tab-content').html('').addClass('hidden');
+
                 $('#' + tabId + '-content').removeClass('hidden');
 
                 loadServerContent(tabId, url);
