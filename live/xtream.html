@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channels</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+<style>
+    :root {
+        --primary: #04490d;
+        --primary-light: #0a6b1a;
+        --gray: #9ca3af;
+    }
+
+    * {
+        font-family: 'Cairo', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+    }
+
+    .tab-btn {
+        color: var(--gray);
+        border-bottom: 4px solid transparent;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .tab-btn:hover {
+        color: var(--primary);
+    }
+
+    .tab-btn[data-active="true"] {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+    }
+</style>
+
+</head>
+
+<body class="bg-white text-gray-100 h-screen overflow-hidden">
+
+    <div class="container-fluid mx-auto h-full flex flex-col">
+
+        <div class="flex border-b shadow-lg">
+            <a
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent "
+                data-tab="server1"
+                data-url="https://live1.cloud1-e3f.workers.dev/id_.m3u8"
+                data-active="true" style="text-align: center;">
+                Server 1
+            </a>
+
+            <a
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent  "
+                data-tab="server2"
+                data-url="https://live2.cloud1-e3f.workers.dev/id_.m3u8"
+                data-active="false" style="text-align: center;">
+                Server 2
+            </a>
+
+            <a
+                class="tab-btn flex-1 py-4 px-6 text-lg font-semibold text-gray-400 hover:text-black border-b-4 border-transparent  "
+                data-tab="server3"
+                data-url="https://xtream1.cloud1-e3f.workers.dev/id_.m3u8"
+                data-active="false" style="text-align: center;">
+                Server 3
+            </a>
+        </div>
+
+        <div class="flex-1 overflow-auto">
+            <div class="tab-content h-full" id="server1-content"></div>
+            <div class="tab-content h-full hidden" id="server2-content"></div>
+            <div class="tab-content h-full hidden" id="server3-content"></div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function getChannelId() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('ch');
+            }
+
+            function loadServerContent(tabId, baseUrl) {
+                const chId = getChannelId();
+                const $content = $('#' + tabId + '-content');
+
+                if (!chId) {
+                    $content.html(
+                        '<p class="text-red-600 text-center mt-6">خطأ</p>'
+                    );
+                    return;
+                }
+
+                const finalUrl = baseUrl.replace('id_', chId + '_');
+                $content.html(`
+                    <div class="h-full overflow-auto">
+                        <embed type="text/html"  src="ClapprPlayer?ch=${finalUrl}" style="width:100%; height:100%; border:none;" />
+                    </div>
+                `);
+            }
+
+            $('.tab-btn').on('click', function () {
+                const tabId = $(this).data('tab');
+                const url = $(this).data('url');
+
+                $('.tab-btn').attr('data-active', 'false');
+                $(this).attr('data-active', 'true');
+
+                $('.tab-content').addClass('hidden');
+                $('#' + tabId + '-content').removeClass('hidden');
+
+                loadServerContent(tabId, url);
+            });
+
+            const $firstTab = $('.tab-btn[data-active="true"]');
+            loadServerContent(
+                $firstTab.data('tab'),
+                $firstTab.data('url')
+            );
+        });
+    </script>
+
+</body>
+</html>
