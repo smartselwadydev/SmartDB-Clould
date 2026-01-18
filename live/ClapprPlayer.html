@@ -1,45 +1,361 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<style>
-	html, body {
-	  height: 100%;
-	  width: 100%;
-	  margin: 0;
-	  padding: 0;
-	  border: 0;
-	  overflow: hidden;
-	}
-	#player {
-	  width: 100%;
-	  height: 100%;
-	}
-	</style>
-<script src="js/clappr.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #player {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .clappr-player {
+            background: #000 !important;
+        }
+        #video-error {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+    <!-- Load Clappr from CDN with all plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <!-- Load HLS.js separately for better control -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.10/dist/hls.min.js"></script>
 </head>
 <body>
     <div id="player"></div>
+    <div id="video-error">
+        <h3>Video Playback Issue</h3>
+        <p>Trying to fix the problem...</p>
+        <button onclick="reloadPlayer()">Retry</button>
+    </div>
+    
     <script>
-			var params={};
-			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-			var url = params["ch"];
-			var player = new Clappr.Player({
-				source: url,
-				maxBufferLength: 30,
-				poster: 'live2.jpg',
-				mute: false,
-				width: '100%',
-				height: '100%',
-				playback: {
-					playInline: true,
-				},
-				parentId: '#player',
-			});
+        // Extract URL parameters
+        var params = {};
+        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
+            params[key] = decodeURIComponent(value);
+        });
+        
+        var url = params["ch"];
+        if (!url) {
+            alert("No stream URL provided! Use ?ch=your_stream_url");
+            url = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'; // Test stream
+        }
+        
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+        var player = null;
+        
+        function initializePlayer(sourceUrl) {
+            // Destroy previous player if exists
+            if (player) {
+                player.destroy();
+                document.getElementById('player').innerHTML = '';
+            }
+            
+            // Hide error message
+            document.getElementById('video-error').style.display = 'none';
+            
+            console.log('Initializing player with URL:', sourceUrl);
+            
+            // Basic configuration first
+            var config = {
+                source: sourceUrl,
+                poster: 'live2.jpg',
+                mute: false,
+                autoPlay: true,
+                width: '100%',
+                height: '100%',
+                parentId: '#player',
+                mediacontrol: {
+                    seekbar: "#E62117",
+                    buttons: "#FFFFFF"
+                },
+                playbackNotSupportedMessage: 'Your browser does not support this video format.',
+                gaTracker: false,
+                watermark: null,
+                
+                // FORCE HLS.js playback for video
+                playback: {
+                    playInline: true,
+                    preload: 'auto',
+                    crossOrigin: 'anonymous',
+                    disableContextMenu: false,
+                    
+                    // Explicitly set HLS configuration
+                    hlsjsConfig: {
+                        enableWorker: true,
+                        enableSoftwareAES: true,
+                        debug: false,
+                        
+                        // Video playback settings
+                        autoStartLoad: true,
+                        startPosition: -1,
+                        defaultAudioCodec: 'mp4a.40.2',
+                        
+                        // Buffer settings
+                        maxBufferLength: 30,
+                        maxMaxBufferLength: 60,
+                        maxBufferSize: 60 * 1000 * 1000,
+                        maxBufferHole: 0.5,
+                        
+                        // Quality settings
+                        capLevelToPlayerSize: false,
+                        capLevelOnFPSDrop: false,
+                        
+                        // 50 FPS support
+                        fpsController: {
+                            fps: 50,
+                            capLevelOnFPSDrop: false
+                        }
+                    }
+                },
+                
+                // Disable audio-only plugins
+                plugins: [],
+                
+                // Events
+                events: {
+                    onReady: function() {
+                        console.log('Player is ready');
+                        // Try to force video playback
+                        setTimeout(function() {
+                            var videoEl = document.querySelector('video');
+                            if (videoEl) {
+                                console.log('Video element found:', videoEl.videoWidth + 'x' + videoEl.videoHeight);
+                                if (videoEl.videoWidth > 0) {
+                                    console.log('Video is playing correctly');
+                                } else {
+                                    console.warn('Video element has 0 dimensions');
+                                    checkVideoPlayback();
+                                }
+                            }
+                        }, 1000);
+                    },
+                    
+                    onPlay: function() {
+                        console.log('Playback started');
+                        checkVideoPlayback();
+                    },
+                    
+                    onError: function(error) {
+                        console.error('Player error:', error);
+                        handlePlaybackError(error);
+                    }
+                }
+            };
+            
+            // Initialize player
+            player = new Clappr.Player(config);
+            
+            // Additional event listeners
+            player.on(Clappr.Events.PLAYER_PLAY, function() {
+                console.log('PLAY event fired');
+                checkVideoPlayback();
+            });
+            
+            player.on(Clappr.Events.PLAYER_ENDED, function() {
+                console.log('Playback ended');
+            });
+            
+            // Check for video after 2 seconds
+            setTimeout(checkVideoPlayback, 2000);
+        }
+        
+        function checkVideoPlayback() {
+            var videoElements = document.getElementsByTagName('video');
+            console.log('Found', videoElements.length, 'video elements');
+            
+            if (videoElements.length > 0) {
+                var videoEl = videoElements[0];
+                console.log('Video element properties:');
+                console.log('- videoWidth:', videoEl.videoWidth);
+                console.log('- videoHeight:', videoEl.videoHeight);
+                console.log('- readyState:', videoEl.readyState);
+                console.log('- networkState:', videoEl.networkState);
+                console.log('- error:', videoEl.error);
+                console.log('- src:', videoEl.src);
+                console.log('- currentSrc:', videoEl.currentSrc);
+                
+                if (videoEl.videoWidth === 0 && videoEl.videoHeight === 0) {
+                    console.warn('Video element exists but has 0 dimensions - audio only?');
+                    showVideoError('Video not loading properly. Trying alternative method...');
+                    tryAlternativePlayback();
+                } else {
+                    console.log('Video playback confirmed:', videoEl.videoWidth + 'x' + videoEl.videoHeight);
+                }
+            } else {
+                console.error('No video element found!');
+                showVideoError('No video element detected. Checking for alternative players...');
+                tryAlternativePlayback();
+            }
+        }
+        
+        function tryAlternativePlayback() {
+            console.log('Trying alternative playback method...');
+            
+            // Method 1: Try without HLS.js config
+            setTimeout(function() {
+                console.log('Attempting simplified player...');
+                var simpleConfig = {
+                    source: url,
+                    autoPlay: true,
+                    width: '100%',
+                    height: '100%',
+                    parentId: '#player',
+                    playback: {
+                        playInline: true
+                    }
+                };
+                
+                if (player) player.destroy();
+                player = new Clappr.Player(simpleConfig);
+            }, 1000);
+            
+            // Method 2: Try direct video element as fallback
+            setTimeout(function() {
+                var videoElements = document.getElementsByTagName('video');
+                if (videoElements.length === 0 || 
+                   (videoElements[0].videoWidth === 0 && videoElements[0].videoHeight === 0)) {
+                    console.log('Creating direct video element fallback...');
+                    createDirectVideoPlayer();
+                }
+            }, 3000);
+        }
+        
+        function createDirectVideoPlayer() {
+            var playerDiv = document.getElementById('player');
+            playerDiv.innerHTML = '';
+            
+            var videoEl = document.createElement('video');
+            videoEl.id = 'direct-video';
+            videoEl.style.width = '100%';
+            videoEl.style.height = '100%';
+            videoEl.controls = true;
+            videoEl.autoplay = true;
+            videoEl.muted = false;
+            videoEl.crossOrigin = 'anonymous';
+            videoEl.playsInline = true;
+            
+            // Try different source types
+            if (url.includes('.m3u8')) {
+                // For HLS streams, try using HLS.js directly
+                if (Hls.isSupported()) {
+                    var hls = new Hls({
+                        enableWorker: true,
+                        lowLatencyMode: true,
+                        backBufferLength: 30
+                    });
+                    hls.loadSource(url);
+                    hls.attachMedia(videoEl);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        videoEl.play().catch(function(e) {
+                            console.error('Direct HLS play error:', e);
+                            videoEl.muted = true;
+                            videoEl.play();
+                        });
+                    });
+                } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+                    // iOS native HLS
+                    videoEl.src = url;
+                }
+            } else {
+                // Direct video file
+                videoEl.src = url;
+            }
+            
+            playerDiv.appendChild(videoEl);
+            
+            videoEl.onloadeddata = function() {
+                console.log('Direct video loaded:', videoEl.videoWidth + 'x' + videoEl.videoHeight);
+                if (videoEl.videoWidth > 0) {
+                    console.log('Direct video playback successful!');
+                }
+            };
+            
+            videoEl.onerror = function(e) {
+                console.error('Direct video error:', e);
+                showVideoError('Failed to play video. The stream format may not be supported.');
+            };
+        }
+        
+        function handlePlaybackError(error) {
+            console.error('Playback error details:', error);
+            
+            var errorMessage = 'Unknown error';
+            if (error.code === 'PLAYBACK_NOT_SUPPORTED') {
+                errorMessage = 'Playback not supported by your browser';
+            } else if (error.code === 'PLAYBACK_ERROR') {
+                errorMessage = 'Error loading the video stream';
+            } else if (error.message) {
+                errorMessage = error.message;
+            }
+            
+            showVideoError('Error: ' + errorMessage + '. Trying alternative...');
+            
+            // Try alternative stream formats
+            setTimeout(function() {
+                if (url.includes('.m3u8')) {
+                    console.log('Trying MP4 fallback...');
+                    // Try to find MP4 alternative
+                    var mp4Url = url.replace('.m3u8', '.mp4');
+                    initializePlayer(mp4Url);
+                }
+            }, 2000);
+        }
+        
+        function showVideoError(message) {
+            var errorDiv = document.getElementById('video-error');
+            errorDiv.innerHTML = '<h3>⚠️ Playback Issue</h3><p>' + message + '</p><button onclick="reloadPlayer()">Retry Playback</button>';
+            errorDiv.style.display = 'block';
+        }
+        
+        function reloadPlayer() {
+            console.log('Reloading player...');
+            initializePlayer(url);
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing player...');
+            console.log('Stream URL:', url);
+            console.log('Is mobile:', isMobile);
+            console.log('HLS supported:', typeof Hls !== 'undefined' ? Hls.isSupported() : 'HLS not loaded');
+            
+            initializePlayer(url);
+        });
+        
+        // Force video context menu for debugging
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'VIDEO') {
+                console.log('Right-click on video - debugging info:');
+                var video = e.target;
+                console.log('Video dimensions:', video.videoWidth + 'x' + video.videoHeight);
+                console.log('Current time:', video.currentTime);
+                console.log('Duration:', video.duration);
+                console.log('Network state:', video.networkState);
+                console.log('Ready state:', video.readyState);
+            }
+        }, false);
+        
     </script>
-	
-	
 </body>
 </html>
