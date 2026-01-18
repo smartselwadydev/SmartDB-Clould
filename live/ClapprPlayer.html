@@ -1,178 +1,45 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <title>WEGOAL Player</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js"></script>
-    <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: #000; 
-            overflow: hidden; 
-        }
-        .artplayer-app { 
-            width: 100%; 
-            height: 100%; 
-        }
-    </style>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+	#player {
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
+<script src="js/clappr.min.js"></script>
 </head>
 <body>
-
-    <div class="artplayer-app"></div>
-
+    <div id="player"></div>
     <script>
-        var params={};
-        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-        var streamUrl = params["ch"];
-
-        var noSleep = new NoSleep();
-        var wakeLock = null;
-
-        async function enableWakeLock() {
-            try {
-                if ('wakeLock' in navigator) {
-                    wakeLock = await navigator.wakeLock.request('screen');
-                } else {
-                    noSleep.enable();
-                }
-            } catch (err) {
-                try {
-                    noSleep.enable();
-                } catch (e) {}
-            }
-        }
-
-        function disableWakeLock() {
-            if (wakeLock) {
-                wakeLock.release();
-                wakeLock = null;
-            }
-            try {
-                noSleep.disable();
-            } catch (e) {}
-        }
-
-        var art = new Artplayer({
-            container: '.artplayer-app',
-            url: streamUrl,
-            type: 'm3u8',
-            isLive: true,
-            volume: 1.0,
-            autoplay: true,
-            pip: true,
-            autoSize: true,
-            autoMini: true,
-            setting: true,
-            loop: true,
-            flip: true,
-            playbackRate: true,
-            aspectRatio: true,
-            fullscreen: true,
-            fullscreenWeb: true,
-            miniProgressBar: true,
-            lock: true,
-            fastForward: true,
-            autoOrientation: true,
-            screenshot: true,
-            subtitleOffset: true,
-            mutex: true,
-            backdrop: true,
-            playsInline: true,
-            autoPlayback: true,
-            airPlay: true,
-            
-            quality: [], 
-
-            customType: {
-                m3u8: function (video, url, art) {
-                    if (Hls.isSupported()) {
-                        const hls = new Hls();
-                        hls.loadSource(url);
-                        hls.attachMedia(video);
-
-                        hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-                            if (data.levels.length > 1) {
-                                var levelList = [];
-                                
-                                levelList.push({
-                                    default: true,
-                                    html: 'Auto',
-                                    level: -1
-                                });
-
-                                data.levels.forEach(function (level, index) {
-                                    levelList.push({
-                                        html: level.height + 'p',
-                                        level: index
-                                    });
-                                });
-
-                                art.quality = levelList;
-                            }
-                        });
-
-                        art.on('quality', function (item) {
-                            hls.currentLevel = item.level;
-                        });
-
-                    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                        video.src = url;
-                    }
-                },
-            },
-
-            layers: [
-                {
-                    html: ``,
-                    style: {
-                        position: 'absolute',
-                        bottom: '50px',
-                        left: '20px',
-                        zIndex: 10,
-                        pointerEvents: 'none',
-                    },
-                },
-            ],
-            
-            lang: 'ar',
-        });
-
-        art.on('play', function() {
-            enableWakeLock();
-        });
-
-        art.on('pause', function() {
-            disableWakeLock();
-        });
-
-        art.on('video:ended', function() {
-            disableWakeLock();
-        });
-
-        art.on('ready', () => { 
-            const video = art.video;
-            video.setAttribute('playsinline', '');
-            video.setAttribute('webkit-playsinline', '');
-            video.setAttribute('x-webkit-airplay', 'allow');
-        });
-
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden && !art.paused) {
-                enableWakeLock();
-            }
-        });
-
-        window.addEventListener('beforeunload', function() {
-            disableWakeLock();
-        });
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var url = params["ch"];
+			var player = new Clappr.Player({
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+			});
     </script>
+	
+	
 </body>
 </html>
