@@ -1,234 +1,45 @@
 <!doctype html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            overflow: hidden;
-            background: #000;
-        }
-        #player {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        .clappr-player {
-            background: #000 !important;
-        }
-        /* Hide controls on mobile for better performance */
-        @media (max-width: 768px) {
-            .media-control {
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-            .media-control:hover {
-                opacity: 1;
-            }
-        }
-    </style>
-    <script src="js/clappr.min.js"></script>
-    <!-- Optional: Include HLS.js separately for better control -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.10/dist/hls.min.js"></script>
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+	#player {
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
+<script src="js/clappr.min.js"></script>
 </head>
 <body>
     <div id="player"></div>
     <script>
-        // Extract URL parameters
-        var params = {};
-        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
-            params[key] = decodeURIComponent(value);
-        });
-        
-        var url = params["ch"] || 'default_stream.m3u8';
-        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
-        
-        // Mobile-specific 50 FPS configuration
-        var playbackConfig = {
-            playInline: true,
-            preload: 'auto',
-            crossOrigin: 'anonymous',
-            hlsjsConfig: {
-                // Performance optimizations for 50 FPS
-                enableWorker: true,
-                enableSoftwareAES: true,
-                startLevel: -1, // Auto quality selection
-                maxBufferLength: 30,
-                maxMaxBufferLength: 60,
-                liveSyncDuration: isMobile ? 3 : 2,
-                liveSyncDurationCount: 3,
-                liveMaxLatencyDurationCount: 10,
-                
-                // Buffer optimization for high frame rates
-                maxBufferSize: isMobile ? 50 * 1000 * 1000 : 60 * 1000 * 1000, // 50-60MB
-                maxBufferHole: 0.5,
-                maxStarvationDelay: 4,
-                
-                // 50 FPS specific settings
-                fpsController: {
-                    fps: 50,
-                    capLevelOnFPSDrop: false,
-                    fpsDroppedMonitoringPeriod: 5000,
-                    fpsDroppedMonitoringThreshold: 0.2
-                },
-                
-                // Quality/rendering optimizations
-                capLevelToPlayerSize: !isMobile, // Don't cap on mobile for better quality
-                preferManagedMediaSource: false,
-                renderTextTracksNatively: false,
-                
-                // Network optimizations
-                manifestLoadingTimeOut: 10000,
-                manifestLoadingMaxRetry: 3,
-                manifestLoadingRetryDelay: 500,
-                levelLoadingTimeOut: 10000,
-                levelLoadingMaxRetry: 3,
-                levelLoadingRetryDelay: 500,
-                fragLoadingTimeOut: 20000,
-                fragLoadingMaxRetry: 6,
-                fragLoadingRetryDelay: 500
-            }
-        };
-        
-        // Create player instance
-        var player = new Clappr.Player({
-            source: url,
-            poster: 'live2.jpg',
-            mute: false,
-            autoPlay: true,
-            chromeless: false,
-            mediacontrol: {
-                seekbar: "#E62117",
-                buttons: "#FFFFFF",
-                hideWhenPaused: false,
-                fadeDelay: 3000
-            },
-            width: '100%',
-            height: '100%',
-            playback: playbackConfig,
-            parentId: '#player',
-            plugins: [],
-            
-            // Events for debugging and monitoring
-            events: {
-                onError: function(error) {
-                    console.error('Player error:', error);
-                    // Fallback strategy
-                    if (error.code === 'PLAYBACK_NOT_SUPPORTED') {
-                        player.configure({
-                            source: url.replace('.m3u8', '.mp4') // Try MP4 fallback
-                        });
-                    }
-                },
-                onPlay: function() {
-                    console.log('Playback started at 50 FPS mode');
-                },
-                onTimeUpdate: function(timeProgress) {
-                    // Monitor playback performance
-                    if (timeProgress.current > 10) {
-                        var videoElement = player.core.getCurrentPlayback().el;
-                        if (videoElement) {
-                            var fps = performance.now();
-                            // Optional: Log FPS performance periodically
-                        }
-                    }
-                }
-            }
-        });
-        
-        // Mobile-specific optimizations
-        if (isMobile) {
-            // Force landscape on mobile for better viewing
-            screen.orientation.lock('landscape').catch(function() {
-                console.log('Orientation lock not supported');
-            });
-            
-            // Disable sleep/auto-lock during playback
-            if ('wakeLock' in navigator) {
-                navigator.wakeLock.request('screen').catch(function(err) {
-                    console.log('Wake Lock not supported:', err);
-                });
-            }
-            
-            // Handle visibility changes for battery optimization
-            document.addEventListener('visibilitychange', function() {
-                if (document.hidden) {
-                    player.pause();
-                } else {
-                    player.play();
-                }
-            });
-        }
-        
-        // Performance monitoring
-        var performanceMonitor = {
-            lastTime: Date.now(),
-            frames: 0,
-            fps: 0,
-            
-            start: function() {
-                setInterval(function() {
-                    var currentTime = Date.now();
-                    var delta = currentTime - this.lastTime;
-                    this.lastTime = currentTime;
-                    this.fps = Math.round((this.frames * 1000) / delta);
-                    this.frames = 0;
-                    
-                    if (this.fps < 45) {
-                        console.warn('Low FPS detected:', this.fps);
-                        // Adjust buffer if FPS drops
-                        if (player.core.getCurrentPlayback() && 
-                            player.core.getCurrentPlayback()._hls) {
-                            player.core.getCurrentPlayback()._hls.config.maxBufferLength = 20;
-                        }
-                    }
-                }.bind(this), 1000);
-            },
-            
-            countFrame: function() {
-                this.frames++;
-            }
-        };
-        
-        // Start monitoring after player is ready
-        player.on(player.Events.PLAYER_READY, function() {
-            console.log('Player ready with 50 FPS configuration');
-            performanceMonitor.start();
-            
-            // Monitor animation frames
-            function monitorFrame() {
-                performanceMonitor.countFrame();
-                requestAnimationFrame(monitorFrame);
-            }
-            requestAnimationFrame(monitorFrame);
-        });
-        
-        // Handle page unload
-        window.addEventListener('beforeunload', function() {
-            if (player && typeof player.destroy === 'function') {
-                player.destroy();
-            }
-        });
-        
-        // Error recovery
-        player.on(player.Events.PLAYER_ERROR, function(error) {
-            console.error('Player error:', error);
-            
-            // Try to recover
-            setTimeout(function() {
-                if (player && player.core.getCurrentContainer()) {
-                    player.core.getCurrentContainer().stop();
-                    player.core.getCurrentContainer().play();
-                }
-            }, 2000);
-        });
-        
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var url = params["ch"];
+			var player = new Clappr.Player({
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+			});
     </script>
+	
+	
 </body>
 </html>
