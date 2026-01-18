@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-<head>
+  <head>
+  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- iOS specific meta tags -->
@@ -10,131 +11,43 @@
     <meta name="mobile-web-app-capable" content="yes">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            overflow: hidden;
-            background-color: #000;
-        }
-        #player {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-        }
-        /* Prevent text selection and tap highlight */
-        * {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-        /* For fullscreen video on Android */
-        video {
-            object-fit: contain !important;
-        }
-    </style>
-    <script src="js/clappr.min.js"></script>
-    <!-- Optional: Add fullscreen plugin if needed -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/clappr-fullscreen-plugin@latest/dist/fullscreen.min.js"></script> -->
+
+	<style>
+	html, body {
+	  height: 100%;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  overflow: hidden;
+	}
+	#player {
+	  width: 100%;
+	  height: 100%;
+	}
+	</style>
+<script src="js/clappr.min.js"></script>
 </head>
 <body>
     <div id="player"></div>
     <script>
-        var params = {};
-        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
-            params[key] = value;
-        });
-        var url = params["ch"];
-        
-        var player = new Clappr.Player({
-            source: url,
-            maxBufferLength: 30,
-            poster: 'live2.jpg',
-            mute: false,
-            width: '100%',
-            height: '100%',
-            playback: {
-                playInline: true,
-                // Important for Android fullscreen
-                controls: true,
-                crossOrigin: 'anonymous',
-            },
-            plugins: {
-                // Add fullscreen plugin if you have it
-                // core: [Fullscreen]
-            },
-            parentId: '#player',
-            // Enable fullscreen controls
-            mediacontrol: {
-                seekbar: "#8BC34A",
-                buttons: "#8BC34A"
-            },
-            // Configuration for mobile devices
-            hlsjsConfig: {
-                enableWorker: true,
-                lowLatencyMode: true,
-                backBufferLength: 30
-            },
-            // Auto play configuration
-            autoPlay: true,
-            // Important for Android fullscreen
-            events: {
-                onReady: function() {
-                    // Try to play automatically on mobile
-                    if (this.core.getCurrentContainer()) {
-                        this.core.getCurrentContainer().play();
-                    }
-                    
-                    // Handle fullscreen on Android
-                    document.addEventListener('fullscreenchange', handleFullscreenChange);
-                    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-                }
-            }
-        });
-        
-        function handleFullscreenChange() {
-            var isFullscreen = document.fullscreenElement || 
-                              document.webkitFullscreenElement || 
-                              document.mozFullScreenElement;
-            
-            if (isFullscreen) {
-                // In fullscreen mode
-                document.body.style.overflow = 'hidden';
-            } else {
-                // Exited fullscreen
-                document.body.style.overflow = 'auto';
-            }
-        }
-        
-        // Handle orientation changes
-        window.addEventListener('orientationchange', function() {
-            setTimeout(function() {
-                player.core.resize();
-            }, 300);
-        });
-        
-        // Handle resize events
-        window.addEventListener('resize', function() {
-            player.core.resize();
-        });
-        
-        // Prevent default touch behavior that might interfere
-        document.addEventListener('touchmove', function(e) {
-            if (e.scale !== 1) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        // Optional: Add click to fullscreen on mobile
-        document.getElementById('player').addEventListener('click', function() {
-            if (player.core.mediaControl.isReady) {
-                player.core.mediaControl.toggleFullscreen();
-            }
-        });
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var url = params["ch"];
+			var player = new Clappr.Player({
+				source: url,
+				maxBufferLength: 30,
+				poster: 'live2.jpg',
+				mute: false,
+				width: '100%',
+				height: '100%',
+				playback: {
+					playInline: true,
+				},
+				parentId: '#player',
+			});
     </script>
+	
+	
 </body>
 </html>
