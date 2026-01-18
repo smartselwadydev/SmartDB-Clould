@@ -10,8 +10,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/nosleep.js@0.12.0/dist/NoSleep.min.js"></script>
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
-        .artplayer-app { width: 100%; height: 100%; }
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        .artplayer-app { 
+            width: 100%; 
+            height: 100%; 
+        }
     </style>
 </head>
 <body>
@@ -21,8 +31,7 @@
     <script>
         var params={};
         window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-        var streamUrl = params["ch"] || "https://live1.cloud1-e3f.workers.dev/1_.m3u8";
-        var logoUrl = "";
+        var streamUrl = params["ch"];
 
         var noSleep = new NoSleep();
         var wakeLock = null;
@@ -37,8 +46,7 @@
             } catch (err) {
                 try {
                     noSleep.enable();
-                } catch (e) {
-                }
+                } catch (e) {}
             }
         }
 
@@ -55,16 +63,10 @@
         var art = new Artplayer({
             container: '.artplayer-app',
             url: streamUrl,
-            attributes: {
-                'controls': 'controls',
-                'playsinline': 'playsinline',
-                'webkit-playsinline': 'webkit-playsinline',
-                'x-webkit-airplay': 'allow',
-            },
             type: 'm3u8',
             isLive: true,
             volume: 1.0,
-            autoplay: false,
+            autoplay: true,
             pip: true,
             autoSize: true,
             autoMini: true,
@@ -85,7 +87,7 @@
             backdrop: true,
             playsInline: true,
             autoPlayback: true,
-            airPlay: true,
+            airplay: true,
             
             quality: [], 
 
@@ -117,7 +119,7 @@
                             }
                         });
 
-                        art.on('video:quality', function (item) {
+                        art.on('quality', function (item) {
                             hls.currentLevel = item.level;
                         });
 
@@ -143,11 +145,11 @@
             lang: 'ar',
         });
 
-        art.on('video:play', function() {
+        art.on('play', function() {
             enableWakeLock();
         });
 
-        art.on('video:pause', function() {
+        art.on('pause', function() {
             disableWakeLock();
         });
 
@@ -156,18 +158,10 @@
         });
 
         art.on('ready', () => { 
-            art.play(); 
-        });
-
-        $(document).ready(function() {
-            $('.art-video').attr({
-                'playsinline': '',
-                'webkit-playsinline': '',
-                'x-webkit-airplay': 'allow',
-                'webkitPlaysinline': '',
-                'controls': true,
-                'loop': true		
-            });
+            const video = art.video;
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            video.setAttribute('x-webkit-airplay', 'allow');
         });
 
         document.addEventListener('visibilitychange', function() {
