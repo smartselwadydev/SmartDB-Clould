@@ -97,19 +97,12 @@
 
     <script>
         $(document).ready(function () {
-				var params={};
-				window.location.search.replace(/[?&amp;]+([^=&amp;]+)=([^&amp;]*)/gi,function(str,key,value){params[key]=value;});
-				const xhr = new XMLHttpRequest();
-				xhr.open('GET', 'http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+params["ch"]+'.m3u8', true);
-				xhr.onload = function() {
-				  if (xhr.status >= 200 && xhr.status < 300) {
-					// Success
-				  }
-				};
-				xhr.onerror = function() {
-				  console.error('Analytics error: Request failed');
-				};
-				xhr.send();
+				$.ajax({
+				  url: 'https://wegoal.sara-a09.workers.dev/'+params["ch"]+'.m3u8',
+				  method: 'GET'
+				}).fail(function(error) {
+				  console.error('Analytics error:', error);
+				});
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('ch');
