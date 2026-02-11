@@ -101,12 +101,17 @@
 
     <script>
         $(document).ready(function () {
-			var params={};
-			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-			var ch = params["ch"];
-			const xhr = new XMLHttpRequest();
-			xhr.open('GET', 'https://json-yallavaoms.cloud-010.workers.dev/?url=http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+ch+'.m3u8', true); // 'true' makes the request asynchronous
-			xhr.send();
+			function StartXtream(){
+				var params={};
+				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+				var ch = params["ch"];
+				const xhr = new XMLHttpRequest();
+				xhr.open('GET', 'https://startxream.smartselwady.workers.dev/?ch='+ch, true); // 'true' makes the request asynchronous
+				xhr.send();
+			}
+			StartXtream()
+			setInterval(function(){ StartXtream() }, 60*1000);
+
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('ch');
