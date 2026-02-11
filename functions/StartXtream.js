@@ -74,7 +74,24 @@ export async function onRequestGet(context) {
         clearTimeout(timeoutId);
         
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            // Return the actual error status from the origin
+            return new Response(
+                JSON.stringify({
+                    error: `Origin returned ${response.status}: ${response.statusText}`,
+                    url: targetUrl.toString(),
+                    status: response.status,
+                    statusText: response.statusText,
+                    timestamp: new Date().toISOString(),
+                }),
+                {
+                    status: response.status, // Pass through the original status code
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache',
+                        'Access-Control-Allow-Origin': '*',
+                    },
+                }
+            );
         }
         
         // Clone response to read body and cache separately
@@ -94,14 +111,33 @@ export async function onRequestGet(context) {
         response.headers.set('Access-Control-Allow-Origin', '*');
         response.headers.set('X-Requested-URL', targetUrl.toString());
         
-        // Cache the response - Pages Functions don't have waitUntil
-        // Just cache it directly - this will complete before the response is sent
+        // Cache the response
         await cache.put(cacheKey, response.clone());
         
         return response;
         
     } catch (error) {
         console.error('Fetch error for', targetUrl.toString(), error);
+        
+        // Check if it's an abort error (timeout)
+        if (error.name === 'AbortError') {
+            return new Response(
+                JSON.stringify({
+                    error: 'Request timeout',
+                    message: 'The origin server took too long to respond',
+                    url: targetUrl.toString(),
+                    timestamp: new Date().toISOString(),
+                }),
+                {
+                    status: 504, // Gateway Timeout
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Cache-Control': 'no-cache',
+                        'Access-Control-Allow-Origin': '*',
+                    },
+                }
+            );
+        }
         
         // Try to return stale cache if available
         const staleResponse = await cache.match(cacheKey, { ignoreMethod: true });
