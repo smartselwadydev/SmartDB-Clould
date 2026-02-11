@@ -1,5 +1,5 @@
 export async function onRequestGet(context) {
-    const { request, env, ctx } = context;
+    const { request, env } = context;
     
     // Get URL from query parameter
     const url = new URL(request.url);
@@ -94,8 +94,9 @@ export async function onRequestGet(context) {
         response.headers.set('Access-Control-Allow-Origin', '*');
         response.headers.set('X-Requested-URL', targetUrl.toString());
         
-        // Cache the response
-        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        // Cache the response - Pages Functions don't have waitUntil
+        // Just cache it directly - this will complete before the response is sent
+        await cache.put(cacheKey, response.clone());
         
         return response;
         
