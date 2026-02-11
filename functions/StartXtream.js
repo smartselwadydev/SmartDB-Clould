@@ -18,7 +18,7 @@ export async function onRequest(context) {
     
     return new Response(m3u8Content, {
       headers: {
-        "Content-Type": "application/vnd.apple.mpegurl",
+       // "Content-Type": "application/vnd.apple.mpegurl",
         "Access-Control-Allow-Origin": "*"
       }
     });
