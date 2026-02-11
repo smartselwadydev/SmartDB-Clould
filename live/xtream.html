@@ -101,19 +101,12 @@
 
     <script>
         $(document).ready(function () {
-			var params = {};
-			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) {
-				params[key] = value;
-			});
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 			var ch = params["ch"];
-
-			$.get('http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/' + ch + '.m3u8')
-				.done(function(data) {
-					console.log("M3U8 content:", data);
-				})
-				.fail(function(error) {
-					console.error('Error:', error);
-			});
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'https://json-yallavaoms.cloud-010.workers.dev/?url=http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+ch+'.m3u8', true); // 'true' makes the request asynchronous
+			xhr.send();
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('ch');
