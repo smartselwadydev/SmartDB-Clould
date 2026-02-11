@@ -7,7 +7,8 @@
     <title>Channels</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 <style>
@@ -100,9 +101,9 @@
         $(document).ready(function () {
 			var params={};
 			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-			var id = params["id"];
+			var ch = params["ch"];
 			const xhr = new XMLHttpRequest();
-			xhr.open('GET', 'http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+id+'.m3u8', true); // 'true' makes the request asynchronous
+			xhr.open('GET', 'http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+ch+'.m3u8', true); // 'true' makes the request asynchronous
 			xhr.send();
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
