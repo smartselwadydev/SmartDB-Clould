@@ -1,4 +1,3 @@
-// Cloudflare Function (ES modules format)
 export async function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
@@ -11,14 +10,13 @@ export async function onRequest(context) {
 
   try {
     const response = await fetch(
-      `http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/11.m3u8`
+      `http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/${ch}.m3u8`
     );
     
     const m3u8Content = await response.text();
     
     return new Response(m3u8Content, {
       headers: {
-       // "Content-Type": "application/vnd.apple.mpegurl",
         "Access-Control-Allow-Origin": "*"
       }
     });
