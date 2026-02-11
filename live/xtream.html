@@ -98,6 +98,12 @@
 
     <script>
         $(document).ready(function () {
+			var params={};
+			window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+			var id = params["id"];
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+id+'.m3u8', true); // 'true' makes the request asynchronous
+			xhr.send();
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
                 return params.get('ch');
