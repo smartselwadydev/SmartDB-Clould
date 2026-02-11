@@ -11,7 +11,7 @@ export async function onRequest(context) {
 
   try {
     const response = await fetch(
-      `http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/${ch}.m3u8`
+      `http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/11.m3u8`
     );
     
     const m3u8Content = await response.text();
