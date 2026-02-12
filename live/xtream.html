@@ -120,7 +120,11 @@
 				var params={};
 				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 				if (params["dir"] == "1"){
-				  alert(0)
+				    const finalUrl = baseUrl.replace('https://pub-41becd24fbe14338b1f8ff15149e2cf7.r2.dev/id_.m3u8', 'http://xtream1.beinconnect.us:25461/live/wegoal/wegoal/'+chId+'.m3u8');
+					$content.html(`<div class="h-full overflow-auto">
+					<iframe src="${finalUrl}" style="width:100%; height:100%; border:none;" frameborder="0" frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+					allowfullscreen></iframe></div>`);
 				} else {
 					const finalUrl = baseUrl.replace('id_', chId + '_');
 					$content.html(`<div class="h-full overflow-auto">
