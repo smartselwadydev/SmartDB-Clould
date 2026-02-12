@@ -101,17 +101,6 @@
 
     <script>
         $(document).ready(function () {
-		    StartXtream()
-			function StartXtream(){
-				var params={};
-				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-				var ch = params["ch"];
-				const xhr = new XMLHttpRequest();
-				xhr.open('GET', 'https://startxream.smartselwady.workers.dev/?ch='+ch, true); // 'true' makes the request asynchronous
-				xhr.send();
-			}
-			
-			setInterval(function(){ StartXtream() }, 60000);
 
             function getChannelId() {
                 const params = new URLSearchParams(window.location.search);
@@ -128,16 +117,17 @@
                     );
                     return;
                 }
-
-                const finalUrl = baseUrl.replace('id_', chId + '_');
-				
-                $content.html(`
-                    <div class="h-full overflow-auto">
-                        <iframe src="ClapprPlayer?ch=${finalUrl}" style="width:100%; height:100%; border:none;" frameborder="0" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            allowfullscreen></iframe>
-                    </div>
-                `);
+				var params={};
+				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
+				if (params["dir"] == "1"){
+				  alert(0)
+				} else {
+					const finalUrl = baseUrl.replace('id_', chId + '_');
+					$content.html(`<div class="h-full overflow-auto">
+					<iframe src="ClapprPlayer?ch=${finalUrl}" style="width:100%; height:100%; border:none;" frameborder="0" frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+					allowfullscreen></iframe></div>`);				
+				}
             }
 
             $('.tab-btn').on('click', function () {
