@@ -331,7 +331,7 @@ window.t = function(key) {
 (function(){
 const $ = s => document.querySelector(s);
 
-const CHANNEL_KEY   = "premium609";
+const CHANNEL_KEY   = "premium91";
 const AUTH_TOKEN    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwcmVtaXVtNjA5IiwiY291bnRyeSI6IkVHIiwiaWF0IjoxNzY2MjY3MjQ1LCJleHAiOjE3NjYyODUyNDV9.6RK-THvaBTKcn48JnHwwKrgu_3Sz3nyt5GXL54ziqeQ";
 const AUTH_COUNTRY  = "EG";
 const AUTH_TS       = "1766267245";
@@ -425,8 +425,8 @@ waitForDependencies().then(() => {
     const sk = data.server_key;
 
     const m3u8 = (sk === 'top1/cdn')
-      ? `https://top1.kiko2.ru/top1/cdn/${CHANNEL_KEY}/mono.css`
-      : `https://${sk}new.kiko2.ru/${sk}/${CHANNEL_KEY}/mono.css`;
+      ? `https://top1.dvalna.ru/top1/cdn/${CHANNEL_KEY}/mono.css`
+      : `https://${sk}new.dvalna.ru/${sk}/${CHANNEL_KEY}/mono.css`;
 
     console.log('M3U8 URL:', m3u8);
     showPlayerContainer();
@@ -557,9 +557,9 @@ waitForDependencies().then(() => {
           .then(data => {
             console.log('Server lookup successful');
             const sk = data.server_key;
-            const m3u8 = (sk === 'top1/cdn')
-              ? `https://top1.kiko2.ru/top1/cdn/${CHANNEL_KEY}/mono.css`
-              : `https://${sk}new.kiko2.ru/${sk}/${CHANNEL_KEY}/mono.css`;
+           const m3u8 = (sk === 'top1/cdn')
+      ? `https://top1.dvalna.ru/top1/cdn/${CHANNEL_KEY}/mono.css`
+      : `https://${sk}new.dvalna.ru/${sk}/${CHANNEL_KEY}/mono.css`;
 
             showPlayerContainer();
 
@@ -678,7 +678,7 @@ window.WSUnmute = () => {
   'use strict';
 
   const var_565dc712bf      = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwcmVtaXVtNjA5IiwiY291bnRyeSI6IkVHIiwiaWF0IjoxNzY2MjY3MjQ1LCJleHAiOjE3NjYyODUyNDV9.6RK-THvaBTKcn48JnHwwKrgu_3Sz3nyt5GXL54ziqeQ";
-  const var_ba565fc1c2 = "premium609";
+  const var_ba565fc1c2 = "premium91";
   const var_f3f095d2e5    = "EG";
   const var_5c9c687d11  = "1766267245";
   const var_65c554dfa1     = "1766285245";
