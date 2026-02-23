@@ -27,21 +27,10 @@
 				var params={};
 				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 				var id = params["id"];
-                const targetUrl = "https://json-yallavaoms.cloud-010.workers.dev/?url=http://xtream1.beinconnect.us:25461/teledunet.php?id="+id;
-                
-                $.ajax({
-                    url: targetUrl,
-                    type: 'GET',
-                    success: function(response) {
-
-						var htmlContent = response;
-						var startWord = 'streamUrl: "';
-						var endWord = '",';
-						var data = htmlContent.split(startWord)[1].split(endWord)[0].trim();
-						var m3u8link = data.replaceAll('\\/', '/');
-						console.log(m3u8link)
-						var player = new Clappr.Player({
-							source: m3u8link,
+				var link =  encodeURIComponent("http://xtream1.beinconnect.us:25461/teledunet.php?id="+id);
+                const targetUrl = "https://json-yallavaoms.cloud-010.workers.dev/?url="+link;
+                var player = new Clappr.Player({
+							source: targetUrl,
 							maxBufferLength: 30,
 							mute: false,
 							width: '100%',
@@ -51,11 +40,6 @@
 							},
 							parentId: '#player',
 						});
-                    },
-                    error: function(xhr, status, error) {
-                        
-                    }
-                });
         });
     </script>
 
