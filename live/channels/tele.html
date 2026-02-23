@@ -27,8 +27,9 @@
 				var params={};
 				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 				var id = params["id"];
-				var link =  encodeURIComponent("http://xtream1.beinconnect.us:25461/teledunet.php?id="+id);
+				var link = "http://xtream1.beinconnect.us:25461/teledunet.php?id="+id;
                 const targetUrl = "https://json-yallavaoms.cloud-010.workers.dev/?url="+link;
+				console.log(targetUrl)
                 var player = new Clappr.Player({
 							source: targetUrl,
 							maxBufferLength: 30,
