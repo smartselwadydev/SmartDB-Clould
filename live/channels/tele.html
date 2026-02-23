@@ -27,7 +27,7 @@
 				var params={};
 				window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
 				var id = params["id"];
-				var link = "https://tv.beinconnect.us/tele.php?id="+id;
+				var link = "https://wegoal.sara-a09.workers.dev/"+id+".m3u8";
                 var player = new Clappr.Player({
 							source: link,
 							maxBufferLength: 30,
@@ -41,6 +41,5 @@
 						});
         });
     </script>
-
 </body>
 </html>
