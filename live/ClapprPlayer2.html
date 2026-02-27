@@ -30,7 +30,7 @@
 </head>
 <body>
     
-    <video id="player" class="video-js vjs-default-skin vjs-fill" controls preload="none" poster="live2.jpg">
+    <video id="player" class="video-js vjs-default-skin vjs-fill" controls preload="auto" poster="live2.jpg" data-setup='{}'>
         <p class="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a web browser that
           <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -46,25 +46,16 @@
       
       $(document).ready(function() {
         if (url) {
-          // تهيئة Video.js
+          // Initialize Video.js
           var player = videojs('player');
           
-          // دالة لتعيين المصدر (Source)
-          function setPlayerSource() {
-            player.src({
-              src: url,
-              type: 'application/x-mpegURL'
-            });
-          }
+          // Set the source based on URL parameter
+          player.src({
+            src: url,
+            type: 'application/x-mpegURL' // Assumes HLS, change if necessary
+          });
 
-          // عند تحميل المشغل لأول مرة، نجهز الرابط فقط دون تشغيله
-          setPlayerSource();
-
-          // عند الضغط على زر التشغيل (play)
-          player.on('play', function() {
-            // للتأكد من العودة للبث المباشر، نقوم بإعادة تعيين المصدر
-            // هذا يجبر المشغل على طلب أحدث مقطع في البث المباشر
-            setPlayerSource();                
+          player.ready(function() {
             player.play();
           });
         }
