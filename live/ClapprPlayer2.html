@@ -226,19 +226,7 @@
         </p>
       </video>
 
-      <!-- Loading overlay -->
-      <div id="loading-overlay">
-        <div class="spinner"></div>
-        <span class="loading-text">جارٍ التحميل...</span>
-      </div>
 
-      <!-- Error overlay -->
-      <div id="error-overlay">
-        <div class="error-icon">📡</div>
-        <div class="error-title">تعذّر تحميل البث</div>
-        <div class="error-msg">تحقق من اتصالك بالإنترنت أو حاول مرة أخرى بعد لحظات.</div>
-        <button id="retry-btn">إعادة المحاولة</button>
-      </div>
 
       <!-- Live badge -->
       <div id="live-badge">
@@ -260,9 +248,10 @@
       const $badge    = document.getElementById('live-badge');
 
       function showLoading() {
-        $loading.classList.remove('hidden');
-        $error.classList.remove('visible');
-        $badge.classList.remove('visible');
+        //$loading.classList.remove('hidden');
+        //$error.classList.remove('visible');
+        //$badge.classList.remove('visible');
+		hideLoading()
       }
 
       function hideLoading() {
@@ -270,9 +259,9 @@
       }
 
       function showError() {
-        hideLoading();
-        $error.classList.add('visible');
-        $badge.classList.remove('visible');
+        //hideLoading();
+        //$error.classList.add('visible');
+        //$badge.classList.remove('visible');
       }
 
       function showLive() {
