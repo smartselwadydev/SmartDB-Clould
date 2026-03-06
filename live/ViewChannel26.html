@@ -38,7 +38,6 @@
 			const match = params.get('match');
 			const token = params.get('token');
 			
-			//document.write('<a href="multi_ar.html?match_id='+match+'" class="myButton" type="button">سيرفرات أخري</a>');
 
 			$.ajax({
 			  type: 'GET',
@@ -101,5 +100,10 @@
 			</div>						
 		</div>	
 	</div>
+	<script>
+		function SetFrame(id){
+			document.write('<iframe src="https://m3u8proxy-b66.pages.dev/dlstream?id='+id+'" width="100%" height="250" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe><hr/>');
+		}
+	</script>
 </body>
 </html>

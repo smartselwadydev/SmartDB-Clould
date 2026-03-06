@@ -209,7 +209,7 @@
     </style>
   </head>
   <body>
-    <div id="wrapper">
+    <div id="wrapper" style="xdisplay:none">
 
       <video
         id="player"
@@ -252,17 +252,17 @@
     <script>
 var params={};
 window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-$ch_id = params["id"];
-const CHANNEL_KEY = 'premium'+$ch_id;
+var ch_id = params["id"];
+const CHANNEL_KEY = 'premium'+ch_id;
 		
-$('#console').html('<iframe src="https://dlstreams.top/stream/stream-91.php"></iframe>');
+$('#console').html('<iframe src="https://dlstreams.top/stream/stream-'+ch_id+'.php" width="0" height="0" style="border:0;" allowfullscreen></iframe>');
 $.ajax({
     url: 'https://chevy.vovlacosa.sbs/server_lookup',
     type: 'GET',
     data: { channel_id: CHANNEL_KEY }, // This appends ?channel_id=12 to the URL
     success: function(data) {
         const sk = data.server_key;
-		const STREAM_URL = "https://go.ai-chatx.site/proxy/"+sk+"/"+CHANNEL_KEY+"/mono.css";
+		const STREAM_URL = "https://go.ai-chatx.site/proxy/"+sk+"/"+CHANNEL_KEY+"/mono.m3u8";
       const $loading  = document.getElementById('loading-overlay');
       const $error    = document.getElementById('error-overlay');
       const $retryBtn = document.getElementById('retry-btn');
