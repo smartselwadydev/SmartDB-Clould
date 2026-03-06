@@ -1,65 +1,371 @@
 <!doctype html>
-<html>
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Live Player</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
     <style>
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-      background-color: #000;
-    }
-    /* Ensure the player takes up full space */
-    .video-js {
-      width: 100%;
-      height: 100%;
-    }
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: #000;
+        font-family: 'Segoe UI', sans-serif;
+      }
+
+      #wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: #000;
+      }
+
+      .video-js {
+        width: 100% !important;
+        height: 100% !important;
+        flex: 1;
+      }
+
+      /* Loading overlay */
+      #loading-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        gap: 20px;
+        transition: opacity 0.5s ease;
+      }
+
+      #loading-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .spinner {
+        width: 52px;
+        height: 52px;
+        border: 4px solid rgba(255,255,255,0.1);
+        border-top-color: #e8a020;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      .loading-text {
+        color: #ccc;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+
+      /* Error overlay */
+      #error-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.92);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9998;
+        gap: 16px;
+        color: #fff;
+        text-align: center;
+        padding: 24px;
+      }
+
+      #error-overlay.visible {
+        display: flex;
+      }
+
+      .error-icon {
+        font-size: 48px;
+        line-height: 1;
+      }
+
+      .error-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #ff5252;
+      }
+
+      .error-msg {
+        font-size: 13px;
+        color: #aaa;
+        max-width: 320px;
+        line-height: 1.6;
+      }
+
+      #retry-btn {
+        margin-top: 8px;
+        padding: 10px 28px;
+        background: #e8a020;
+        color: #000;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        transition: background 0.2s;
+      }
+
+      #retry-btn:hover {
+        background: #ffb83f;
+      }
+
+      /* Live badge */
+      #live-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(0,0,0,0.6);
+        padding: 5px 12px 5px 8px;
+        border-radius: 20px;
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      #live-badge.visible {
+        opacity: 1;
+      }
+
+      .live-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff3b3b;
+        animation: pulse 1.4s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(0.85); }
+      }
+
+      .live-text {
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+      }
+
+      /* Video.js theme overrides */
+      .vjs-default-skin .vjs-big-play-button {
+        border-color: #e8a020;
+        color: #e8a020;
+        background: rgba(0,0,0,0.6);
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
+        margin-top: -32px;
+        margin-left: -32px;
+      }
+
+      .vjs-default-skin:hover .vjs-big-play-button {
+        background: rgba(232,160,32,0.25);
+        border-color: #ffb83f;
+        color: #ffb83f;
+      }
+
+      .video-js .vjs-play-progress,
+      .video-js .vjs-volume-level {
+        background: #e8a020;
+      }
+
+      .video-js .vjs-control-bar {
+        background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      }
     </style>
-</head>
-<body>
-    
-    <video id="player" class="video-js vjs-default-skin vjs-fill" controls preload="auto" poster="live2.jpg" data-setup='{}'>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <video
+        id="player"
+        class="video-js vjs-default-skin vjs-fill"
+        controls
+        preload="auto"
+        poster="live2.jpg"
+        playsinline
+        data-setup='{}'
+      >
         <p class="vjs-no-js">
           To view this video please enable JavaScript, and consider upgrading to a web browser that
           <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
         </p>
-    </video>
+      </video>
+
+      <!-- Loading overlay -->
+      <div id="loading-overlay">
+        <div class="spinner"></div>
+        <span class="loading-text">جارٍ التحميل...</span>
+      </div>
+
+      <!-- Error overlay -->
+      <div id="error-overlay">
+        <div class="error-icon">📡</div>
+        <div class="error-title">تعذّر تحميل البث</div>
+        <div class="error-msg">تحقق من اتصالك بالإنترنت أو حاول مرة أخرى بعد لحظات.</div>
+        <button id="retry-btn">إعادة المحاولة</button>
+      </div>
+
+      <!-- Live badge -->
+      <div id="live-badge">
+        <span class="live-dot"></span>
+        <span class="live-text">LIVE</span>
+      </div>
+
+    </div>
 
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-    
     <script>
-      var params={};
+	  var params={};
       window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(str,key,value){params[key]=value;});
-      var url = params["ch"];
-      
-      $(document).ready(function() {
-        if (url) {
-          // Initialize Video.js
-          var player = videojs('player');
-          
-          // Set the source based on URL parameter
-          player.src({
-            src: url,
-            type: 'application/x-mpegURL' // Assumes HLS, change if necessary
-          });
+      const STREAM_URL = params["ch"];
 
-          player.ready(function() {
-            player.play();
-          });
+      const $loading  = document.getElementById('loading-overlay');
+      const $error    = document.getElementById('error-overlay');
+      const $retryBtn = document.getElementById('retry-btn');
+      const $badge    = document.getElementById('live-badge');
+
+      function showLoading() {
+        $loading.classList.remove('hidden');
+        $error.classList.remove('visible');
+        $badge.classList.remove('visible');
+      }
+
+      function hideLoading() {
+        $loading.classList.add('hidden');
+      }
+
+      function showError() {
+        hideLoading();
+        $error.classList.add('visible');
+        $badge.classList.remove('visible');
+      }
+
+      function showLive() {
+        hideLoading();
+        $error.classList.remove('visible');
+        $badge.classList.add('visible');
+      }
+
+      let player = null;
+
+      function initPlayer() {
+        showLoading();
+
+        if (player) {
+          try { player.dispose(); } catch(e) {}
+          player = null;
+          // Re-create the video element after dispose
+          const wrapper = document.getElementById('wrapper');
+          const video = document.createElement('video');
+          video.id = 'player';
+          video.className = 'video-js vjs-default-skin vjs-fill';
+          video.setAttribute('controls', '');
+          video.setAttribute('preload', 'auto');
+          video.setAttribute('playsinline', '');
+          wrapper.insertBefore(video, wrapper.firstChild);
+        }
+
+        player = videojs('player', {
+          autoplay: true,
+          controls: true,
+          preload: 'auto',
+          fluid: false,
+          fill: true,
+          html5: {
+            hls: {
+              enableLowInitialPlaylist: true,
+              smoothQualityChange: true,
+              overrideNative: true,
+            },
+            nativeAudioTracks: false,
+            nativeVideoTracks: false,
+          },
+          liveui: true,
+        });
+
+        player.src({
+          src: STREAM_URL,
+          type: 'application/x-mpegURL',
+        });
+
+        player.ready(function () {
+          console.log('[Player] Ready');
+          player.play().catch(err => console.warn('[Player] Autoplay blocked:', err));
+        });
+
+        player.on('playing', function () {
+          console.log('[Player] Playing');
+          showLive();
+        });
+
+        player.on('pause', function () {
+          $badge.classList.remove('visible');
+        });
+
+        player.on('waiting', function () {
+          // buffering – keep badge visible if was playing
+        });
+
+        player.on('error', function () {
+          const err = player.error();
+          console.error('[Player] Error:', err);
+          showError();
+        });
+      }
+
+      $retryBtn.addEventListener('click', function () {
+        initPlayer();
+      });
+
+      // Resume on tab focus
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden && player) {
+          try {
+            if (player.paused()) {
+              player.play().catch(() => {});
+            }
+          } catch(e) {}
         }
       });
+
+      $(document).ready(function () {
+        initPlayer();
+      });
     </script>
-</body>
+  </body>
 </html>
