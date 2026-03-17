@@ -73,26 +73,59 @@
 		</script>
 	  </div>
 
-	<script>
-			const params = new URLSearchParams(window.location.search);
-			const id = params.get('id');
-			$.ajax({
-			  type: 'GET',
-			  url: 'https://panel.elwady.dev/wegoal/api.php?type=channels&id='+id,
-			  dataType: 'json'
-			}).then(function(res) {
-				var rawData = res.data.code;
-				var lines = rawData.split('\n');
-				lines.forEach(function(line, index) {
-					var title = index + 1 * 0 ;
-					$('.nav-pills').append('<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#server_'+index+'">server_'+title+'</a></li>')
-					$('.tab-content').append('<div id="server_'+index+'" class="container tab-pane"><iframe src="'+line+'" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe></div>')
-					});
-				$('.nav-link').eq(0).addClass('active')
-				$('#server_0').removeClass('fade').addClass('active')
-			});
-			
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
 
-	 </script>  
+    $.ajax({
+        type: 'GET',
+        url: 'https://panel.elwady.dev/wegoal/api.php?type=channels&id=' + id,
+        dataType: 'json'
+    }).then(function(res) {
+        var rawData = res.data.code;
+        var lines = rawData.split('\n');
+
+        lines.forEach(function(line, index) {
+            var title = index + 1; // تعديل التسمية لتبدأ من 1
+            
+            // إضافة الأزرار (Pills)
+            $('.nav-pills').append(`
+                <li class="nav-item">
+                    <a class="nav-link ${index === 0 ? 'active' : ''}" 
+                       data-bs-toggle="pill" 
+                       href="#server_${index}" 
+                       data-link="${line.trim()}">
+                       Server_${title}
+                    </a>
+                </li>`);
+
+            // إضافة محتوى التبويب (بدون src في البداية)
+            $('.tab-content').append(`
+                <div id="server_${index}" class="container tab-pane ${index === 0 ? 'active' : 'fade'}">
+                    <div class="iframe-container">
+                        ${index === 0 ? `<iframe src="${line.trim()}" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>` : ''}
+                    </div>
+                </div>`);
+        });
+
+        // الاستماع لحدث تغيير التبويب في Bootstrap
+        $('button[data-bs-toggle="pill"],步伐 a[data-bs-toggle="pill"]').on('shown.bs.tab', function (e) {
+            // 1. التبويب الحالي (الذي أصبح نشطاً)
+            var activeLink = $(e.target);
+            var activeTargetId = activeLink.attr('href');
+            var videoUrl = activeLink.data('link');
+
+            // تحميل الـ iframe في التبويب النشط
+            $(activeTargetId).find('.iframe-container').html(
+                `<iframe src="${videoUrl}" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>`
+            );
+
+            // 2. التبويب السابق (الذي تم تركه)
+            var prevTargetId = $(e.relatedTarget).attr('href');
+            // مسح محتوى الـ iframe لإيقاف الصوت تماماً
+            $(prevTargetId).find('.iframe-container').empty();
+        });
+    });
+</script>
 </body>
 </html>
