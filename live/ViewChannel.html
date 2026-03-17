@@ -72,7 +72,6 @@
 			 (adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	  </div>
-
 <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -85,45 +84,51 @@
         var rawData = res.data.code;
         var lines = rawData.split('\n');
 
+        // تنظيف الحاويات قبل البدء
+        $('.nav-pills').empty();
+        $('.tab-content').empty();
+
         lines.forEach(function(line, index) {
-            var title = index + 1; // تعديل التسمية لتبدأ من 1
+            if(line.trim() === "") return; // تخطي الأسطر الفارغة
             
-            // إضافة الأزرار (Pills)
+            var title = index + 1;
+            var isActive = index === 0 ? 'active' : '';
+            var isShowActive = index === 0 ? 'show active' : '';
+
+            // 1. إضافة الأزرار
             $('.nav-pills').append(`
                 <li class="nav-item">
-                    <a class="nav-link ${index === 0 ? 'active' : ''}" 
-                       data-bs-toggle="pill" 
-                       href="#server_${index}" 
-                       data-link="${line.trim()}">
-                       Server_${title}
-                    </a>
+                    <button class="nav-link ${isActive}" 
+                            data-bs-toggle="pill" 
+                            data-bs-target="#server_${index}" 
+                            type="button"
+                            data-link="${line.trim()}">
+                        Server ${title}
+                    </button>
                 </li>`);
 
-            // إضافة محتوى التبويب (بدون src في البداية)
+            // 2. إضافة محتوى التبويب (فارغ مبدئياً)
             $('.tab-content').append(`
-                <div id="server_${index}" class="container tab-pane ${index === 0 ? 'active' : 'fade'}">
-                    <div class="iframe-container">
-                        ${index === 0 ? `<iframe src="${line.trim()}" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>` : ''}
+                <div id="server_${index}" class="tab-pane fade ${isShowActive}">
+                    <div class="iframe-placeholder">
+                        ${index === 0 ? `<iframe src="${line.trim()}" style="width:100%;height:300px;" frameborder="0" allowfullscreen></iframe>` : ''}
                     </div>
                 </div>`);
         });
 
-        // الاستماع لحدث تغيير التبويب في Bootstrap
-        $('button[data-bs-toggle="pill"],步伐 a[data-bs-toggle="pill"]').on('shown.bs.tab', function (e) {
-            // 1. التبويب الحالي (الذي أصبح نشطاً)
-            var activeLink = $(e.target);
-            var activeTargetId = activeLink.attr('href');
-            var videoUrl = activeLink.data('link');
+        // 3. التحكم في التحميل عند التبديل
+        $(document).on('shown.bs.tab', 'button[data-bs-toggle="pill"]', function (e) {
+            // إيقاف وحذف أي iframe في التبويب السابق
+            var prevTarget = $(e.relatedTarget).data('bs-target');
+            $(prevTarget).find('.iframe-placeholder').empty();
 
-            // تحميل الـ iframe في التبويب النشط
-            $(activeTargetId).find('.iframe-container').html(
-                `<iframe src="${videoUrl}" style="width:100%;height:300px;" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>`
+            // تحميل الـ iframe في التبويب الحالي النشط
+            var currentTarget = $(e.target).data('bs-target');
+            var videoUrl = $(e.target).data('link');
+            
+            $(currentTarget).find('.iframe-placeholder').html(
+                `<iframe src="${videoUrl}" style="width:100%;height:300px;" frameborder="0" allowfullscreen></iframe>`
             );
-
-            // 2. التبويب السابق (الذي تم تركه)
-            var prevTargetId = $(e.relatedTarget).attr('href');
-            // مسح محتوى الـ iframe لإيقاف الصوت تماماً
-            $(prevTargetId).find('.iframe-container').empty();
         });
     });
 </script>
