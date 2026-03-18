@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
@@ -12,76 +13,82 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
 
     <style>
-        body { margin: 0 auto; text-align: center; background-color: #000; }
-        .nav-pills { background: #673ab7; }
+        body { margin: 0 auto; text-align: center; background-color: #ffffff; } /* خلفية بيضاء */
+        .nav-pills { background: #673ab7; justify-content: center; }
         .nav-link { color: #fff; }
         .nav-pills { --bs-nav-pills-link-active-bg: #E91E63; }
         .tab-pane { padding: 0px; }
 
-        /* تنسيق وضع ملء الشاشة عند التواجد داخل iframe */
+        /* تنسيق خاص عند التواجد داخل iframe */
         body.is-iframe {
             overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        body.is-iframe .nav-pills, 
+        
+        /* إخفاء الإعلانات والفواصل فقط في الـ iframe */
         body.is-iframe #Ad_3, 
         body.is-iframe .bottom-ads, 
         body.is-iframe br {
-            display: none !important; /* حذف الإعلانات والقوائم */
+            display: none !important;
         }
+
+        /* جعل القائمة ثابتة في الأعلى والمشغل يملأ الباقي */
+        body.is-iframe .nav-pills {
+            border-radius: 0;
+            flex-shrink: 0;
+        }
+
         body.is-iframe .tab-content, 
         body.is-iframe .tab-pane, 
         body.is-iframe .iframe-placeholder, 
         body.is-iframe iframe {
-            width: 100vw !important;
-            height: 100vh !important;
-            position: fixed;
-            top: 0;
-            left: 0;
-            margin: 0;
-            padding: 0;
+            width: 100% !important;
+            height: 100% !important;
+            flex-grow: 1;
             border: none;
+            margin: 0;
         }
     </style>
 </head>
 
-<body style="text-align:center;">
+<body>
 
-    <div id="Ad_3" style="width:100%; text-align:center; margin:0 auto;">
-        <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-        <script>
-            window.googletag = window.googletag || { cmd: [] };
-            googletag.cmd.push(function() {
-                googletag.defineSlot('/39382643/ads1', [400, 300], 'banner-ad').addService(googletag.pubads());
-                googletag.enableServices();
-            });
-        </script>
-        <div style="min-height:280px; width:100%; padding-top: 10px; overflow: hidden; text-align:center; ">
+    <div id="Ad_3">
+        <div style="min-height:280px; width:100%; padding-top: 10px; overflow: hidden; text-align:center;">
             <div id="banner-ad">
+                <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
                 <script>
-                    googletag.cmd.push(function() { googletag.display('banner-ad'); });
+                    window.googletag = window.googletag || { cmd: [] };
+                    googletag.cmd.push(function() {
+                        googletag.defineSlot('/39382643/ads1', [400, 300], 'banner-ad').addService(googletag.pubads());
+                        googletag.enableServices();
+                        googletag.display('banner-ad');
+                    });
                 </script>
             </div>
         </div>
     </div>
 
-    <br/><br/><br/>
+    <br/><br/>
     
     <ul class="nav nav-pills" role="tablist"></ul>
+    
     <div class="tab-content"></div>
 
     <div class="bottom-ads">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
+        <br/>
         <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-8380185804726759" data-ad-slot="8102930618"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <script>
-        // --- الجزء المضاف للتحقق من الـ iframe ---
+        // التحقق من وجود الصفحة داخل iframe
         var isInIframe = (window.self !== window.top);
         if (isInIframe) {
             $('body').addClass('is-iframe');
         }
-        // ---------------------------------------
 
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
@@ -104,20 +111,20 @@
                 var isActive = index === 0 ? 'active' : '';
                 var isShowActive = index === 0 ? 'show active' : '';
                 
-                // تحديد الارتفاع بناءً على الوضع الحالي
-                var frameHeight = isInIframe ? "100vh" : "300px";
+                // في الـ iframe نستخدم 100% من المساحة المتاحة بعد القائمة
+                var frameHeight = isInIframe ? "100%" : "300px";
 
                 $('.nav-pills').append(`
                     <li class="nav-item">
                         <button class="nav-link ${isActive}" data-bs-toggle="pill" data-bs-target="#server_${index}" type="button" data-link="${line.trim()}">
-                            Server ${title}
+                            S${title}
                         </button>
                     </li>`);
 
                 $('.tab-content').append(`
                     <div id="server_${index}" class="tab-pane fade ${isShowActive}">
-                        <div class="iframe-placeholder">
-                            ${index === 0 ? `<iframe src="${line.trim()}" style="width:100%; height:${frameHeight};" frameborder="0" allowfullscreen></iframe>` : ''}
+                        <div class="iframe-placeholder" style="height: ${frameHeight};">
+                            ${index === 0 ? `<iframe src="${line.trim()}" style="width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>` : ''}
                         </div>
                     </div>`);
             });
@@ -128,10 +135,9 @@
 
                 var currentTarget = $(e.target).data('bs-target');
                 var videoUrl = $(e.target).data('link');
-                var frameHeight = isInIframe ? "100vh" : "300px";
 
                 $(currentTarget).find('.iframe-placeholder').html(
-                    `<iframe src="${videoUrl}" style="width:100%; height:${frameHeight};" frameborder="0" allowfullscreen></iframe>`
+                    `<iframe src="${videoUrl}" style="width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>`
                 );
             });
         });
