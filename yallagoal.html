@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>وي جول 2026</title>
 
 <!-- SEO -->
@@ -38,7 +38,7 @@
      1. استبدل YOUR-PUBLISHER-ID بـ pub-xxxxxxxxxxxxxxxxx
      2. استبدل YOUR-AD-SLOT بالرقم الخاص بكل وحدة إعلانية
      ═══════════════════════════════════════════════════════ -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-PUBLISHER-ID" crossorigin="anonymous"></script>
 <style>
 /* ═══════════════════════════════════════════════
    DESIGN SYSTEM — كأس العالم 2026
@@ -154,19 +154,7 @@ body::before{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
   opacity:.6;
 }
-body {
-  /* Fallback for browsers that don't support env() */
-  padding-top: 20px; 
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 20px;
 
-  /* Use env() to add padding equal to the safe area insets */
-  padding-top: env(safe-area-inset-top);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom: env(safe-area-inset-bottom);
-}
 /* ── NAVBAR ── */
 .nav{
   position:sticky;top:0;z-index:100;
@@ -1140,12 +1128,26 @@ body {
 <body>
 
 <!-- ══ NAVBAR ══ -->
-<nav class="nav" style="padding:30px; position: fixed;width: 100%;">
+<nav class="nav">
+  <a class="nav-logo" href="#">
+    <div class="logo-icon" id="nav-logo-wrap">⚽</div>
+    <span class="nav-title" id="nav-title">وي <span>جول</span></span>
+  </a>
+
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showTab('matches',this)">المباريات</button>
     <button class="nav-tab"        onclick="showTab('news',this)">الأخبار</button>
     <button class="nav-tab"        onclick="showTab('channels',this)">القنوات</button>
   </div>
+
+  <div class="nav-live-badge" id="live-badge" style="display:none" onclick="filterLive()">
+    <span class="live-dot"></span>
+    <span id="live-count">0</span> مباشر
+  </div>
+
+  <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="تغيير المظهر">
+    <i class="fa fa-moon" id="theme-icon"></i>
+  </button>
 </nav>
 
 <!-- ══ MATCH DETAIL PAGE ══ -->
@@ -2991,7 +2993,6 @@ if(dateStrip){
   
   dateStrip.style.cursor = 'grab';
 }
-
 var AppName = "YallaGoal";
 var OneSignalID = "087af10b-1bbd-4d43-b896-77921b08c819";
 var adBannerID = "ca-app-pub-8380185804726759/3522081535";
