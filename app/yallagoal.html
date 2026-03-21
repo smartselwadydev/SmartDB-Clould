@@ -6,8 +6,8 @@
 <title>YallaGoal</title>
 
 <!-- SEO -->
-<meta name="description"       content="وي جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم."/>
-<meta name="keywords"          content="وي جول, كرة القدم, أخبار كرة القدم, بث مباشر, نتائج مباشرة, مباريات اليوم, انتقالات اللاعبين, تحليل المباريات, كأس العالم 2026, دوري أبطال أوروبا, الدوريات الأوروبية, تشكيلات المباريات, أهداف المباريات, ملخصات"/>
+<meta name="description"       content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم."/>
+<meta name="keywords"          content="يلا جول, كرة القدم, أخبار كرة القدم, بث مباشر, نتائج مباشرة, مباريات اليوم, انتقالات اللاعبين, تحليل المباريات, كأس العالم 2026, دوري أبطال أوروبا, الدوريات الأوروبية, تشكيلات المباريات, أهداف المباريات, ملخصات"/>
 <meta name="author"            content="Smarts Elwady"/>
 <meta name="robots"            content="index, follow"/>
 <meta name="referrer" content="no-referrer"/>
@@ -15,17 +15,17 @@
 
 <!-- Open Graph -->
 <meta property="og:type"        content="website"/>
-<meta property="og:site_name"   content="وي جول"/>
-<meta property="og:title"       content="وي جول 2026" id="meta-og-title"/>
-<meta property="og:description" content="وي جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-og-desc"/>
+<meta property="og:site_name"   content="يلا جول"/>
+<meta property="og:title"       content="يلا جول 2026" id="meta-og-title"/>
+<meta property="og:description" content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-og-desc"/>
 <meta property="og:image"       content="https://yalla-vamos.online/images/logo-black.png" id="meta-og-image"/>
 <meta property="og:url"         content="" id="meta-og-url"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card"        content="summary_large_image"/>
 <meta name="twitter:site"        content="@wegoal"/>
-<meta name="twitter:title"       content="وي جول 2026" id="meta-tw-title"/>
-<meta name="twitter:description" content="وي جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-tw-desc"/>
+<meta name="twitter:title"       content="يلا جول 2026" id="meta-tw-title"/>
+<meta name="twitter:description" content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-tw-desc"/>
 <meta name="twitter:image"       content="https://yalla-vamos.online/images/logo-black.png" id="meta-tw-image"/>
 
 <link rel="canonical" href="" id="meta-canonical"/>
@@ -38,7 +38,7 @@
      1. استبدل YOUR-PUBLISHER-ID بـ pub-xxxxxxxxxxxxxxxxx
      2. استبدل YOUR-AD-SLOT بالرقم الخاص بكل وحدة إعلانية
      ═══════════════════════════════════════════════════════ -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-PUBLISHER-ID" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8380185804726759" crossorigin="anonymous"></script>
 <style>
 /* ═══════════════════════════════════════════════
    DESIGN SYSTEM — كأس العالم 2026
@@ -1141,10 +1141,6 @@ body::before{
     <button class="nav-tab"        onclick="showTab('channels',this)">القنوات</button>
   </div>
 
-  <div class="nav-live-badge" id="live-badge" style="display:none" onclick="filterLive()">
-    <span class="live-dot"></span>
-    <span id="live-count">0</span> مباشر
-  </div>
 
   <button class="theme-toggle" id="theme-toggle-btn" onclick="toggleTheme()" title="تغيير المظهر">
     <i class="fa fa-moon" id="theme-icon"></i>
@@ -1320,7 +1316,7 @@ body::before{
 
 <!-- ══ FOOTER ══ -->
 <footer class="footer" id="page-footer">
-  <span id="footer-title">وي جول 2026</span> — جميع الحقوق محفوظة © 2026
+  <span id="footer-title">يلا جول 2026</span> — جميع الحقوق محفوظة © 2026
 </footer>
 
 <!-- ══ MATCH MODAL ══ -->
@@ -1464,13 +1460,13 @@ async function fetchMatches() {
 //  SETTINGS
 // ══════════════════════════════════════════════
 function applySettings() {
-  const name = settings.app_name || 'وي جول 2026';
+  const name = settings.app_name || 'يلا جول 2026';
   const logo = settings.app_logo || '';
 
   document.title = name;
 
   const navTitle = document.getElementById('nav-title');
-  if (navTitle) navTitle.innerHTML = name.replace(/(\d+)/, '<span>$1</span>');
+  if (navTitle) navTitle.innerHTML = name.replace(/(\d+)/, '<span>يلا جول</span>');
 
   const footerTitle = document.getElementById('footer-title');
   if (footerTitle) footerTitle.textContent = name;
@@ -1478,7 +1474,7 @@ function applySettings() {
   if (logo) {
     const wrap = document.getElementById('nav-logo-wrap');
     if (wrap) {
-      wrap.innerHTML = `<img src="${logo}" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
+      wrap.innerHTML = `<img src="yallagoal.png" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
       wrap.style.background = 'none';
       wrap.style.padding = '0';
     }
@@ -2633,7 +2629,7 @@ function _renderNewsDetail(n, newsId) {
 
   // ── تحديث Meta ──────────────────────────────────────────
   const pageUrl   = location.origin + location.pathname + '#news/' + n.id;
-  const pageTitle = (n.title || '') + ' | ' + (settings.app_name || 'وي جول');
+  const pageTitle = (n.title || '') + ' | ' + (settings.app_name || 'يلا جول');
   const pageDesc  = n.summary || n.title || '';
   const pageImg   = n.image  || 'https://yalla-vamos.online/images/logo-black.png';
 
@@ -2768,8 +2764,8 @@ function closeNewsDetail() {
     b.classList.toggle('active', isActive);
   });
   // استعادة الـ meta الافتراضية
-  const appName  = settings.app_name || 'وي جول 2026';
-  const appDesc  = settings.app_desc || 'وي جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم.';
+  const appName  = settings.app_name || 'يلا جول 2026';
+  const appDesc  = settings.app_desc || 'يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم.';
   const appImg   = settings.app_logo || 'https://yalla-vamos.online/images/logo-black.png';
   const appUrl   = location.origin + location.pathname;
 
