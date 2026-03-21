@@ -2916,6 +2916,7 @@ function closeStreamModal(e, force) {
 
 // Event delegation عام لكل أزرار البث
 document.addEventListener('click', function(e) {
+  showInterstitialAd();
   var btn = e.target.closest('.js-stream-btn');
   if (!btn) return;
   e.preventDefault();
@@ -2996,22 +2997,33 @@ if(dateStrip){
   
   dateStrip.style.cursor = 'grab';
 }
+
+var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 var OneSignalID = "087af10b-1bbd-4d43-b896-77921b08c819";
-var adBannerID = "ca-app-pub-8380185804726759/3522081535";
-var adForceID = "ca-app-pub-8380185804726759/9283426364";
-//var adBannerID = "ca-app-pub-9738911523160568/5517779700";
-//var adForceID = "ca-app-pub-9738911523160568/5517779700";
-var adOpenAdID = "ca-app-pub-8380185804726759/1507016302";
-var adInterstitialID = "ca-app-pub-8380185804726759/5953574610";
-var adRewardedIntID = "ca-app-pub-8380185804726759/4533662569";	
+if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    var adBannerID = "ca-app-pub-8380185804726759/3522081535";
+	var adForceID = "ca-app-pub-8380185804726759/9283426364";
+	var adOpenAdID = "ca-app-pub-8380185804726759/1507016302";
+	var adInterstitialID = "ca-app-pub-8380185804726759/5953574610";
+	var adRewardedIntID = "ca-app-pub-8380185804726759/4533662569";	
+} else {
+	var adBannerID = "ca-app-pub-8380185804726759/9837249073";
+	var adForceID = "ca-app-pub-8380185804726759/9837249073";
+	var adOpenAdID = "ca-app-pub-8380185804726759/4555448489";
+	var adInterstitialID = "ca-app-pub-8380185804726759/1958759057";
+	var adRewardedIntID = "ca-app-pub-8380185804726759/3350519509";	
+}
 
 
-setTimeout(function() { console.log('SHOW_BANNER_AD*?'+adBannerID); }, 5000);
+
+console.log('SHOW_BANNER_AD*?'+adBannerID);
 console.log('SHOW_OPEN_AD*?'+adOpenAdID);
 setTimeout(function() { 
 	console.log('ONEGIGNAL_SETUP*?'+OneSignalID);
 }, 3000);
-
+function showInterstitialAd(){
+	console.log('SHOW_INTERSTITIAL_AD*?'+adInterstitialID);
+}
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
 <script>
