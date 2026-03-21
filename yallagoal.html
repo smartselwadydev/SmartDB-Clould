@@ -3009,6 +3009,12 @@ console.log('SHOW_OPEN_AD*?'+adOpenAdID);
 setTimeout(function() { 
 	console.log('ONEGIGNAL_SETUP*?'+OneSignalID);
 }, 3000);
+document.getElementById('live-badge').style.display = 'none';
+const wrap = document.getElementById('nav-logo-wrap');
+wrap.innerHTML = `<img src="yallagoal.png" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
+wrap.style.background = 'none';
+wrap.style.padding = '0';
+document.querySelector('#nav-title').innerHTML = '<span>يلا جول</span>';
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
 <script>
