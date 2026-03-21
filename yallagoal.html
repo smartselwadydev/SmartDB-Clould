@@ -2865,6 +2865,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //  STREAM MODAL
 // ══════════════════════════════════════════════
 function openStreamModal(ch) {
+  showInterstitialAd();
   var url = ch.url || '';
   if (!url || url === '#') {
     showToast('لا يوجد رابط بث لهذه القناة', 'error');
