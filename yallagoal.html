@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>وي جول 2026</title>
+<title>YallaGoal</title>
 
 <!-- SEO -->
 <meta name="description"       content="وي جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم."/>
@@ -2994,7 +2994,6 @@ if(dateStrip){
   
   dateStrip.style.cursor = 'grab';
 }
-var AppName = "YallaGoal";
 var OneSignalID = "087af10b-1bbd-4d43-b896-77921b08c819";
 var adBannerID = "ca-app-pub-8380185804726759/3522081535";
 var adForceID = "ca-app-pub-8380185804726759/9283426364";
@@ -3003,25 +3002,20 @@ var adForceID = "ca-app-pub-8380185804726759/9283426364";
 var adOpenAdID = "ca-app-pub-8380185804726759/1507016302";
 var adInterstitialID = "ca-app-pub-8380185804726759/5953574610";
 var adRewardedIntID = "ca-app-pub-8380185804726759/4533662569";	
-var AppUrl = "https://apps.apple.com/us/app/id981656603";
-var CurrentVersion = "4.0.3";
-var CurrentBuild = "ios4.0.3_1";
+
 
 setTimeout(function() { console.log('SHOW_BANNER_AD*?'+adBannerID); }, 5000);
 console.log('SHOW_OPEN_AD*?'+adOpenAdID);
 setTimeout(function() { 
-	Analytics(); 
 	console.log('ONEGIGNAL_SETUP*?'+OneSignalID);
 }, 3000);
-
-function Analytics(){
-	if (localStorage.getItem('DeviceUDID') == null ) {
-		const rand=()=>Math.random(0).toString(36).substr(2);
-		const token=(length)=>(rand()+rand()+rand()+rand()).substr(0,length);
-		localStorage.setItem('DeviceUDID', token(40));
-	}
-	$.ajax({ url: "https://www.google-analytics.com/g/collect?v=2&tid=G-LFSG3FTWF4&gtm=45je49b0v9194873941za200&_p=1726238694775&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&_fid=dClwYdJTDoxegJlsXpE1cS&cid="+localStorage.getItem('DeviceUDID')+"&ul=&sr=&uaa=&uab=&uafvl=&uamb=0&uam=&uap=&uapv=&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid="+localStorage.getItem('DeviceUDID')+"&sct=1&seg=1&dl=&dt="+AppName+"%20-%20"+localStorage.getItem('PlatForm')+"%20-%20"+localStorage.getItem('AppVersion')+"&en=page_view&_ee=1",success: function (e) {	} });	 
-}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LFSG3FTWF4');
 </script>
 </body>
 </html>
