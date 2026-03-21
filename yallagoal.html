@@ -1464,8 +1464,8 @@ async function fetchMatches() {
 //  SETTINGS
 // ══════════════════════════════════════════════
 function applySettings() {
-  const name = settings.app_name || 'يلا جول 2026';
-  const logo = settings.app_logo || '';
+  const name = 'يلا جول';
+  const logo = 'yallagoal.png';
 
   document.title = name;
 
@@ -1478,7 +1478,7 @@ function applySettings() {
   if (logo) {
     const wrap = document.getElementById('nav-logo-wrap');
     if (wrap) {
-      wrap.innerHTML = `<img src="${logo}" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
+      wrap.innerHTML = `<img src="yallagoal.png" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
       wrap.style.background = 'none';
       wrap.style.padding = '0';
     }
@@ -1714,6 +1714,8 @@ function updateLiveBadge() {
   const badge = document.getElementById('live-badge');
   badge.style.display = live.length ? 'flex' : 'none';
   document.getElementById('live-count').textContent = live.length;
+  document.getElementById('live-badge').style.display = 'none';
+
 }
 
 function updateStats() {}
@@ -3009,12 +3011,7 @@ console.log('SHOW_OPEN_AD*?'+adOpenAdID);
 setTimeout(function() { 
 	console.log('ONEGIGNAL_SETUP*?'+OneSignalID);
 }, 3000);
-document.getElementById('live-badge').style.display = 'none';
-const wrap = document.getElementById('nav-logo-wrap');
-wrap.innerHTML = `<img src="yallagoal.png" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
-wrap.style.background = 'none';
-wrap.style.padding = '0';
-document.querySelector('#nav-title').innerHTML = '<span>يلا جول</span>';
+
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
 <script>
