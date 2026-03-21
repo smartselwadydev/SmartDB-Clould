@@ -2916,7 +2916,6 @@ function closeStreamModal(e, force) {
 
 // Event delegation عام لكل أزرار البث
 document.addEventListener('click', function(e) {
-  showInterstitialAd();
   var btn = e.target.closest('.js-stream-btn');
   if (!btn) return;
   e.preventDefault();
