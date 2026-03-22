@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>YallaGoal</title>
+<title>MobaryaLive</title>
 
 <!-- SEO -->
-<meta name="description"       content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم."/>
-<meta name="keywords"          content="يلا جول, كرة القدم, أخبار كرة القدم, بث مباشر, نتائج مباشرة, مباريات اليوم, انتقالات اللاعبين, تحليل المباريات, كأس العالم 2026, دوري أبطال أوروبا, الدوريات الأوروبية, تشكيلات المباريات, أهداف المباريات, ملخصات"/>
+<meta name="description"       content="مباريات لايف .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم."/>
+<meta name="keywords"          content="مباريات لايف, كرة القدم, أخبار كرة القدم, بث مباشر, نتائج مباشرة, مباريات اليوم, انتقالات اللاعبين, تحليل المباريات, كأس العالم 2026, دوري أبطال أوروبا, الدوريات الأوروبية, تشكيلات المباريات, أهداف المباريات, ملخصات"/>
 <meta name="author"            content="Smarts Elwady"/>
 <meta name="robots"            content="index, follow"/>
 <meta name="referrer" content="no-referrer"/>
@@ -15,17 +15,17 @@
 
 <!-- Open Graph -->
 <meta property="og:type"        content="website"/>
-<meta property="og:site_name"   content="يلا جول"/>
-<meta property="og:title"       content="يلا جول 2026" id="meta-og-title"/>
-<meta property="og:description" content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-og-desc"/>
+<meta property="og:site_name"   content="مباريات لايف"/>
+<meta property="og:title"       content="مباريات لايف 2026" id="meta-og-title"/>
+<meta property="og:description" content="مباريات لايف .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-og-desc"/>
 <meta property="og:image"       content="https://yalla-vamos.online/images/logo-black.png" id="meta-og-image"/>
 <meta property="og:url"         content="" id="meta-og-url"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card"        content="summary_large_image"/>
 <meta name="twitter:site"        content="@wegoal"/>
-<meta name="twitter:title"       content="يلا جول 2026" id="meta-tw-title"/>
-<meta name="twitter:description" content="يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-tw-desc"/>
+<meta name="twitter:title"       content="مباريات لايف 2026" id="meta-tw-title"/>
+<meta name="twitter:description" content="مباريات لايف .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم." id="meta-tw-desc"/>
 <meta name="twitter:image"       content="https://yalla-vamos.online/images/logo-black.png" id="meta-tw-image"/>
 
 <link rel="canonical" href="" id="meta-canonical"/>
@@ -1125,14 +1125,16 @@ body::before{
 }
 .ad-wrap ins{ display:block!important }
 </style>
+<script async src="cordova.js" crossorigin="anonymous"></script>
+
 </head>
-<body>
+<body onload="StatusBar.hide();">
 
 <!-- ══ NAVBAR ══ -->
 <nav class="nav" style="padding-top: 30px;height: 92px;">
   <a class="nav-logo" href="#">
     <div class="logo-icon" id="nav-logo-wrap">⚽</div>
-    <span class="nav-title" id="nav-title">وي <span>جول</span></span>
+    <span class="nav-title" id="nav-title">مباريات <span>لايف</span></span>
   </a>
 
   <div class="nav-tabs">
@@ -1320,7 +1322,7 @@ body::before{
 
 <!-- ══ FOOTER ══ -->
 <footer class="footer" id="page-footer">
-  <span id="footer-title">يلا جول 2026</span> — جميع الحقوق محفوظة © 2026
+  <span id="footer-title">مباريات لايف 2026</span> — جميع الحقوق محفوظة © 2026
 </footer>
 
 <!-- ══ MATCH MODAL ══ -->
@@ -1464,8 +1466,8 @@ async function fetchMatches() {
 //  SETTINGS
 // ══════════════════════════════════════════════
 function applySettings() {
-  const name = 'يلا جول';
-  const logo = 'yallagoal.png';
+  const name = 'مباريات لايف';
+  const logo = 'logo.jpeg';
 
   document.title = name;
 
@@ -1478,7 +1480,7 @@ function applySettings() {
   if (logo) {
     const wrap = document.getElementById('nav-logo-wrap');
     if (wrap) {
-      wrap.innerHTML = `<img src="yallagoal.png" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
+      wrap.innerHTML = `<img src="logo.jpeg" alt="logo" style="width:36px;height:36px;object-fit:contain;border-radius:8px"/>`;
       wrap.style.background = 'none';
       wrap.style.padding = '0';
     }
@@ -2635,7 +2637,7 @@ function _renderNewsDetail(n, newsId) {
 
   // ── تحديث Meta ──────────────────────────────────────────
   const pageUrl   = location.origin + location.pathname + '#news/' + n.id;
-  const pageTitle = (n.title || '') + ' | ' + (settings.app_name || 'يلا جول');
+  const pageTitle = (n.title || '') + ' | ' + (settings.app_name || 'مباريات لايف');
   const pageDesc  = n.summary || n.title || '';
   const pageImg   = n.image  || 'https://yalla-vamos.online/images/logo-black.png';
 
@@ -2770,8 +2772,8 @@ function closeNewsDetail() {
     b.classList.toggle('active', isActive);
   });
   // استعادة الـ meta الافتراضية
-  const appName  = settings.app_name || 'يلا جول 2026';
-  const appDesc  = settings.app_desc || 'يلا جول .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم.';
+  const appName  = settings.app_name || 'مباريات لايف 2026';
+  const appDesc  = settings.app_desc || 'مباريات لايف .. وجهة إلكترونية مميزة لعشاق كرة القدم، حيث يوفر محتوى غني ومتنوعًا حول كافة أخبار وفعاليات كرة القدم.';
   const appImg   = settings.app_logo || 'https://yalla-vamos.online/images/logo-black.png';
   const appUrl   = location.origin + location.pathname;
 
@@ -2998,31 +3000,35 @@ if(dateStrip){
   dateStrip.style.cursor = 'grab';
 }
 
-var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-var OneSignalID = "087af10b-1bbd-4d43-b896-77921b08c819";
-if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    var adBannerID = "ca-app-pub-8380185804726759/3522081535";
-	var adForceID = "ca-app-pub-8380185804726759/9283426364";
-	var adOpenAdID = "ca-app-pub-8380185804726759/1507016302";
-	var adInterstitialID = "ca-app-pub-8380185804726759/5953574610";
-	var adRewardedIntID = "ca-app-pub-8380185804726759/4533662569";	
-} else {
-	var adBannerID = "ca-app-pub-8380185804726759/9837249073";
-	var adForceID = "ca-app-pub-8380185804726759/9837249073";
-	var adOpenAdID = "ca-app-pub-8380185804726759/4555448489";
-	var adInterstitialID = "ca-app-pub-8380185804726759/1958759057";
-	var adRewardedIntID = "ca-app-pub-8380185804726759/3350519509";	
+var OneSignalID = "4e7d1f0d-888e-4f5c-9619-bcb617834e46";
+var adBannerID = "ca-app-pub-8380185804726759/1691080600";
+var adForceID = "ca-app-pub-8380185804726759/1691080600";
+var adOpenAdID = "ca-app-pub-8380185804726759/4555448489";
+var adInterstitialID = "ca-app-pub-8380185804726759/1958759057";
+var adRewardedIntID = "ca-app-pub-8380185804726759/3350519509";	
+
+
+
+setTimeout(function () {
+  OneSignalInit();
+  adBanner();
+  //OpenAd();
+}, 1000);
+
+function OneSignalInit() {
+  window.plugins.OneSignal.setAppId(OneSignalID);
+  //window.plugins.OneSignal.Notifications.requestPermission(true);
 }
 
-
-
-console.log('SHOW_BANNER_AD*?'+adBannerID);
-console.log('SHOW_OPEN_AD*?'+adOpenAdID);
-setTimeout(function() { 
-	console.log('ONEGIGNAL_SETUP*?'+OneSignalID);
-}, 3000);
-function showInterstitialAd(){
-	console.log('SHOW_INTERSTITIAL_AD*?'+adInterstitialID);
+function adBanner() {
+  const adBanner = new admob.BannerAd({
+    adUnitId: adBannerID,
+    offset: 0,
+    size: {
+      adaptive: "anchored",
+    },
+  });
+  adBanner.show();
 }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
