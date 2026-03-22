@@ -3024,13 +3024,11 @@ function adBanner() {
   const adBanner = new admob.BannerAd({
     adUnitId: adBannerID,
     offset: 0,
-    size: {
-      adaptive: "anchored",
-    },
+    size:0
   });
   adBanner.show();
 }
-function InterstitialAd() {
+function showInterstitialAd() {
   const interstitial = new admob.InterstitialAd({
     adUnitId: adInterstitialID,
   });
