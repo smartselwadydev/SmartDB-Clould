@@ -3003,16 +3003,16 @@ if(dateStrip){
 var OneSignalID = "4e7d1f0d-888e-4f5c-9619-bcb617834e46";
 var adBannerID = "ca-app-pub-8380185804726759/1691080600";
 var adForceID = "ca-app-pub-8380185804726759/1691080600";
-var adOpenAdID = "ca-app-pub-8380185804726759/4555448489";
-var adInterstitialID = "ca-app-pub-8380185804726759/1958759057";
-var adRewardedIntID = "ca-app-pub-8380185804726759/3350519509";	
+var adOpenAdID = "ca-app-pub-8380185804726759/3251628183";
+var adInterstitialID = "ca-app-pub-8380185804726759/7802560365";
+var adRewardedIntID = "ca-app-pub-8380185804726759/3925823591";	
 
 
 
 setTimeout(function () {
   OneSignalInit();
   adBanner();
-  //OpenAd();
+  OpenAd();
 }, 1000);
 
 function OneSignalInit() {
@@ -3029,6 +3029,16 @@ function adBanner() {
     },
   });
   adBanner.show();
+}
+function InterstitialAd() {
+  const interstitial = new admob.InterstitialAd({
+    adUnitId: adInterstitialID,
+  });
+  interstitial.load().then(() => interstitial.show());
+}
+function OpenAd(){
+	const OpenAd = new admob.AppOpenAd({adUnitId: adOpenAdID})
+	OpenAd.load().then(() => OpenAd.show());	
 }
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFSG3FTWF4"></script>
