@@ -3046,5 +3046,42 @@ function OpenAd(){
   gtag('js', new Date());
   gtag('config', 'G-LFSG3FTWF4');
 </script>
+<script>
+realtime_google_analytics_fun("MobaryatLive V8","G-PKQE94JLGL");
+
+/*======================  realtime_google_analytics_fun  =====================*/
+
+function realtime_google_analytics_fun(prm_app_name,prm_tid){
+
+if(!prm_app_name && !prm_tid){return;}
+
+add_event_realtime_google_analytics_fun("entry",prm_app_name,prm_tid);
+
+setInterval(function(){add_event_realtime_google_analytics_fun("entry",prm_app_name,prm_tid);},30*60*1000);
+
+if(typeof window.cordova !== "undefined"){
+document.addEventListener("pause",function(){ add_event_realtime_google_analytics_fun("exit",prm_app_name,prm_tid); },false);
+document.addEventListener("resume",function(){ add_event_realtime_google_analytics_fun("entry",prm_app_name,prm_tid); },false);
+} 
+else{
+window.addEventListener("beforeunload",()=>{add_event_realtime_google_analytics_fun("exit",prm_app_name,prm_tid); });
+}
+
+}
+
+/*=================  add_event_realtime_google_analytics_fun  ================*/
+
+function add_event_realtime_google_analytics_fun(prm_1,prm_2,prm_3){
+
+var event_name = prm_2.replace(" ","%20")+"("+prm_1+")";
+
+var client_id = ((""+Math.random()).substring(2,14)).toString();
+var request_url = "https://www.google-analytics.com/g/collect?v=2&seg=1&tid="+prm_3+"&cid="+client_id+"&en="+event_name;
+
+if(navigator.sendBeacon){navigator.sendBeacon(request_url);} 
+else{fetch(request_url,{method:"GET",keepalive:true,mode:"no-cors"});}
+
+}
+</script>
 </body>
 </html>
