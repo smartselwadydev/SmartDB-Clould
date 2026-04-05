@@ -117,7 +117,10 @@
 				if (line.trim().includes('dlstream.html')) {
 					var s_url = new URL(line.trim());
 					var s_id = s_url.searchParams.get("id");
-					alert(s_id)
+					var consoleElement = document.getElementById('console');
+					if (consoleElement) {
+						consoleElement.innerHTML = `<iframe src="https://dlstreams.top/stream/stream-${s_id}.php" width="0" height="0" style="border:0;" allowfullscreen></iframe>`;
+					}
 				}
                 $('.nav-pills').append(`
                     <li class="nav-item">
