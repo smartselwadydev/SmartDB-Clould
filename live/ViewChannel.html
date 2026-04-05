@@ -114,7 +114,11 @@
                 
                 // في الـ iframe نستخدم 100% من المساحة المتاحة بعد القائمة
                 var frameHeight = isInIframe ? "100%" : "300px";
-				alert(line.trim())
+				if (line.trim().includes('dlstream.html')) {
+					var s_url = new URL(line.trim());
+					var s_id = s_url.searchParams.get("id");
+					alert(s_id)
+				}
                 $('.nav-pills').append(`
                     <li class="nav-item">
                         <button class="nav-link ${isActive}" data-bs-toggle="pill" data-bs-target="#server_${index}" type="button" data-link="${line.trim()}">
