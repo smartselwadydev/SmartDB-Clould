@@ -114,14 +114,13 @@
                 
                 // في الـ iframe نستخدم 100% من المساحة المتاحة بعد القائمة
                 var frameHeight = isInIframe ? "100%" : "300px";
-
+				alert(line.trim())
                 $('.nav-pills').append(`
                     <li class="nav-item">
                         <button class="nav-link ${isActive}" data-bs-toggle="pill" data-bs-target="#server_${index}" type="button" data-link="${line.trim()}">
                             Server_${title}
                         </button>
                     </li>`);
-alert(${line.trim()})
                 $('.tab-content').append(`
                     <div id="server_${index}" class="tab-pane fade ${isShowActive}">
                         <div class="iframe-placeholder" style="height: ${frameHeight};">
@@ -137,8 +136,6 @@ alert(${line.trim()})
                 var currentTarget = $(e.target).data('bs-target');
                 var videoUrl = $(e.target).data('link');
 				
-
-
                 $(currentTarget).find('.iframe-placeholder').html(
                     `<iframe src="${videoUrl}" style="width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>`
                 );
