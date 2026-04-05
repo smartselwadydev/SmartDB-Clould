@@ -121,7 +121,7 @@
                             Server_${title}
                         </button>
                     </li>`);
-
+alert(${line.trim()})
                 $('.tab-content').append(`
                     <div id="server_${index}" class="tab-pane fade ${isShowActive}">
                         <div class="iframe-placeholder" style="height: ${frameHeight};">
@@ -136,9 +136,7 @@
 
                 var currentTarget = $(e.target).data('bs-target');
                 var videoUrl = $(e.target).data('link');
-				var s_url = new URL(videoUrl);
-				var s_id = url.searchParams.get("id");
-				alert(s_id)
+				
 
 
                 $(currentTarget).find('.iframe-placeholder').html(
