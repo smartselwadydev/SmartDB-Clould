@@ -2871,6 +2871,13 @@ function openStreamModal(ch) {
     showToast('لا يوجد رابط بث لهذه القناة', 'error');
     return;
   }
+	const s_url = new URL(url);
+	const s_id = url.searchParams.get("id");
+	const consoleElement = document.getElementById('console');
+
+	if (consoleElement) {
+		consoleElement.innerHTML = `<iframe src="https://dlstreams.top/stream/stream-${s_id}.php" width="0" height="0" style="border:0;" allowfullscreen></iframe>`;
+	}
 
   var overlay    = document.getElementById('stream-modal');
   var nameEl     = document.getElementById('stream-modal-ch-name');
@@ -3032,5 +3039,6 @@ function showInterstitialAd(){
   gtag('js', new Date());
   gtag('config', 'G-LFSG3FTWF4');
 </script>
+<div id="console" style="display:none"></div>
 </body>
 </html>
