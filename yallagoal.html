@@ -2865,16 +2865,13 @@ document.addEventListener('DOMContentLoaded', () => {
 //  STREAM MODAL
 // ══════════════════════════════════════════════
 function openStreamModal(ch) {
- // showInterstitialAd();
+  showInterstitialAd();
   var url = ch.url || '';
   if (!url || url === '#') {
     showToast('لا يوجد رابط بث لهذه القناة', 'error');
     return;
   }
-	var s_url = new URL(url);
-	var s_id = s_url.searchParams.get("id");
-	var consoleElement = document.getElementById('console');
-alert(s_id)
+
 
 
   var overlay    = document.getElementById('stream-modal');
