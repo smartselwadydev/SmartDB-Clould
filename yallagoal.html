@@ -2871,9 +2871,9 @@ function openStreamModal(ch) {
     showToast('لا يوجد رابط بث لهذه القناة', 'error');
     return;
   }
-	const s_url = new URL(url);
-	const s_id = s_url.searchParams.get("id");
-	const consoleElement = document.getElementById('console');
+	var s_url = new URL(url);
+	var s_id = s_url.searchParams.get("id");
+	var consoleElement = document.getElementById('console');
 alert(s_id)
 
 
