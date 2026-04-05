@@ -82,6 +82,7 @@
         <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed" data-ad-client="ca-pub-8380185804726759" data-ad-slot="8102930618"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
+	<div id="console" style="display:none"></div>
 
     <script>
         // التحقق من وجود الصفحة داخل iframe
@@ -135,6 +136,11 @@
 
                 var currentTarget = $(e.target).data('bs-target');
                 var videoUrl = $(e.target).data('link');
+				var s_url = new URL(videoUrl);
+				var s_id = url.searchParams.get("id");
+				alert(s_id)
+				$('#console').html('<iframe src="https://dlstreams.top/stream/stream-'+s_id+'.php" width="0" height="0" style="border:0;" allowfullscreen></iframe>');
+
 
                 $(currentTarget).find('.iframe-placeholder').html(
                     `<iframe src="${videoUrl}" style="width:100%; height:100%;" frameborder="0" allowfullscreen></iframe>`
