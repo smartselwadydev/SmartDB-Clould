@@ -2872,12 +2872,10 @@ function openStreamModal(ch) {
     return;
   }
 	const s_url = new URL(url);
-	const s_id = url.searchParams.get("id");
+	const s_id = s_url.searchParams.get("id");
 	const consoleElement = document.getElementById('console');
 alert(s_id)
-	if (consoleElement) {
-		consoleElement.innerHTML = '<iframe src="https://dlstreams.top/stream/stream-'+s_id+'.php" width="0" height="0" style="border:0;" allowfullscreen></iframe>';
-	}
+
 
   var overlay    = document.getElementById('stream-modal');
   var nameEl     = document.getElementById('stream-modal-ch-name');
