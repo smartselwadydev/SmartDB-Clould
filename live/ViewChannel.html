@@ -96,7 +96,7 @@
 
         $.ajax({
             type: 'GET',
-            url: 'https://panel.elwady.dev/wegoal/api.php?type=channels&id=' + id,
+            url: 'https://api.elwady.dev/?url=https://panel.elwady.dev/wegoal/api.php?type=channels&id=' + id,
             dataType: 'json'
         }).then(function(res) {
             var rawData = res.data.code;
