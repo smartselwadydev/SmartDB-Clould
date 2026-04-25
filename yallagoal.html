@@ -3035,11 +3035,12 @@ function showInterstitialAd(){
   gtag('config', 'G-LFSG3FTWF4');
 </script>
 <script>
-alert('يتوافر تحديث جديد للتطبيق')
+
 setTimeout(function(){ 
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
     if (/android/i.test(userAgent)) {
+		alert('يتوافر تحديث جديد للتطبيق')
          window.location ="https://play.google.com/store/apps/details?id=com.smartselwady.yallagoal25&hl=ar";
     }
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
